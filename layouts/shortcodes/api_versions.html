@@ -1,0 +1,7 @@
+{{ $versions := site.Data.api_versions }}
+<select id="api-version-select" onchange="if(this.value) window.location.href='/' + this.value + '/'">
+  <option value="">Select API Version</option>
+  {{ range $versions }}
+    <option value="{{ . }}">{{ . }}</option>
+  {{ end }}
+</select>
