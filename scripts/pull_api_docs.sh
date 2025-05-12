@@ -41,6 +41,18 @@ mkdir -p "$DATA_DIR"
 cd "$STATIC_DIR"
 find . -maxdepth 1 -type d -name 'v*.*' | sed 's|^\./||' | sort -V | awk '{print "- "$0}' > "$DATA_DIR/api_versions.yaml"
 
+# Generate api_static_pages.yaml for Hugo sitemap
+STATIC_API_YAML="$DATA_DIR/api_static_pages.yaml"
+cd "$STATIC_DIR"
+echo "" > "$STATIC_API_YAML"
+for dir in v*.*; do
+  if [ -d "$dir" ]; then
+    find "$dir" -type f -name '*.html' | sort | while read -r file; do
+      echo "- url: ${file}" >> "$STATIC_API_YAML"
+    done
+  fi
+done
+
 # Clean up temp directories
 rm -rf "$TMP_DIR"
 rm -rf "$SCRIPT_DIR/tmp_api_docs"*

@@ -1,5 +1,12 @@
 User-agent: *
-Allow: /
-Disallow: /tags/*
+Disallow: /
+Allow: /index.html
+Allow: /$
+
+{{- with site.Data.api_versions }}
+{{- range . }}
+Allow: /{{ . }}/
+{{- end }}
+{{- end }}
 
 Sitemap: https://api.truenas.com/sitemap.xml

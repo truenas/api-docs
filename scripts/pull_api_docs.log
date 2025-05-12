@@ -1,7 +1,7 @@
-Starting TrueNAS API docs pull at Mon May 12 15:30:39 EDT 2025
+Starting TrueNAS API docs pull at Mon May 12 15:51:23 EDT 2025
 master: Pulling from truenas/middleware
 Digest: sha256:1ce9190d1cb3d9d13319b2d1087e849c0efcc01d04654acd823f20900b75f32a
 Status: Image is up to date for ghcr.io/truenas/middleware:master
 ghcr.io/truenas/middleware:master
-cb8b6701e584e670ca14dfd84c3662d6aefa31f0356b1864dee0930d72c26555
-TrueNAS API docs have been updated in static/ at Mon May 12 15:33:40 EDT 2025
+0af4d850188624abaecadee43858e468f8e6fcef9a2dfe170dd3061eab6183b0
+TrueNAS API docs have been updated in static/ at Mon May 12 15:54:32 EDT 2025
