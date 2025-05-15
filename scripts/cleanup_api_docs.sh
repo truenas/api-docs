@@ -22,7 +22,7 @@ log "Removing versioned API docs folders from $STATIC_DIR"
 shopt -s nullglob
 for dir in "$STATIC_DIR"/*; do
   basename="$(basename "$dir")"
-  if [[ -d "$dir" ]] && echo "$basename" | grep -Eq '^v?[0-9]+\.[0-9]+\.[0-9]+$'; then
+  if [[ -d "$dir" ]] && echo "$basename" | grep -Eq '^v?[0-9]+\.[0-9]+(\.[0-9]+)?$'; then
     log "Removing $dir"
     rm -rf "$dir"
   fi

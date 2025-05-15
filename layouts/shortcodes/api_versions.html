@@ -1,7 +1,12 @@
 {{ $versions := site.Data.api_versions }}
 <select id="api-version-select" onchange="if(this.value) window.location.href='/' + this.value + '/'">
   <option value="">Select API Version</option>
-  {{ range $versions }}
-    <option value="{{ . }}">{{ . }}</option>
+  {{ $count := len $versions }}
+  {{ range $i, $e := $versions }}
+    {{/* Do nothing here, just to get the count */}}
+  {{ end }}
+  {{ range $i, $e := $versions }}
+    {{ $revIndex := sub (sub $count $i) 1 }}
+    <option value="{{ index $versions $revIndex }}">{{ index $versions $revIndex }}</option>
   {{ end }}
 </select>
