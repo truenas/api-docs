@@ -20,13 +20,24 @@ log() {
 
 cleanup() {
   if [[ -n "${CONTAINER_ID:-}" ]]; then
+    log "Cleanup: Removing container $CONTAINER_ID"
     docker rm -f "$CONTAINER_ID" >/dev/null 2>&1 || true
+    unset CONTAINER_ID
   fi
-  rm -rf "$TMP_DIR"
+  if [[ -d "$TMP_DIR" ]]; then
+    log "Cleanup: Removing temp directory $TMP_DIR"
+    rm -rf "$TMP_DIR"
+  fi
 }
 trap cleanup EXIT
 
 log "Starting TrueNAS API docs pull"
+
+log "Cleaning up old containers for $DOCKER_IMAGE"
+docker ps -a --filter "ancestor=$DOCKER_IMAGE" --format '{{.ID}}' | xargs -r docker rm -f
+
+log "Cleaning up dangling Docker images"
+docker image prune -f
 
 log "Pulling Docker image: $DOCKER_IMAGE"
 docker pull "$DOCKER_IMAGE"
@@ -40,6 +51,13 @@ fi
 
 log "Copying docs from container"
 docker cp "$CONTAINER_ID":/usr/share/middlewared/docs "$TMP_DIR/"
+
+log "Removing container $CONTAINER_ID"
+docker rm -f "$CONTAINER_ID" >/dev/null 2>&1 || true
+unset CONTAINER_ID
+
+log "Removing Docker image $DOCKER_IMAGE"
+docker rmi "$DOCKER_IMAGE" || true
 
 log "Removing old versioned API docs from $STATIC_DIR"
 find "$STATIC_DIR" -maxdepth 1 -type d -regextype posix-extended -regex '.*/v?[0-9]+\.[0-9]+' -exec rm -rf {} +
