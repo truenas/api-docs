@@ -10,7 +10,7 @@ STATIC_DIR="$HUGO_ROOT/static"
 echo "Scanning $STATIC_DIR for versioned HTML files..."
 
 # Find all versioned directories (e.g., v25.10.0)
-find "$STATIC_DIR" -maxdepth 1 -type d -regextype posix-extended -regex '.*/v[0-9]+\.[0-9]+\.[0-9]+' | while read -r version_dir; do
+find "$STATIC_DIR" -maxdepth 1 -type d -regextype posix-extended -regex '.*/v[0-9]+\.[0-9]+(\.[0-9]+)?'
   # Find all HTML files in the versioned directory
   find "$version_dir" -type f -name '*.html' | while read -r html_file; do
     # Remove all occurrences of '(current)' (with optional leading/trailing spaces)
