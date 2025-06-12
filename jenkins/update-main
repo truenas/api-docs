@@ -14,6 +14,7 @@ pipeline {
         steps {
             sh 'npm install -D --save autoprefixer'
             sh 'npm install -D --save postcss-cli'
+			sh 'bash ./scripts/fetch-data.sh'
 			sh 'bash ./scripts/pull_api_docs.sh'
 			sh 'bash ./scripts/remove_current_labeling.sh'
             sh 'hugo -d public --gc --minify --cleanDestinationDir'
