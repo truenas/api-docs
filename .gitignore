@@ -4,6 +4,7 @@ resources/
 node_modules/
 data/api_static_pages.yaml
 data/api_versions.yaml
+data/scale-releases.yaml
 scripts/pull_api_docs.log
 tech-doc-hugo
 .vscode

@@ -8,7 +8,8 @@ Make sure Docker is running.
 
 1. Execute **scripts/pull_api_docs.sh** and wait for it to complete (it can take some time).
 2. Execute **scripts/remove_current_labeling.sh**
-3. In a terminal, run `hugo serve`.
+3. Execute **scripts/pull-truenas-release-data**
+4. In a terminal, run `hugo serve`.
 
 To cleanup, execute **scripts/cleanup_api_docs.sh**.
 
