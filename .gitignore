@@ -9,3 +9,5 @@ scripts/pull_api_docs.log
 tech-doc-hugo
 .vscode
 *.lock
+data/properties/scale-releases.yaml
+scripts/cleanup_api_docs.log

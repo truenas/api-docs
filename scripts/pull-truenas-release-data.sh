@@ -15,7 +15,7 @@ mkdir -p "$PROJECT_ROOT/data/properties"
 
 # Fetch the scale-releases.yaml file
 curl -L -o "$PROJECT_ROOT/data/properties/scale-releases.yaml" \
-  "https://raw.githubusercontent.com/truenas/documentation/ceccda111ffd0f9e1bd81aedbb7a8955648bfd1d/data/properties/scale-releases.yaml"
+  "https://raw.githubusercontent.com/truenas/documentation/master/data/properties/scale-releases.yaml"
 
 if [ $? -eq 0 ]; then
     echo "✅ Successfully fetched scale-releases.yaml"
