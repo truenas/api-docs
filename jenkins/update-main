@@ -7,11 +7,14 @@ pipeline {
 
   environment {
         HUGO_ENV = "production"
+        PATH = "/usr/local/go/bin:${env.PATH}"
   }
 
   stages {
     stage('Build') {
         steps {
+            sh 'hugo mod clean'
+            sh 'hugo mod get -u'
             sh 'npm install -D --save autoprefixer'
             sh 'npm install -D --save postcss-cli'
 			sh 'bash ./scripts/pull-truenas-release-data.sh'
