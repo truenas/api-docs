@@ -62,7 +62,7 @@ enable = false
   [params.search]
     siteName = "TrueNAS API"
     siteKey = "api"
-    siteIcon = "/images/TN_Open_Enterprise_Storage_White_Version.png"
+    siteIcon = "/images/truenas-logo-mark.png"  # Small icon for search results
     sitePriority = 3
 
   # (Optional, default 6) Set how many table of contents levels to be showed on page.
