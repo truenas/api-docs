@@ -58,6 +58,13 @@ enable = false
   # API Docs to include in the sitemap for AI ingest
   api_version = "v25.04.0"
 
+  # Multi-site search configuration
+  [params.search]
+    siteName = "TrueNAS API"
+    siteKey = "api"
+    siteIcon = "/images/TN_Open_Enterprise_Storage_White_Version.png"
+    sitePriority = 3
+
   # (Optional, default 6) Set how many table of contents levels to be showed on page.
   # Use false to hide ToC, note that 0 will default to 6 (https://gohugo.io/functions/default/)
   # You can also specify this parameter per page in front matter.
