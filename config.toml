@@ -54,16 +54,14 @@ permalinkable = false
 [params.ui.readingtime]
 enable = false
 
+# Multi-site search configuration
+[params.search]
+  siteName = "TrueNAS API"
+  siteKey = "api"
+
 [params]
   # API Docs to include in the sitemap for AI ingest
   api_version = "v25.04.0"
-
-  # Multi-site search configuration
-  [params.search]
-    siteName = "TrueNAS API"
-    siteKey = "api"
-    siteIcon = "/images/truenas-logo-mark.png"  # Small icon for search results
-    sitePriority = 3
 
   # (Optional, default 6) Set how many table of contents levels to be showed on page.
   # Use false to hide ToC, note that 0 will default to 6 (https://gohugo.io/functions/default/)
