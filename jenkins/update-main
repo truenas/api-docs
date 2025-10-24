@@ -21,6 +21,7 @@ pipeline {
 			sh 'bash ./scripts/pull_api_docs.sh'
 			sh 'bash ./scripts/remove_current_labeling.sh'
             sh 'hugo -d public --gc --minify --cleanDestinationDir'
+			sh 'npx pagefind --site public'
 			sh 'bash ./scripts/cleanup_api_docs.sh'
         }
     }

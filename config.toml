@@ -54,6 +54,11 @@ permalinkable = false
 [params.ui.readingtime]
 enable = false
 
+# Multi-site search configuration
+[params.search]
+  siteName = "TrueNAS API"
+  siteKey = "api"
+
 [params]
   # API Docs to include in the sitemap for AI ingest
   api_version = "v25.04.0"
