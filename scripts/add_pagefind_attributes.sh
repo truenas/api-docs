@@ -33,6 +33,7 @@ process_html_file() {
   local file="$1"
   local site_key="$2"
   local site_name="$3"
+  local version="$4"
 
   # Skip certain files
   local filename=$(basename "$file")
@@ -64,10 +65,16 @@ process_html_file() {
   # Escape special characters in title for use in sed
   title=$(echo "$title" | sed 's/[&/\]/\\&/g')
 
+  # Build the metadata string with version if available
+  local metadata="title:${title}"
+  if [[ -n "$version" ]]; then
+    metadata="${metadata},version:${version}"
+  fi
+
   # Process the file with sed
   # 1. Add data-pagefind-body and metadata to <div class="body">
   # 2. Add data-pagefind-ignore to navigation elements
-  sed -e "s|<div class=\"body\"|<div class=\"body\" data-pagefind-body data-pagefind-meta=\"title:${title}\" data-site=\"${site_key}\" data-site-name=\"${site_name}\"|" \
+  sed -e "s|<div class=\"body\"|<div class=\"body\" data-pagefind-body data-pagefind-meta=\"${metadata}\" data-site=\"${site_key}\" data-site-name=\"${site_name}\"|" \
       -e "s|<nav |<nav data-pagefind-ignore |g" \
       -e "s|<div class=\"sphinxsidebar\"|<div class=\"sphinxsidebar\" data-pagefind-ignore|g" \
       -e "s|<div class=\"related\"|<div class=\"related\" data-pagefind-ignore|g" \
@@ -87,6 +94,16 @@ export -f log
 log "Processing HTML files in: $DIRECTORY"
 log "Site Key: $SITE_KEY"
 log "Site Name: $SITE_NAME"
+
+# Extract version from directory path (e.g., "v25.04" from "/path/to/v25.04")
+VERSION=""
+if [[ "$DIRECTORY" =~ (v[0-9]+\.[0-9]+) ]]; then
+  VERSION="${BASH_REMATCH[1]}"
+  log "Detected Version: $VERSION"
+else
+  log "No version detected in path"
+fi
+
 log "----------------------------------------"
 
 # Find all HTML files and process them
@@ -100,7 +117,7 @@ find "$DIRECTORY" -type f -name "*.html" | while read -r html_file; do
   fi
 
   log "Processing: $html_file"
-  process_html_file "$html_file" "$SITE_KEY" "$SITE_NAME"
+  process_html_file "$html_file" "$SITE_KEY" "$SITE_NAME" "$VERSION"
   ((files_processed++)) || true
 done
 
