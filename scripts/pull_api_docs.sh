@@ -207,4 +207,12 @@ for major_version in $(printf '%s\n' "${!major_versions_map[@]}" | sort -V); do
   fi
 done
 
+log "Adding pagefind attributes to API documentation HTML files"
+for major_version in $(printf '%s\n' "${!major_versions_map[@]}" | sort -V); do
+  if [[ -d "$STATIC_DIR/$major_version" ]]; then
+    log "Processing $major_version HTML files for pagefind"
+    "$SCRIPT_DIR/add_pagefind_attributes.sh" "$STATIC_DIR/$major_version" "api" "TrueNAS API"
+  fi
+done
+
 log "TrueNAS API docs have been updated in $STATIC_DIR"

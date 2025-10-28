@@ -3,6 +3,7 @@ output_path: public/pagefind
 
 # Exclude navigation, footers, and other non-content elements
 exclude_selectors:
+  # GeekDoc theme selectors (for Hugo-generated pages)
   - 'nav'
   - 'footer'
   - '.gdoc-nav'
@@ -14,8 +15,18 @@ exclude_selectors:
   - '.gdoc-page__footer'
   - '.gdoc-search'
 
+  # Sphinx theme selectors (for API docs)
+  - '.sphinxsidebar'        # Sphinx sidebar navigation
+  - '.related'               # Sphinx related navigation
+  - 'form[action="search.html"]'  # Sphinx search form
+  - '.headerlink'            # Sphinx header link anchors
+  - 'a.headerlink'           # Sphinx header link anchors (alternative selector)
+
 # Keep the full URL in the index
 keep_index_url: true
 
 # Verbose output for debugging
 verbose: true
+
+# Force indexing of all pages, even those without explicit data-pagefind-body
+force_language: "en"
