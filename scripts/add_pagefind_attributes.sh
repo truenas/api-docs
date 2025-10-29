@@ -1,5 +1,4 @@
 #!/bin/bash
-#
 # Add pagefind data attributes to Sphinx-generated API documentation HTML files.
 # This script uses pure bash/sed to post-process HTML files for pagefind indexing.
 #
