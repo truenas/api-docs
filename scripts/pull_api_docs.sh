@@ -208,6 +208,8 @@ for major_version in $(printf '%s\n' "${!major_versions_map[@]}" | sort -V); do
 done
 
 log "Adding pagefind attributes to API documentation HTML files"
+# Ensure the script has execute permission (needed due to Windows git fileMode=false)
+chmod +x "$SCRIPT_DIR/add_pagefind_attributes.sh"
 for major_version in $(printf '%s\n' "${!major_versions_map[@]}" | sort -V); do
   if [[ -d "$STATIC_DIR/$major_version" ]]; then
     log "Processing $major_version HTML files for pagefind"
