@@ -64,16 +64,17 @@ process_html_file() {
   # Escape special characters in title for use in sed
   title=$(echo "$title" | sed 's/[&/\]/\\&/g')
 
-  # Build the metadata string with version if available
-  local metadata="title:${title}"
+  # Build separate metadata attributes (pagefind requires separate attributes, not comma-separated)
+  local title_meta="title:${title}"
+  local version_attr=""
   if [[ -n "$version" ]]; then
-    metadata="${metadata},version:${version}"
+    version_attr=" data-pagefind-meta=\"version:${version}\""
   fi
 
   # Process the file with sed
   # 1. Add data-pagefind-body and metadata to <div class="body">
   # 2. Add data-pagefind-ignore to navigation elements
-  sed -e "s|<div class=\"body\"|<div class=\"body\" data-pagefind-body data-pagefind-meta=\"${metadata}\" data-site=\"${site_key}\" data-site-name=\"${site_name}\"|" \
+  sed -e "s|<div class=\"body\"|<div class=\"body\" data-pagefind-body data-pagefind-meta=\"${title_meta}\"${version_attr}|" \
       -e "s|<nav |<nav data-pagefind-ignore |g" \
       -e "s|<div class=\"sphinxsidebar\"|<div class=\"sphinxsidebar\" data-pagefind-ignore|g" \
       -e "s|<div class=\"related\"|<div class=\"related\" data-pagefind-ignore|g" \
