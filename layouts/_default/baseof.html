@@ -36,7 +36,7 @@
       <input type="checkbox" class="hidden" id="menu-header-control" />
       {{ $navEnabled := default false .Page.Params.GeekdocNav }}
       {{ partial "site-header" (dict "Root" . "MenuEnabled" $navEnabled) }}
-
+      {{ partial "api-docs-banner" . }}
 
       <main class="container flex flex-even">
 		<button class="scrollToTopBtn" title="Back to top"><span class="iconify" data-icon="mdi:chevron-right" style="font-size:30px";></span></button>
