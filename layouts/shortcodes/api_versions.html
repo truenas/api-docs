@@ -26,26 +26,16 @@
         {{ end }}
       {{ end }}
       
-      {{/* Determine lifecycle class */}}
+      {{/* Determine lifecycle class based on button position */}}
       {{ $lifecycleClass := "preview" }}
-      {{ if and $apiVersionNum $scaleReleases.majorVersions }}
-        {{ range $scaleVersion := $scaleReleases.majorVersions }}
-          {{ range $release := $scaleVersion.releases }}
-            {{ if or (eq $release.name $fullApiVersion) (hasPrefix $release.name $apiVersionNum) }}
-              {{ if eq $scaleVersion.lifecycle "Current" }}
-                {{ if and (eq $release.name $fullApiVersion) (eq $release.type "Maintenance") (eq $release.latest true) }}
-                  {{ $lifecycleClass = "current latest-maintenance" }}
-                {{ else }}
-                  {{ $lifecycleClass = "current" }}
-                {{ end }}
-              {{ else if eq $scaleVersion.lifecycle "Previous" }}
-                {{ $lifecycleClass = "previous" }}
-              {{ else if eq $scaleVersion.lifecycle "Next" }}
-                {{ $lifecycleClass = "next" }}
-              {{ end }}
-            {{ end }}
-          {{ end }}
-        {{ end }}
+      {{ if eq $i 0 }}
+        {{ $lifecycleClass = "next" }}
+      {{ else if eq $i 1 }}
+        {{ $lifecycleClass = "current" }}
+      {{ else if eq $i 2 }}
+        {{ $lifecycleClass = "current-secondary" }}
+      {{ else if eq $i 3 }}
+        {{ $lifecycleClass = "previous" }}
       {{ end }}
       
       <a href="/{{ $majorVersion }}/" class="version-button {{ $lifecycleClass }}">
@@ -140,25 +130,33 @@
   font-weight: 400;
 }
 
-/* Current version styling */
-.version-button.current {
-  background: #73bf44;
-  border-color: #73bf44;
-}
+/* Lifecycle-based styling (sustainable for future versions) */
 
-/* Previous version styling */
-.version-button.previous {
-  background: #aeaeae;
-  border-color: #aeaeae;
-}
-
-/* Next version styling */
+/* Next/Experimental version (newest) - Green */
 .version-button.next {
-  background: #0795d3;
-  border-color: #0795d3;
+  background: #71BF44;
+  border-color: #71BF44;
 }
 
-/* Preview version styling */
+/* Current version - Blue */
+.version-button.current {
+  background: #0095D5;
+  border-color: #0095D5;
+}
+
+/* Current secondary version - Cyan */
+.version-button.current-secondary {
+  background: #31BEEC;
+  border-color: #31BEEC;
+}
+
+/* Previous version - Gray */
+.version-button.previous {
+  background: #AEADAE;
+  border-color: #AEADAE;
+}
+
+/* Preview/Unknown version (fallback) */
 .version-button.preview {
   background: #6c757d;
   border-color: #6c757d;
