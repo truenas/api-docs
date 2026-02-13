@@ -65,6 +65,24 @@ find "$STATIC_DIR" -maxdepth 1 -type d -regextype posix-extended -regex '.*/v?[0
 log "Copying new docs to $STATIC_DIR"
 cp -r "$TMP_DIR/docs/"* "$STATIC_DIR/"
 
+# Check if Python is available for intelligent version selection
+if ! command -v python3 >/dev/null 2>&1; then
+  log "ERROR: Python3 is not installed"
+  log "Python3 is required for release-aware version selection"
+  log "Install with: apt-get install python3"
+  exit 1
+fi
+
+if ! python3 -c "import yaml" 2>/dev/null; then
+  log "ERROR: Python PyYAML module is not installed"
+  log "PyYAML is required for parsing scale-releases.yaml"
+  log "Install with: pip3 install pyyaml"
+  exit 1
+fi
+
+log "Python3 with PyYAML detected, using release-aware version selection"
+
+
 log "Organizing docs into major version structure"
 # Function to compare semantic versions
 version_greater_than() {
@@ -88,23 +106,49 @@ get_major_version() {
 declare -A major_versions_map
 declare -A minor_versions_for_redirect
 
-# Find all version directories
+# Verify scale-releases.yaml exists
+if [[ ! -f "$DATA_DIR/properties/scale-releases.yaml" ]]; then
+  log "ERROR: scale-releases.yaml not found at $DATA_DIR/properties/scale-releases.yaml"
+  log "Run pull-truenas-release-data.sh first to download release data"
+  exit 1
+fi
+
+log "Using Python script for release-aware version selection"
+
+# Collect all version directories
+version_dirs=()
 for version_dir in $(find "$STATIC_DIR" -maxdepth 1 -type d -name 'v*.*' | sed "s|$STATIC_DIR/||" | sort -V); do
+  version_dirs+=("$version_dir")
+  # Track all versions for redirect creation
   major_version=$(get_major_version "$version_dir")
-  
-  # Track this version for potential redirect creation
   minor_versions_for_redirect["$version_dir"]="$major_version"
-  
-  # Keep the latest version for each major version
-  if [[ -z "${major_versions_map[$major_version]:-}" ]]; then
-    major_versions_map["$major_version"]="$version_dir"
-  else
-    current_latest="${major_versions_map[$major_version]}"
-    if version_greater_than "$version_dir" "$current_latest"; then
-      major_versions_map["$major_version"]="$version_dir"
-    fi
-  fi
 done
+
+# Call Python script
+SELECTION_JSON=$(python3 "$SCRIPT_DIR/select_api_versions.py" \
+  "$DATA_DIR/properties/scale-releases.yaml" \
+  "${version_dirs[@]}" 2>&1)
+
+if [[ $? -ne 0 ]]; then
+  log "ERROR: Python version selection failed"
+  log "Output: $SELECTION_JSON"
+  log "This is a critical error - cannot determine correct versions to display"
+  exit 1
+fi
+
+log "Python version selection successful: $SELECTION_JSON"
+
+# Parse JSON output into associative array
+# Expected format: {"v24.10": "v24.10", "v25.04": "v25.04.1", ...}
+while IFS=: read -r major minor; do
+  # Clean quotes, braces, and whitespace
+  major=$(echo "$major" | tr -d ' "{}')
+  minor=$(echo "$minor" | tr -d ' ",')
+  if [[ -n "$major" ]] && [[ -n "$minor" ]]; then
+    major_versions_map["$major"]="$minor"
+    log "  Selected: $major -> $minor"
+  fi
+done < <(echo "$SELECTION_JSON" | grep -o '"v[^"]*"[[:space:]]*:[[:space:]]*"v[^"]*"')
 
 # Create major version directories with latest content
 for major_version in "${!major_versions_map[@]}"; do
