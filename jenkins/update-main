@@ -17,6 +17,7 @@ pipeline {
             sh 'hugo mod get -u'
             sh 'npm install -D --save autoprefixer'
             sh 'npm install -D --save postcss-cli'
+			sh 'pip3 install -r requirements.txt --break-system-packages'
 			sh 'bash ./scripts/pull-truenas-release-data.sh'
 			sh 'bash ./scripts/pull_api_docs.sh'
 			sh 'bash ./scripts/remove_current_labeling.sh'
