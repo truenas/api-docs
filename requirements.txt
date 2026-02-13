@@ -1,0 +1,5 @@
+# Python dependencies for API docs build process
+# Install with: pip3 install -r requirements.txt
+
+# Required for parsing scale-releases.yaml in version selection
+pyyaml>=6.0
