@@ -4,8 +4,22 @@ API Documentation Website
 
 This is an almost entirely automated website to generate and serve TrueNAS API documentation.
 
-To build locally, Docker and Hugo v0.145 (or newer) is required. Git for Windows is also helpful, or Git bash generally for running the scripts.
+To build locally, Docker and Hugo Extended v0.157.0 is required. Git for Windows is also helpful, or Git bash generally for running the scripts.
 Make sure Docker is running.
+
+**Install Hugo Extended (Windows — Chocolatey, run PowerShell as Administrator):**
+
+    choco install hugo-extended --version=0.157.0
+
+**Windows (winget):**
+
+    winget install Hugo.Hugo.Extended --version 0.157.0
+
+**WSL/Linux:** Download `hugo_extended_0.157.0_linux-amd64.tar.gz` from
+https://github.com/gohugoio/hugo/releases/tag/v0.157.0 and install to your PATH.
+
+> Hugo Extended (not standard Hugo) is required. This site has been tested against v0.157.0.
+> Later versions may work but have not been officially tested.
 
 1. Execute **scripts/pull_api_docs.sh** and wait for it to complete (it can take some time).
 2. Execute **scripts/remove_current_labeling.sh**
