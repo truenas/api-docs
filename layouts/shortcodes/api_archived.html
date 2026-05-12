@@ -1,0 +1,77 @@
+{{ $scaleReleases := index site.Data.properties "scale-releases" }}
+
+{{/*
+  Render one entry per major version with state: "archived".
+  Each entry links to /v{lifecycle}/ — the path preserved in storj.
+  Reads scale-releases.yaml directly; not dependent on api_versions.yaml
+  (which by construction excludes archived majors).
+*/}}
+
+{{ $archived := slice }}
+{{ range $scaleVersion := $scaleReleases.majorVersions }}
+  {{ if eq $scaleVersion.state "archived" }}
+    {{ $archived = $archived | append $scaleVersion }}
+  {{ end }}
+{{ end }}
+
+{{ if eq (len $archived) 0 }}
+  <p class="archive-empty">No archived API versions yet.</p>
+{{ else }}
+  <div class="archive-list">
+    {{ range $archived }}
+      <a href="/v{{ .lifecycle }}/" class="archive-item">
+        <div class="archive-primary">TrueNAS {{ .lifecycle }} (Archived)</div>
+        <div class="archive-secondary">API v{{ .lifecycle }}{{ with .releaseName }} — {{ . }}{{ end }}</div>
+      </a>
+    {{ end }}
+  </div>
+{{ end }}
+
+<style>
+.archive-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.archive-item {
+  display: block;
+  padding: 12px 16px;
+  background: #485d6b;
+  color: #f1f3f4;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid #485d6b;
+  transition: all 0.2s ease;
+}
+
+.archive-item:hover {
+  background: #5a7283;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.archive-item:visited,
+.archive-item:visited .archive-primary,
+.archive-item:visited .archive-secondary {
+  color: #f1f3f4;
+}
+
+.archive-primary {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.archive-secondary {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.archive-empty {
+  color: #6c757d;
+  font-style: italic;
+  margin: 20px 0;
+}
+</style>

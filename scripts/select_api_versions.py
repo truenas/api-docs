@@ -152,8 +152,29 @@ def select_versions(release_data: Dict, available_versions: List[str]) -> Dict[s
     2. Among latest versions, prioritize: Maintenance > Early > Experimental
     3. Fallback to highest semver for majors not in release data
 
+    Majors marked `state: "archived"` are excluded entirely — they do not
+    appear in the returned mapping and therefore not in api_versions.yaml.
+    The api-docs site renders archived versions separately (via the
+    api_archived shortcode), and the live docs are served from storj
+    independently of this build.
+
     Returns dict mapping major version -> selected directory name
     """
+    # Identify archived majors so we can skip them in both the
+    # release-data loop and the unmatched-fallback loop below.
+    # Includes each lifecycle plus a `<year>.0` form for the TrueNAS 26+
+    # naming format — e.g., YAML `lifecycle: "26"` matches both the
+    # canonical "26" and what extract_major_version() returns for v26.0.0
+    # ("26.0"). This is defense-in-depth: the bash pull script also
+    # removes archived directories before this script runs.
+    archived_majors = set()
+    for mv in release_data.get('majorVersions', []):
+        if mv.get('state') == 'archived':
+            lifecycle = mv['lifecycle']
+            archived_majors.add(lifecycle)
+            if '.' not in lifecycle:
+                archived_majors.add(f"{lifecycle}.0")
+
     selected = {}
     matched_majors = set()
 
@@ -166,6 +187,8 @@ def select_versions(release_data: Dict, available_versions: List[str]) -> Dict[s
 
     # Process each major version in release data
     for major_version_group in release_data.get('majorVersions', []):
+        if major_version_group.get('state') == 'archived':
+            continue
         latest_releases = []
 
         # Find all releases with latest=true
@@ -198,6 +221,8 @@ def select_versions(release_data: Dict, available_versions: List[str]) -> Dict[s
     available_by_major = {}
     for version in available_versions:
         major = extract_major_version(version)
+        if major in archived_majors:
+            continue
         if major not in matched_majors:
             if major not in available_by_major:
                 available_by_major[major] = []
