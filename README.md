@@ -21,9 +21,9 @@ https://github.com/gohugoio/hugo/releases/tag/v0.157.0 and install to your PATH.
 > Hugo Extended (not standard Hugo) is required. This site has been tested against v0.157.0.
 > Later versions may work but have not been officially tested.
 
-1. Execute **scripts/pull_api_docs.sh** and wait for it to complete (it can take some time).
-2. Execute **scripts/remove_current_labeling.sh**
-3. Execute **scripts/pull-truenas-release-data**
+1. Execute **scripts/pull-truenas-release-data.sh** (fetches `scale-releases.yaml`; required before the next step).
+2. Execute **scripts/pull_api_docs.sh** and wait for it to complete (it can take some time — the first run downloads the multi-GB `ghcr.io/truenas/middleware:master` image).
+3. Execute **scripts/remove_current_labeling.sh**
 4. In a terminal, run `hugo serve`.
 5. (Optional) Run `npx pagefind --site public` to build the search index.
 
