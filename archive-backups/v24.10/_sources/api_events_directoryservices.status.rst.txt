@@ -1,0 +1,134 @@
+directoryservices.status
+========================
+
+Sent on directory service state changes.
+
+.. raw:: html
+
+    <div id="json-schema">
+    <span class="badge badge-dark value-type">Type: object</span><br/>
+    <div class="accordion" id="accordionCHANGED">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED" data-toggle="collapse" onclick="setAnchor('#CHANGED')" type="button"><span class="property-name">CHANGED</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED" class="collapse property-definition-div" data-parent="#accordionCHANGED" id="CHANGED">
+    <div class="card-body pl-5">
+    <h4>DirectoryServicesStatusChangedEvent</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionCHANGED_fields">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields')" type="button"><span class="property-name">fields</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields" id="CHANGED_fields">
+    <div class="card-body pl-5">
+    <h4>DirectoryServicesStatus</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="description"><p>Event fields.</p>
+    </span> <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionCHANGED_fields_type">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_type">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_type" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_type" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_type')" type="button"><span class="property-name">type</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_type" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_type" id="CHANGED_fields_type">
+    <div class="card-body pl-5">
+    <h4>Type</h4><br/>
+    <span class="description"><p>The type of enabled directory service. </p>
+    </span><div class="any-of-value" id="CHANGED_fields_type_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_type_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_type_anyOf_i0" id="CHANGED_fields_type_anyOf_i0" onclick="setAnchor('#CHANGED_fields_type_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_type_anyOf_i1" id="CHANGED_fields_type_anyOf_i1" onclick="setAnchor('#CHANGED_fields_type_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_type_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: enum (of string)</span><br/>
+    <div class="enum-value" id="CHANGED_fields_type_anyOf_i0_enum">
+    <h5>Must be one of:</h5>
+    <ul class="list-group"><li class="list-group-item enum-item">"ACTIVEDIRECTORY"</li><li class="list-group-item enum-item">"IPA"</li><li class="list-group-item enum-item">"LDAP"</li></ul>
+    </div>
+    </div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_type_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_status">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_status">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_status" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_status" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_status')" type="button"><span class="property-name">status</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_status" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_status" id="CHANGED_fields_status">
+    <div class="card-body pl-5">
+    <h4>Status</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+    <span class="description"><p>This field shows the directory service status from the last health check. The status is null if directory     services are disabled. </p>
+    </span><div class="any-of-value" id="CHANGED_fields_status_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_status_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_status_anyOf_i0" id="CHANGED_fields_status_anyOf_i0" onclick="setAnchor('#CHANGED_fields_status_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_status_anyOf_i1" id="CHANGED_fields_status_anyOf_i1" onclick="setAnchor('#CHANGED_fields_status_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_status_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: enum (of string)</span><br/>
+    <div class="enum-value" id="CHANGED_fields_status_anyOf_i0_enum">
+    <h5>Must be one of:</h5>
+    <ul class="list-group"><li class="list-group-item enum-item">"DISABLED"</li><li class="list-group-item enum-item">"FAULTED"</li><li class="list-group-item enum-item">"LEAVING"</li><li class="list-group-item enum-item">"JOINING"</li><li class="list-group-item enum-item">"HEALTHY"</li></ul>
+    </div>
+    </div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_status_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_status_msg">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_status_msg">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_status_msg" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_status_msg" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_status_msg')" type="button"><span class="property-name">status_msg</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_status_msg" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_status_msg" id="CHANGED_fields_status_msg">
+    <div class="card-body pl-5">
+    <h4>Status Msg</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+    <span class="description"><p>This field shows the reason why the directory service is FAULTED after a failed health check. If the directory     service is not faulted, the field is null. </p>
+    </span><div class="any-of-value" id="CHANGED_fields_status_msg_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_status_msg_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_status_msg_anyOf_i0" id="CHANGED_fields_status_msg_anyOf_i0" onclick="setAnchor('#CHANGED_fields_status_msg_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_status_msg_anyOf_i1" id="CHANGED_fields_status_msg_anyOf_i1" onclick="setAnchor('#CHANGED_fields_status_msg_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_status_msg_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    <p><span class="badge badge-light restriction min-length-restriction" id="CHANGED_fields_status_msg_anyOf_i0_minLength">Must be at least <code>1</code> characters long</span></p><p><span class="badge badge-light restriction max-length-restriction" id="CHANGED_fields_status_msg_anyOf_i0_maxLength">Must be at most <code>2147483647</code> characters long</span></p>
+    </div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_status_msg_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div><br><br>
+
+*Required roles:* DIRECTORY_SERVICE_READ
+

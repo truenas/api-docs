@@ -1,0 +1,6 @@
+failover
+--------
+
+.. toctree::
+
+   api_events_failover.status

@@ -1,0 +1,6 @@
+truecommand
+-----------
+
+.. toctree::
+
+   api_events_truecommand.config

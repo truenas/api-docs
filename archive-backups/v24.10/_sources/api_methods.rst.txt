@@ -1,0 +1,6 @@
+API Methods
+-----------
+
+.. toctree::
+
+   api_methods_cloudsync.credentials

@@ -1,0 +1,6 @@
+failover.reboot
+---------------
+
+.. toctree::
+
+   api_events_failover.reboot.info

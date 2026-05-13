@@ -1,0 +1,6 @@
+failover.disabled
+-----------------
+
+.. toctree::
+
+   api_events_failover.disabled.reasons

@@ -1,0 +1,6 @@
+directoryservices
+-----------------
+
+.. toctree::
+
+   api_events_directoryservices.status
