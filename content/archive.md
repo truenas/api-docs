@@ -1,9 +1,9 @@
 ---
 title: "Archived API Versions"
-description: "API documentation for TrueNAS versions no longer actively maintained."
+description: "API documentation for earlier TrueNAS versions, kept available for reference."
 linkTitle: "Archive"
 ---
 
-These TrueNAS versions are preserved for reference but are no longer actively maintained. The documentation for each archived version is a snapshot of the API spec as it was at the time of archival; it will not receive updates.
+API documentation for earlier TrueNAS versions is kept here for reference.
 
 {{< api_archived >}}
