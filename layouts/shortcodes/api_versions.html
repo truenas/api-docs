@@ -87,20 +87,21 @@
         <div class="version-secondary">API {{ $fullVersion }}</div>
       </a>
     {{ end }}
-  </div>
-
-  {{/* Conditional archive link: render only if any major is archived */}}
-  {{ $hasArchived := false }}
-  {{ range $scaleVersion := $scaleReleases.majorVersions }}
-    {{ if eq $scaleVersion.state "archived" }}
-      {{ $hasArchived = true }}
+    {{/* Conditional Archive button: rendered as the rightmost slot in the grid
+         when at least one major in scale-releases.yaml has state: "archived". */}}
+    {{ $hasArchived := false }}
+    {{ range $scaleVersion := $scaleReleases.majorVersions }}
+      {{ if eq $scaleVersion.state "archived" }}
+        {{ $hasArchived = true }}
+      {{ end }}
     {{ end }}
-  {{ end }}
-  {{ if $hasArchived }}
-    <div class="archive-link">
-      <a href="/archive/">View archived API versions →</a>
-    </div>
-  {{ end }}
+    {{ if $hasArchived }}
+      <a href="/archive/" class="version-button archive">
+        <div class="version-primary">Archive</div>
+        <div class="version-secondary">Earlier versions</div>
+      </a>
+    {{ end }}
+  </div>
 </div>
 
 <style>
@@ -203,19 +204,18 @@
   border-color: #6c757d;
 }
 
-.archive-link {
-  margin-top: 12px;
-  text-align: right;
-}
-
-.archive-link a {
+/* Archive entry — rightmost slot when any major is archived.
+   Subdued vs version buttons but visible against the container. */
+.version-button.archive {
+  background: transparent;
+  border-color: #8a9ba8;
+  border-style: dashed;
   color: #f1f3f4;
-  text-decoration: none;
-  font-size: 0.9rem;
 }
 
-.archive-link a:hover {
-  text-decoration: underline;
+.version-button.archive:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #c1d0db;
 }
 
 /* Responsive adjustments */
