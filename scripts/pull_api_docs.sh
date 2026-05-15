@@ -65,6 +65,13 @@ find "$STATIC_DIR" -maxdepth 1 -type d -regextype posix-extended -regex '.*/v?[0
 log "Copying new docs to $STATIC_DIR"
 cp -r "$TMP_DIR/docs/"* "$STATIC_DIR/"
 
+log "Removing archived versions from $STATIC_DIR (storj continues to serve them; we don't rebuild them locally)"
+while IFS= read -r archived_lifecycle; do
+  [[ -z "$archived_lifecycle" ]] && continue
+  log "  Excluding v$archived_lifecycle from build"
+  rm -rf "$STATIC_DIR/v$archived_lifecycle" "$STATIC_DIR/v$archived_lifecycle".*
+done < <(python3 "$SCRIPT_DIR/archive_helper.py" "$DATA_DIR/properties/scale-releases.yaml" list)
+
 # Check if Python is available for intelligent version selection
 if ! command -v python3 >/dev/null 2>&1; then
   log "ERROR: Python3 is not installed"
@@ -262,3 +269,9 @@ for major_version in $(printf '%s\n' "${!major_versions_map[@]}" | sort -V); do
 done
 
 log "TrueNAS API docs have been updated in $STATIC_DIR"
+
+log "Generating rclone exclude file for archived versions"
+python3 "$SCRIPT_DIR/archive_helper.py" \
+  "$DATA_DIR/properties/scale-releases.yaml" \
+  exclude --output "$HUGO_ROOT/archived-rclone-exclude.txt"
+log "Wrote $HUGO_ROOT/archived-rclone-exclude.txt"

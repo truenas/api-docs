@@ -1,0 +1,109 @@
+{{ $scaleReleases := index site.Data.properties "scale-releases" }}
+
+{{/*
+  Render one entry per major version with state: "archived".
+  Each entry links to /v{lifecycle}/ — the path preserved in storj.
+  Reads scale-releases.yaml directly; not dependent on api_versions.yaml
+  (which by construction excludes archived majors).
+*/}}
+
+{{ $archived := slice }}
+{{ range $scaleVersion := $scaleReleases.majorVersions }}
+  {{ if eq $scaleVersion.state "archived" }}
+    {{ $archived = $archived | append $scaleVersion }}
+  {{ end }}
+{{ end }}
+
+{{ if eq (len $archived) 0 }}
+  <p class="archive-empty">No archived API versions yet.</p>
+{{ else }}
+  <div class="archive-list">
+    {{ range $archived }}
+      <a href="/v{{ .lifecycle }}/" class="archive-item">
+        <div class="archive-primary">TrueNAS {{ .lifecycle }} (Archived)</div>
+        <div class="archive-secondary">API v{{ .lifecycle }}{{ with .releaseName }} — {{ . }}{{ end }}</div>
+      </a>
+    {{ end }}
+  </div>
+{{ end }}
+
+<style>
+.archive-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 260px));
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.archive-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 15px;
+  background: #6c757d;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 2px solid #6c757d;
+  min-height: 70px;
+}
+
+.archive-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  color: white;
+  text-decoration: none;
+}
+
+.archive-item:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.archive-item:visited,
+.archive-item:visited .archive-primary,
+.archive-item:visited .archive-secondary {
+  color: white;
+}
+
+.archive-primary {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.archive-secondary {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  font-weight: 400;
+}
+
+.archive-empty {
+  color: #6c757d;
+  font-style: italic;
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .archive-list {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 220px));
+    gap: 8px;
+  }
+
+  .archive-item {
+    padding: 10px 12px;
+  }
+
+  .archive-primary {
+    font-size: 0.95rem;
+  }
+
+  .archive-secondary {
+    font-size: 0.75rem;
+  }
+}
+</style>

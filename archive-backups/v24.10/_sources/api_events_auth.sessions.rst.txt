@@ -1,0 +1,684 @@
+auth.sessions
+=============
+
+Notification of new and removed sessions.
+
+.. raw:: html
+
+    <div id="json-schema">
+    <span class="badge badge-dark value-type">Type: object</span><br/>
+    <div class="accordion" id="accordionADDED">
+    <div class="card">
+    <div class="card-header" id="headingADDED">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED" data-toggle="collapse" onclick="setAnchor('#ADDED')" type="button"><span class="property-name">ADDED</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED" class="collapse property-definition-div" data-parent="#accordionADDED" id="ADDED">
+    <div class="card-body pl-5">
+    <h4>AuthSessionsAddedEvent</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionADDED_fields">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields" data-toggle="collapse" onclick="setAnchor('#ADDED_fields')" type="button"><span class="property-name">fields</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields" class="collapse property-definition-div" data-parent="#accordionADDED_fields" id="ADDED_fields">
+    <div class="card-body pl-5">
+    <h4>AuthSessionsEntry</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="description"><p>Event fields.</p>
+    </span> <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionADDED_fields_id">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_id">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_id" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_id')" type="button"><span class="property-name">id</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_id" class="collapse property-definition-div" data-parent="#accordionADDED_fields_id" id="ADDED_fields_id">
+    <div class="card-body pl-5">
+    <h4>Id</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Unique identifier for the authentication session.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_current">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_current">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_current" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_current" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_current')" type="button"><span class="property-name">current</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_current" class="collapse property-definition-div" data-parent="#accordionADDED_fields_current" id="ADDED_fields_current">
+    <div class="card-body pl-5">
+    <h4>Current</h4><span class="badge badge-dark value-type">Type: boolean</span><br/>
+    <span class="description"><p>Whether this is the current active session.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_internal">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_internal">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_internal" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_internal" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_internal')" type="button"><span class="property-name">internal</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_internal" class="collapse property-definition-div" data-parent="#accordionADDED_fields_internal" id="ADDED_fields_internal">
+    <div class="card-body pl-5">
+    <h4>Internal</h4><span class="badge badge-dark value-type">Type: boolean</span><br/>
+    <span class="description"><p>Whether this is an internal system session.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_origin">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_origin">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_origin" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_origin" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_origin')" type="button"><span class="property-name">origin</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_origin" class="collapse property-definition-div" data-parent="#accordionADDED_fields_origin" id="ADDED_fields_origin">
+    <div class="card-body pl-5">
+    <h4>Origin</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Origin information for the session (IP address, hostname, etc.).</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials')" type="button"><span class="property-name">credentials</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials" id="ADDED_fields_credentials">
+    <div class="card-body pl-5">
+    <h4>Credentials</h4><span class="badge badge-dark value-type">Type: enum (of string)</span><br/>
+    <span class="description"><p>Authentication method used for this session.</p>
+    <ul>
+    <li><code>UNIX_SOCKET</code>: Local Unix domain socket authentication</li>
+    <li><code>LOGIN_PASSWORD</code>: Username and password authentication</li>
+    <li><code>LOGIN_TWOFACTOR</code>: Two-factor authentication login</li>
+    <li><code>LOGIN_ONETIME_PASSWORD</code>: One-time password authentication</li>
+    <li><code>API_KEY</code>: API key authentication</li>
+    <li><code>TOKEN</code>: Token-based authentication</li>
+    <li><code>TRUENAS_NODE</code>: TrueNAS cluster node authentication</li>
+    </ul>
+    </span><div class="enum-value" id="ADDED_fields_credentials_enum">
+    <h5>Must be one of:</h5>
+    <ul class="list-group"><li class="list-group-item enum-item">"UNIX_SOCKET"</li><li class="list-group-item enum-item">"LOGIN_PASSWORD"</li><li class="list-group-item enum-item">"LOGIN_TWOFACTOR"</li><li class="list-group-item enum-item">"LOGIN_ONETIME_PASSWORD"</li><li class="list-group-item enum-item">"API_KEY"</li><li class="list-group-item enum-item">"TOKEN"</li><li class="list-group-item enum-item">"TRUENAS_NODE"</li></ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials_data">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data')" type="button"><span class="property-name">credentials_data</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data" id="ADDED_fields_credentials_data">
+    <div class="card-body pl-5">
+    <h4>Credentials Data</h4><br/>
+    <span class="description"><p>Detailed credential information specific to the authentication method.</p>
+    </span><div class="any-of-value" id="ADDED_fields_credentials_data_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsADDED_fields_credentials_data_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_credentials_data_anyOf_i0" id="ADDED_fields_credentials_data_anyOf_i0" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i0')" role="tab">BaseCredentialData</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_credentials_data_anyOf_i1" id="ADDED_fields_credentials_data_anyOf_i1" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i1')" role="tab">UserCredentialData</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_credentials_data_anyOf_i2" id="ADDED_fields_credentials_data_anyOf_i2" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i2')" role="tab">APIKeyCredentialData</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_credentials_data_anyOf_i3" id="ADDED_fields_credentials_data_anyOf_i3" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3')" role="tab">TokenCredentialData</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_credentials_data_anyOf_i0" role="tabpanel">
+    <h4>BaseCredentialData</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_credentials_data_anyOf_i1" role="tabpanel">
+    <h4>UserCredentialData</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i1_username">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i1_username">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i1_username" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i1_username" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i1_username')" type="button"><span class="property-name">username</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i1_username" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i1_username" id="ADDED_fields_credentials_data_anyOf_i1_username">
+    <div class="card-body pl-5">
+    <h4>Username</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Username of the authenticated user.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i1_login_id">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i1_login_id">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i1_login_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i1_login_id" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i1_login_id')" type="button"><span class="property-name">login_id</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i1_login_id" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i1_login_id" id="ADDED_fields_credentials_data_anyOf_i1_login_id">
+    <div class="card-body pl-5">
+    <h4>Login Id</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Unique identifier for the login. </p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i1_login_at">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i1_login_at">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i1_login_at" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i1_login_at" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i1_login_at')" type="button"><span class="property-name">login_at</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i1_login_at" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i1_login_at" id="ADDED_fields_credentials_data_anyOf_i1_login_at">
+    <div class="card-body pl-5">
+    <h4>Login At</h4><span class="badge badge-dark value-type">Type: string</span><span class="badge badge-info value-type">Format: date-time</span><br/>
+    <span class="description"><p>Timestamp of when the user logged in.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_credentials_data_anyOf_i2" role="tabpanel">
+    <h4>APIKeyCredentialData</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i2_username">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i2_username">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i2_username" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i2_username" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i2_username')" type="button"><span class="property-name">username</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i2_username" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i2_username" id="ADDED_fields_credentials_data_anyOf_i2_username">
+    <div class="card-body pl-5">
+    <h4>Username</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Username of the authenticated user.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i2_login_id">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i2_login_id">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i2_login_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i2_login_id" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i2_login_id')" type="button"><span class="property-name">login_id</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i2_login_id" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i2_login_id" id="ADDED_fields_credentials_data_anyOf_i2_login_id">
+    <div class="card-body pl-5">
+    <h4>Login Id</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Unique identifier for the login. </p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i2_login_at">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i2_login_at">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i2_login_at" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i2_login_at" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i2_login_at')" type="button"><span class="property-name">login_at</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i2_login_at" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i2_login_at" id="ADDED_fields_credentials_data_anyOf_i2_login_at">
+    <div class="card-body pl-5">
+    <h4>Login At</h4><span class="badge badge-dark value-type">Type: string</span><span class="badge badge-info value-type">Format: date-time</span><br/>
+    <span class="description"><p>Timestamp of when the user logged in.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i2_api_key">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i2_api_key">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i2_api_key" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i2_api_key" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i2_api_key')" type="button"><span class="property-name">api_key</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i2_api_key" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i2_api_key" id="ADDED_fields_credentials_data_anyOf_i2_api_key">
+    <div class="card-body pl-5">
+    <h4>APIKeySessionData</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="description"><p>API key information used for authentication.</p>
+    </span> <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i2_api_key_id">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i2_api_key_id">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i2_api_key_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i2_api_key_id" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i2_api_key_id')" type="button"><span class="property-name">id</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i2_api_key_id" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i2_api_key_id" id="ADDED_fields_credentials_data_anyOf_i2_api_key_id">
+    <div class="card-body pl-5">
+    <h4>Id</h4><span class="badge badge-dark value-type">Type: integer</span><br/>
+    <span class="description"><p>Unique identifier for the API key.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i2_api_key_name">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i2_api_key_name">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i2_api_key_name" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i2_api_key_name" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i2_api_key_name')" type="button"><span class="property-name">name</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i2_api_key_name" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i2_api_key_name" id="ADDED_fields_credentials_data_anyOf_i2_api_key_name">
+    <div class="card-body pl-5">
+    <h4>Name</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Human-readable name of the API key.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_credentials_data_anyOf_i3" role="tabpanel">
+    <h4>TokenCredentialData</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i3_parent">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i3_parent">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i3_parent" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i3_parent" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent')" type="button"><span class="property-name">parent</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i3_parent" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i3_parent" id="ADDED_fields_credentials_data_anyOf_i3_parent">
+    <div class="card-body pl-5">
+    <h4>TokenParentCredentialsData</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="description"><p>Parent credential information that generated this token.</p>
+    </span> <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i3_parent_credentials" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i3_parent_credentials" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials')" type="button"><span class="property-name">credentials</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials">
+    <div class="card-body pl-5">
+    <h4>Credentials</h4><span class="badge badge-dark value-type">Type: enum (of string)</span><br/>
+    <span class="description"><p>Type of credentials used to generate this token.</p>
+    </span><div class="enum-value" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_enum">
+    <h5>Must be one of:</h5>
+    <ul class="list-group"><li class="list-group-item enum-item">"UNIX_SOCKET"</li><li class="list-group-item enum-item">"LOGIN_PASSWORD"</li><li class="list-group-item enum-item">"LOGIN_TWOFACTOR"</li><li class="list-group-item enum-item">"API_KEY"</li><li class="list-group-item enum-item">"TOKEN"</li><li class="list-group-item enum-item">"TRUENAS_NODE"</li></ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data')" type="button"><span class="property-name">credentials_data</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data">
+    <div class="card-body pl-5">
+    <h4>Credentials Data</h4><br/>
+    <span class="description"><p>Credential data used to authenticate the token request.</p>
+    </span><div class="any-of-value" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i0" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i0" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i0')" role="tab">BaseCredentialData</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1')" role="tab">UserCredentialData</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2')" role="tab">APIKeyCredentialData</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3')" role="tab">TokenCredentialData</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i0" role="tabpanel">
+    <h4>BaseCredentialData</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1" role="tabpanel">
+    <h4>UserCredentialData</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_username">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_username">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_username" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_username" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_username')" type="button"><span class="property-name">username</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_username" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_username" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_username">
+    <div class="card-body pl-5">
+    <h4>Username</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Username of the authenticated user.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_login_id">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_login_id">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_login_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_login_id" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_login_id')" type="button"><span class="property-name">login_id</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_login_id" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_login_id" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_login_id">
+    <div class="card-body pl-5">
+    <h4>Login Id</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Unique identifier for the login. </p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_login_at">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_login_at">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_login_at" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_login_at" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_login_at')" type="button"><span class="property-name">login_at</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_login_at" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_login_at" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i1_login_at">
+    <div class="card-body pl-5">
+    <h4>Login At</h4><span class="badge badge-dark value-type">Type: string</span><span class="badge badge-info value-type">Format: date-time</span><br/>
+    <span class="description"><p>Timestamp of when the user logged in.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2" role="tabpanel">
+    <h4>APIKeyCredentialData</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_username">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_username">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_username" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_username" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_username')" type="button"><span class="property-name">username</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_username" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_username" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_username">
+    <div class="card-body pl-5">
+    <h4>Username</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Username of the authenticated user.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_login_id">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_login_id">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_login_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_login_id" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_login_id')" type="button"><span class="property-name">login_id</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_login_id" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_login_id" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_login_id">
+    <div class="card-body pl-5">
+    <h4>Login Id</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Unique identifier for the login. </p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_login_at">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_login_at">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_login_at" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_login_at" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_login_at')" type="button"><span class="property-name">login_at</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_login_at" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_login_at" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_login_at">
+    <div class="card-body pl-5">
+    <h4>Login At</h4><span class="badge badge-dark value-type">Type: string</span><span class="badge badge-info value-type">Format: date-time</span><br/>
+    <span class="description"><p>Timestamp of when the user logged in.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_api_key">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_api_key">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_api_key" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_api_key" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_api_key')" type="button"><span class="property-name">api_key</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_api_key" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_api_key" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i2_api_key">
+    <div class="card-body pl-5">
+    <span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="description"><p>API key information used for authentication.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3" role="tabpanel">
+    <h4>TokenCredentialData</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_parent">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_parent">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_parent" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_parent" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_parent')" type="button"><span class="property-name">parent</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_parent" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_parent" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_parent">
+    <div class="card-body pl-5">
+    <span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="description"><p>Parent credential information that generated this token.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_login_id">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_login_id">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_login_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_login_id" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_login_id')" type="button"><span class="property-name">login_id</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_login_id" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_login_id" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_login_id">
+    <div class="card-body pl-5">
+    <h4>Login Id</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Unique identifier for the login. </p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username')" type="button"><span class="property-name">username</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username">
+    <div class="card-body pl-5">
+    <h4>Username</h4><br/>
+    <span class="description"><p>Username associated with the token. <code>null</code> if not user-specific.</p>
+    </span><div class="any-of-value" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username_anyOf_i0" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username_anyOf_i0" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username_anyOf_i1" id="ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username_anyOf_i1" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_credentials_data_anyOf_i3_parent_credentials_data_anyOf_i3_username_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i3_login_id">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i3_login_id">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i3_login_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i3_login_id" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_login_id')" type="button"><span class="property-name">login_id</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i3_login_id" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i3_login_id" id="ADDED_fields_credentials_data_anyOf_i3_login_id">
+    <div class="card-body pl-5">
+    <h4>Login Id</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Unique identifier for the login. </p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_credentials_data_anyOf_i3_username">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_credentials_data_anyOf_i3_username">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_credentials_data_anyOf_i3_username" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_credentials_data_anyOf_i3_username" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_username')" type="button"><span class="property-name">username</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_credentials_data_anyOf_i3_username" class="collapse property-definition-div" data-parent="#accordionADDED_fields_credentials_data_anyOf_i3_username" id="ADDED_fields_credentials_data_anyOf_i3_username">
+    <div class="card-body pl-5">
+    <h4>Username</h4><br/>
+    <span class="description"><p>Username associated with the token. <code>null</code> if not user-specific.</p>
+    </span><div class="any-of-value" id="ADDED_fields_credentials_data_anyOf_i3_username_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsADDED_fields_credentials_data_anyOf_i3_username_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_credentials_data_anyOf_i3_username_anyOf_i0" id="ADDED_fields_credentials_data_anyOf_i3_username_anyOf_i0" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_username_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_credentials_data_anyOf_i3_username_anyOf_i1" id="ADDED_fields_credentials_data_anyOf_i3_username_anyOf_i1" onclick="setAnchor('#ADDED_fields_credentials_data_anyOf_i3_username_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_credentials_data_anyOf_i3_username_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_credentials_data_anyOf_i3_username_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_created_at">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_created_at">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_created_at" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_created_at" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_created_at')" type="button"><span class="property-name">created_at</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_created_at" class="collapse property-definition-div" data-parent="#accordionADDED_fields_created_at" id="ADDED_fields_created_at">
+    <div class="card-body pl-5">
+    <h4>Created At</h4><span class="badge badge-dark value-type">Type: string</span><span class="badge badge-info value-type">Format: date-time</span><br/>
+    <span class="description"><p>Timestamp when the session was created.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_secure_transport">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_secure_transport">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_secure_transport" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_secure_transport" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_secure_transport')" type="button"><span class="property-name">secure_transport</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_secure_transport" class="collapse property-definition-div" data-parent="#accordionADDED_fields_secure_transport" id="ADDED_fields_secure_transport">
+    <div class="card-body pl-5">
+    <h4>Secure Transport</h4><span class="badge badge-dark value-type">Type: boolean</span><br/>
+    <span class="description"><p>Whether the session was established over a secure transport (HTTPS/WSS).</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionREMOVED">
+    <div class="card">
+    <div class="card-header" id="headingREMOVED">
+    <h2 class="mb-0">
+    <button aria-controls="REMOVED" aria-expanded="" class="btn btn-link property-name-button" data-target="#REMOVED" data-toggle="collapse" onclick="setAnchor('#REMOVED')" type="button"><span class="property-name">REMOVED</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingREMOVED" class="collapse property-definition-div" data-parent="#accordionREMOVED" id="REMOVED">
+    <div class="card-body pl-5">
+    <h4>AuthSessionsRemovedEvent</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionREMOVED_fields">
+    <div class="card">
+    <div class="card-header" id="headingREMOVED_fields">
+    <h2 class="mb-0">
+    <button aria-controls="REMOVED_fields" aria-expanded="" class="btn btn-link property-name-button" data-target="#REMOVED_fields" data-toggle="collapse" onclick="setAnchor('#REMOVED_fields')" type="button"><span class="property-name">fields</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingREMOVED_fields" class="collapse property-definition-div" data-parent="#accordionREMOVED_fields" id="REMOVED_fields">
+    <div class="card-body pl-5">
+    <h4>AuthSessionsRemovedEventFields</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="description"><p>Event fields.</p>
+    </span> <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionREMOVED_fields_id">
+    <div class="card">
+    <div class="card-header" id="headingREMOVED_fields_id">
+    <h2 class="mb-0">
+    <button aria-controls="REMOVED_fields_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#REMOVED_fields_id" data-toggle="collapse" onclick="setAnchor('#REMOVED_fields_id')" type="button"><span class="property-name">id</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingREMOVED_fields_id" class="collapse property-definition-div" data-parent="#accordionREMOVED_fields_id" id="REMOVED_fields_id">
+    <div class="card-body pl-5">
+    <h4>Id</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Unique identifier for the authentication session.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div><br><br>
+
+*Required roles:* FULL_ADMIN
+

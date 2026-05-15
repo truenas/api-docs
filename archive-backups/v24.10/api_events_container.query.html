@@ -1,0 +1,2603 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>container.query &#8212; TrueNAS API v24.10  documentation</title>
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=649a27d8" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=5c69cfe2" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css?v=1fc06b6a" />
+    <link rel="stylesheet" href="_static/bootstrap-4.3.1-dist/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxbootstrap4.css" type="text/css" />
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/language_data.js?v=8b189327"></script>
+    <script src="_static/script.js?v=2c76d6a4"></script>
+    <script src="_static/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="_static/sphinxbootstrap4.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="container.device" href="api_events_container.device.html" />
+    <link rel="prev" title="container.metrics" href="api_events_container.metrics.html" /> 
+  </head><body>
+  <nav class="navbar navbar-expand-md  full navbar-dark bg-dark flex-wrap">
+    <button class="navbar-toggler ml-auto py-2" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+      &#9776;
+    </button>
+      <div class="navbar-collapse collapse" id="exCollapsingNavbar2">
+           <a class="navbar-brand py-1" href="index.html">
+                  TrueNAS API v24.10
+          </a>
+          <form class="form-inline"><select class="form-control" onchange="navigateToVersion(this.value);"><option value="v27.0.0" >v27.0.0 (current)</option><option value="v26.0.0" >v26.0.0</option><option value="v25.10.2" >v25.10.2</option><option value="v25.10.1" >v25.10.1</option><option value="v25.10.0" >v25.10.0</option><option value="v25.04.2" >v25.04.2</option><option value="v25.04.1" >v25.04.1</option><option value="v25.04.0" >v25.04.0</option><option value="v24.10" selected>v24.10</option></select></form><ul class="navbar-nav mr-auto">
+          
+          </ul>
+          <div class="dropdown-divider d-block d-sm-none mb-4"></div>
+             
+<form class="form-inline" action="search.html" method="get">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+      </div>
+
+      <!--<div class="row hidden-sm-up">
+          <div class="collapse navbar-toggleable-xs container" id="exCollapsingNavbar2">
+              <div class="container">
+             　　 <a class="navbar-brand" href="index.html">
+                      TrueNAS API v24.10
+                  </a>
+              </div>
+              <ul class="nav navbar-nav">
+              </ul>
+              <div class="dropdown-divider"></div>
+              <div class="navbar-text">search<div>
+              
+<form class="form-inline" action="search.html" method="get">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          </div>
+      </div>-->
+    </nav>
+  </div>
+
+    <div class="related d-flex justify-content-between bg-light flex-wrap" role="navigation" aria-label="related navigation">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">TrueNAS API v24.10  documentation</a></li>
+                <li class="breadcrumb-item"><a href="api_events.html"
+                       >API Events</a></li>
+                <li class="breadcrumb-item"><a href="api_events_container.html"
+                       
+                         accesskey="U"
+                         class="active"
+                       >container</a></li>
+            <li class="breadcrumb-item active">container.query</li>
+        </ol>
+       <div>
+          <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+               <a href="api_events_container.metrics.html" title="Previous Chapter: container.metrics" class="btn btn-primary" role="botton" accesskey="P">
+                   &laquo; container.metrics
+               </a>
+               <a href="api_events_container.device.html" title="Next Chapter: container.device" class="btn btn-primary" role="botton" accesskey="N">
+                   container.device &raquo;
+               </a>
+           </div>
+       </div>
+    </div>
+
+  <div class="main container-fluid">
+    <div class="row"> 
+      <div class="sphinxsidebar d-none d-md-block">
+        <div class="sphinxsidebarwrapper">          
+            <h4>Table Of Contents</h4>
+            
+            
+              <div class="sidebartoctree">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="jsonrpc.html">JSON-RPC 2.0 over WebSocket API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jsonrpc.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jsonrpc.html#json-rpc-2-0-protocol">JSON-RPC 2.0 Protocol</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#communication-mechanism">Communication Mechanism</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jsonrpc.html#request-and-response-format">Request and Response Format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#json-rpc-request-structure">JSON-RPC Request Structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jsonrpc.html#example-request">Example Request:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#json-rpc-response-structure">JSON-RPC Response Structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jsonrpc.html#example-response">Example Response:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#error-response">Error Response</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jsonrpc.html#custom-error-codes">Custom Error Codes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jsonrpc.html#event-notifications">Event Notifications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#json-rpc-notification-structure">JSON-RPC Notification Structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jsonrpc.html#example-notification">Example Notification:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#important-notes-on-notifications">Important Notes on Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jsonrpc.html#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_methods.html">API Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_methods_cloudsync.credentials.html">cloudsync.credentials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_methods_cloudsync.credentials.create.html">cloudsync.credentials.create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_methods_cloudsync.credentials.delete.html">cloudsync.credentials.delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_methods_cloudsync.credentials.get_instance.html">cloudsync.credentials.get_instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_methods_cloudsync.credentials.update.html">cloudsync.credentials.update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_methods_cloudsync.credentials.verify.html">cloudsync.credentials.verify</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="api_events.html">API Events</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api_events_acme.dns.authenticator.html">acme.dns.authenticator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_acme.dns.authenticator.query.html">acme.dns.authenticator.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_alert.html">alert</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_alert.list.html">alert.list</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_alertservice.html">alertservice</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_alertservice.query.html">alertservice.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_api_key.html">api_key</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_api_key.query.html">api_key.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_app.html">app</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_app.container_log_follow.html">app.container_log_follow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_app.query.html">app.query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_app.stats.html">app.stats</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_auth.html">auth</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_auth.sessions.html">auth.sessions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_certificate.html">certificate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_certificate.query.html">certificate.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_cloud_backup.html">cloud_backup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_cloud_backup.query.html">cloud_backup.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_cloudsync.html">cloudsync</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_cloudsync.query.html">cloudsync.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_cloudsync.credentials.html">cloudsync.credentials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_cloudsync.credentials.query.html">cloudsync.credentials.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="api_events_container.html">container</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="api_events_container.metrics.html">container.metrics</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">container.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_container.device.html">container.device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_container.device.query.html">container.device.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_core.html">core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_core.get_jobs.html">core.get_jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_cronjob.html">cronjob</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_cronjob.query.html">cronjob.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_directoryservices.html">directoryservices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_directoryservices.status.html">directoryservices.status</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_disk.html">disk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_disk.query.html">disk.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_docker.html">docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_docker.events.html">docker.events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_docker.state.html">docker.state</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_docker.network.html">docker.network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_docker.network.query.html">docker.network.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_failover.html">failover</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_failover.status.html">failover.status</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_failover.disabled.html">failover.disabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_failover.disabled.reasons.html">failover.disabled.reasons</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_failover.reboot.html">failover.reboot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_failover.reboot.info.html">failover.reboot.info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_fc.fc_host.html">fc.fc_host</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_fc.fc_host.query.html">fc.fc_host.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_fcport.html">fcport</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_fcport.query.html">fcport.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_filesystem.html">filesystem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_filesystem.file_tail_follow.html">filesystem.file_tail_follow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_filesystem.acltemplate.html">filesystem.acltemplate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_filesystem.acltemplate.query.html">filesystem.acltemplate.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_group.html">group</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_group.query.html">group.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_initshutdownscript.html">initshutdownscript</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_initshutdownscript.query.html">initshutdownscript.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_interface.html">interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_interface.query.html">interface.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.auth.html">iscsi.auth</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.auth.query.html">iscsi.auth.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.extent.html">iscsi.extent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.extent.query.html">iscsi.extent.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.initiator.html">iscsi.initiator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.initiator.query.html">iscsi.initiator.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.portal.html">iscsi.portal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.portal.query.html">iscsi.portal.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.target.html">iscsi.target</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.target.query.html">iscsi.target.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.targetextent.html">iscsi.targetextent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.targetextent.query.html">iscsi.targetextent.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_jbof.html">jbof</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_jbof.query.html">jbof.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_kerberos.keytab.html">kerberos.keytab</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_kerberos.keytab.query.html">kerberos.keytab.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_kerberos.realm.html">kerberos.realm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_kerberos.realm.query.html">kerberos.realm.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_keychaincredential.html">keychaincredential</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_keychaincredential.query.html">keychaincredential.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.host.html">nvmet.host</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.host.query.html">nvmet.host.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.host_subsys.html">nvmet.host_subsys</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.host_subsys.query.html">nvmet.host_subsys.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.namespace.html">nvmet.namespace</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.namespace.query.html">nvmet.namespace.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.port.html">nvmet.port</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.port.query.html">nvmet.port.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.port_subsys.html">nvmet.port_subsys</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.port_subsys.query.html">nvmet.port_subsys.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.subsys.html">nvmet.subsys</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.subsys.query.html">nvmet.subsys.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_pool.html">pool</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.query.html">pool.query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.scan.html">pool.scan</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_pool.dataset.html">pool.dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.dataset.query.html">pool.dataset.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_pool.scrub.html">pool.scrub</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.scrub.query.html">pool.scrub.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_pool.snapshot.html">pool.snapshot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.snapshot.query.html">pool.snapshot.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_pool.snapshottask.html">pool.snapshottask</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.snapshottask.query.html">pool.snapshottask.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_privilege.html">privilege</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_privilege.query.html">privilege.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_replication.html">replication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_replication.query.html">replication.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_reporting.html">reporting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_reporting.realtime.html">reporting.realtime</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_reporting.exporters.html">reporting.exporters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_reporting.exporters.query.html">reporting.exporters.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_rsynctask.html">rsynctask</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_rsynctask.query.html">rsynctask.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_service.html">service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_service.query.html">service.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_sharing.nfs.html">sharing.nfs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_sharing.nfs.query.html">sharing.nfs.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_sharing.smb.html">sharing.smb</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_sharing.smb.query.html">sharing.smb.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_sharing.webshare.html">sharing.webshare</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_sharing.webshare.query.html">sharing.webshare.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_staticroute.html">staticroute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_staticroute.query.html">staticroute.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_system.html">system</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_system.ready.html">system.ready</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_system.reboot.html">system.reboot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_events_system.reboot.info.html">system.reboot.info</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_system.shutdown.html">system.shutdown</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_system.ntpserver.html">system.ntpserver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_system.ntpserver.query.html">system.ntpserver.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_system.reboot.html">system.reboot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_system.reboot.info.html">system.reboot.info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_tn_connect.html">tn_connect</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_tn_connect.config.html">tn_connect.config</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_truecommand.html">truecommand</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_truecommand.config.html">truecommand.config</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_tunable.html">tunable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_tunable.query.html">tunable.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_update.html">update</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_update.status.html">update.status</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_user.html">user</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_user.query.html">user.query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_user.web_ui_login_disabled.html">user.web_ui_login_disabled</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_vm.html">vm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_vm.query.html">vm.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_vm.device.html">vm.device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_vm.device.query.html">vm.device.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_vmware.html">vmware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_vmware.query.html">vmware.query</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jobs.html">Jobs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html#example-of-calling-a-job-method">Example of Calling a Job Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html#query-job-status">Query Job Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html#uploading-downloading-files">Uploading / Downloading Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jobs.html#downloading-a-file">Downloading a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jobs.html#uploading-a-file">Uploading a File</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="query_methods.html">Query Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="query_methods.html#query-filters">Query Filters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#multiple-filters">Multiple Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#connectives">Connectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#datetime-information">Datetime information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="query_methods.html#query-options">Query Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#count">Count</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#limit">Limit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#offset">Offset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#select">Select</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#order-by">Order By</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="query_methods.html#sql-statements-translated-into-filters-and-options">SQL Statements Translated Into Filters and Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#example-1">Example 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#example-2">Example 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#example-3">Example 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#example-4">Example 4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rbac.html">Role-Based Access Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rbac.html#role-concepts">Role Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rbac.html#individual-roles-builtin-true">Individual roles (<code class="docutils literal notranslate"><span class="pre">builtin=true</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rbac.html#predefined-group-roles-builtin-false">Predefined group roles (<code class="docutils literal notranslate"><span class="pre">builtin=false</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rbac.html#role-inclusion">Role inclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rbac.html#predefined-group-roles">Predefined Group Roles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rbac.html#full-admin">FULL_ADMIN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rbac.html#readonly-admin">READONLY_ADMIN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rbac.html#sharing-admin">SHARING_ADMIN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rbac.html#replication-admin">REPLICATION_ADMIN</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rbac.html#individual-roles-reference">Individual Roles Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rbac.html#gpos-stig-mode">GPOS STIG Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rbac.html#managing-privileges">Managing Privileges</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            
+          
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="api_events_container.metrics.html"
+                          title="previous chapter">container.metrics</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="api_events_container.device.html"
+                          title="next chapter">container.device</a></p>
+  </div>
+<div id="searchbox" style="display: none">
+    <form class="form search" action="search.html" method="get">
+      <input type="text" name="q" class="form-control" placeholder="Search..." />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <ul class="this-page-menu list-unstyled text-right">
+    <li><a href="_sources/api_events_container.query.rst.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+        </div>
+      </div> 
+
+      <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper" role="main">
+          <div class="body">
+            
+  <section id="container-query">
+<h1>container.query<a class="headerlink" href="#container-query" title="Link to this heading">¶</a></h1>
+<p>Sent on container changes.</p>
+<div id="json-schema">
+<span class="badge badge-dark value-type">Type: object</span><br/>
+<div class="accordion" id="accordionADDED">
+<div class="card">
+<div class="card-header" id="headingADDED">
+<h2 class="mb-0">
+<button aria-controls="ADDED" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED" data-toggle="collapse" onclick="setAnchor('#ADDED')" type="button"><span class="property-name">ADDED</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED" class="collapse property-definition-div" data-parent="#accordionADDED" id="ADDED">
+<div class="card-body pl-5">
+<h4>ContainerAddedEvent</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionADDED_id">
+<div class="card">
+<div class="card-header" id="headingADDED_id">
+<h2 class="mb-0">
+<button aria-controls="ADDED_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_id" data-toggle="collapse" onclick="setAnchor('#ADDED_id')" type="button"><span class="property-name">id</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_id" class="collapse property-definition-div" data-parent="#accordionADDED_id" id="ADDED_id">
+<div class="card-body pl-5">
+<h4>Id</h4><span class="badge badge-dark value-type">Type: integer</span><br/>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields">
+<div class="card">
+<div class="card-header" id="headingADDED_fields">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields" data-toggle="collapse" onclick="setAnchor('#ADDED_fields')" type="button"><span class="property-name">fields</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields" class="collapse property-definition-div" data-parent="#accordionADDED_fields" id="ADDED_fields">
+<div class="card-body pl-5">
+<h4>ContainerEntry</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionADDED_fields_id">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_id">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_id" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_id')" type="button"><span class="property-name">id</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_id" class="collapse property-definition-div" data-parent="#accordionADDED_fields_id" id="ADDED_fields_id">
+<div class="card-body pl-5">
+<h4>Id</h4><span class="badge badge-dark value-type">Type: integer</span><br/>
+<span class="description"><p>Container ID.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_uuid">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_uuid">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_uuid" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_uuid" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_uuid')" type="button"><span class="property-name">uuid</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_uuid" class="collapse property-definition-div" data-parent="#accordionADDED_fields_uuid" id="ADDED_fields_uuid">
+<div class="card-body pl-5">
+<h4>Uuid</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="description"><p>Container UUID (for libvirt).</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_name">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_name">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_name" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_name" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_name')" type="button"><span class="property-name">name</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_name" class="collapse property-definition-div" data-parent="#accordionADDED_fields_name" id="ADDED_fields_name">
+<div class="card-body pl-5">
+<h4>Name</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="description"><p>Container name.</p>
+</span>
+<p><span class="badge badge-light restriction min-length-restriction" id="ADDED_fields_name_minLength">Must be at least <code>1</code> characters long</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_description">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_description">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_description" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_description" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_description')" type="button"><span class="property-name">description</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_description" class="collapse property-definition-div" data-parent="#accordionADDED_fields_description" id="ADDED_fields_description">
+<div class="card-body pl-5">
+<h4>Description</h4><span class="badge badge-dark value-type">Type: string</span> <span class="badge badge-success default-value">Default: ""</span><br/>
+<span class="description"><p>Container description.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_devices">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices')" type="button"><span class="property-name">devices</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices" id="ADDED_fields_devices">
+<div class="card-body pl-5">
+<h4>Devices</h4><span class="badge badge-dark value-type">Type: array of object</span> <span class="badge badge-success default-value">Default: []</span><br/>
+<span class="description"><p>Container's devices.</p>
+</span>
+<span class="badge badge-info no-additional">No Additional Items</span><h5>Each item of this array must be:</h5>
+<div class="card">
+<div class="card-body items-definition" id="ADDED_fields_devices_items">
+<h4>ContainerDeviceEntry</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionADDED_fields_devices_items_id">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_id">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_id" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_id')" type="button"><span class="property-name">id</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_id" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_id" id="ADDED_fields_devices_items_id">
+<div class="card-body pl-5">
+<h4>Id</h4><span class="badge badge-dark value-type">Type: integer</span><br/>
+<span class="description"><p>Unique identifier for the containers device.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_devices_items_attributes">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_attributes">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_attributes" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_attributes" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_attributes')" type="button"><span class="property-name">attributes</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_attributes" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_attributes" id="ADDED_fields_devices_items_attributes">
+<div class="card-body pl-5">
+<h4>Attributes</h4><br/>
+<span class="description"><p>Device-specific configuration attributes.</p>
+</span><div class="one-of-value" id="ADDED_fields_devices_items_attributes_oneOf"><h2 class="handle">
+<label>One of</label>
+</h2><ul class="nav nav-tabs" id="tabsADDED_fields_devices_items_attributes_oneOf_oneOf" role="tablist"><li class="nav-item">
+<a class="nav-link active oneOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_devices_items_attributes_oneOf_i0" id="ADDED_fields_devices_items_attributes_oneOf_i0" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i0')" role="tab">ContainerFilesystemDevice</a>
+</li><li class="nav-item">
+<a class="nav-link oneOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_devices_items_attributes_oneOf_i1" id="ADDED_fields_devices_items_attributes_oneOf_i1" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i1')" role="tab">ContainerGPUDevice</a>
+</li><li class="nav-item">
+<a class="nav-link oneOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_devices_items_attributes_oneOf_i2" id="ADDED_fields_devices_items_attributes_oneOf_i2" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i2')" role="tab">ContainerNICDevice</a>
+</li><li class="nav-item">
+<a class="nav-link oneOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_devices_items_attributes_oneOf_i3" id="ADDED_fields_devices_items_attributes_oneOf_i3" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i3')" role="tab">ContainerUSBDevice</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_devices_items_attributes_oneOf_i0" role="tabpanel">
+<h4>ContainerFilesystemDevice</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionADDED_fields_devices_items_attributes_oneOf_i0_dtype">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_attributes_oneOf_i0_dtype">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_attributes_oneOf_i0_dtype" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_attributes_oneOf_i0_dtype" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i0_dtype')" type="button"><span class="property-name">dtype</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_attributes_oneOf_i0_dtype" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_attributes_oneOf_i0_dtype" id="ADDED_fields_devices_items_attributes_oneOf_i0_dtype">
+<div class="card-body pl-5">
+<h4>Dtype</h4><span class="badge badge-dark value-type">Type: const</span><br/>
+<span class="description"><p>Device type identifier for FILESYSTEM devices.</p>
+</span><span class="const-value" id="ADDED_fields_devices_items_attributes_oneOf_i0_dtype_const">Specific value: <code>"FILESYSTEM"</code></span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_devices_items_attributes_oneOf_i0_target">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_attributes_oneOf_i0_target">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_attributes_oneOf_i0_target" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_attributes_oneOf_i0_target" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i0_target')" type="button"><span class="property-name">target</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_attributes_oneOf_i0_target" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_attributes_oneOf_i0_target" id="ADDED_fields_devices_items_attributes_oneOf_i0_target">
+<div class="card-body pl-5">
+<h4>Target</h4><span class="badge badge-dark value-type">Type: string</span> <span class="badge badge-success default-value">Default: "/usr/bin/zsh"</span><br/>
+<span class="description"><p>Target must not contain braces.</p>
+</span><span class="pattern-value" id="ADDED_fields_devices_items_attributes_oneOf_i0_target_pattern">Must match regular expression: <code>^[^{}]*$</code></span>
+<p><span class="badge badge-light restriction min-length-restriction" id="ADDED_fields_devices_items_attributes_oneOf_i0_target_minLength">Must be at least <code>1</code> characters long</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_devices_items_attributes_oneOf_i0_source">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_attributes_oneOf_i0_source">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_attributes_oneOf_i0_source" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_attributes_oneOf_i0_source" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i0_source')" type="button"><span class="property-name">source</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_attributes_oneOf_i0_source" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_attributes_oneOf_i0_source" id="ADDED_fields_devices_items_attributes_oneOf_i0_source">
+<div class="card-body pl-5">
+<h4>Source</h4><span class="badge badge-dark value-type">Type: string</span> <span class="badge badge-success default-value">Default: "/usr/bin/zsh"</span><br/>
+<span class="description"><p>Source must not contain braces, and not start with /mnt/.</p>
+</span><span class="pattern-value" id="ADDED_fields_devices_items_attributes_oneOf_i0_source_pattern">Must match regular expression: <code>^[^{}]*$</code></span>
+<p><span class="badge badge-light restriction min-length-restriction" id="ADDED_fields_devices_items_attributes_oneOf_i0_source_minLength">Must be at least <code>1</code> characters long</span></p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_devices_items_attributes_oneOf_i1" role="tabpanel">
+<h4>ContainerGPUDevice</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionADDED_fields_devices_items_attributes_oneOf_i1_dtype">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_attributes_oneOf_i1_dtype">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_attributes_oneOf_i1_dtype" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_attributes_oneOf_i1_dtype" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i1_dtype')" type="button"><span class="property-name">dtype</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_attributes_oneOf_i1_dtype" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_attributes_oneOf_i1_dtype" id="ADDED_fields_devices_items_attributes_oneOf_i1_dtype">
+<div class="card-body pl-5">
+<h4>Dtype</h4><span class="badge badge-dark value-type">Type: const</span><br/>
+<span class="description"><p>Device type identifier for GPU devices.</p>
+</span><span class="const-value" id="ADDED_fields_devices_items_attributes_oneOf_i1_dtype_const">Specific value: <code>"GPU"</code></span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_devices_items_attributes_oneOf_i1_gpu_type">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_attributes_oneOf_i1_gpu_type">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_attributes_oneOf_i1_gpu_type" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_attributes_oneOf_i1_gpu_type" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i1_gpu_type')" type="button"><span class="property-name">gpu_type</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_attributes_oneOf_i1_gpu_type" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_attributes_oneOf_i1_gpu_type" id="ADDED_fields_devices_items_attributes_oneOf_i1_gpu_type">
+<div class="card-body pl-5">
+<h4>Gpu Type</h4><span class="badge badge-dark value-type">Type: enum (of string)</span><br/>
+<span class="description"><p>GPU device type.</p>
+</span><div class="enum-value" id="ADDED_fields_devices_items_attributes_oneOf_i1_gpu_type_enum">
+<h5>Must be one of:</h5>
+<ul class="list-group"><li class="list-group-item enum-item">"AMD"</li><li class="list-group-item enum-item">"INTEL"</li><li class="list-group-item enum-item">"NVIDIA"</li></ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_devices_items_attributes_oneOf_i1_pci_address">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_attributes_oneOf_i1_pci_address">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_attributes_oneOf_i1_pci_address" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_attributes_oneOf_i1_pci_address" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i1_pci_address')" type="button"><span class="property-name">pci_address</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_attributes_oneOf_i1_pci_address" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_attributes_oneOf_i1_pci_address" id="ADDED_fields_devices_items_attributes_oneOf_i1_pci_address">
+<div class="card-body pl-5">
+<h4>Pci Address</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="description"><p>PCI address of the GPU device on the host system.</p>
+</span>
+<p><span class="badge badge-light restriction min-length-restriction" id="ADDED_fields_devices_items_attributes_oneOf_i1_pci_address_minLength">Must be at least <code>1</code> characters long</span></p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_devices_items_attributes_oneOf_i2" role="tabpanel">
+<h4>ContainerNICDevice</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionADDED_fields_devices_items_attributes_oneOf_i2_dtype">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_attributes_oneOf_i2_dtype">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_attributes_oneOf_i2_dtype" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_attributes_oneOf_i2_dtype" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i2_dtype')" type="button"><span class="property-name">dtype</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_attributes_oneOf_i2_dtype" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_attributes_oneOf_i2_dtype" id="ADDED_fields_devices_items_attributes_oneOf_i2_dtype">
+<div class="card-body pl-5">
+<h4>Dtype</h4><span class="badge badge-dark value-type">Type: const</span><br/>
+<span class="description"><p>Device type identifier for network interface cards.</p>
+</span><span class="const-value" id="ADDED_fields_devices_items_attributes_oneOf_i2_dtype_const">Specific value: <code>"NIC"</code></span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_devices_items_attributes_oneOf_i2_trust_guest_rx_filters">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_attributes_oneOf_i2_trust_guest_rx_filters">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_attributes_oneOf_i2_trust_guest_rx_filters" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_attributes_oneOf_i2_trust_guest_rx_filters" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i2_trust_guest_rx_filters')" type="button"><span class="property-name">trust_guest_rx_filters</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_attributes_oneOf_i2_trust_guest_rx_filters" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_attributes_oneOf_i2_trust_guest_rx_filters" id="ADDED_fields_devices_items_attributes_oneOf_i2_trust_guest_rx_filters">
+<div class="card-body pl-5">
+<h4>Trust Guest Rx Filters</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: false</span><br/>
+<span class="description"><p>Whether to trust guest OS receive filter settings for better performance.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_devices_items_attributes_oneOf_i2_type">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_attributes_oneOf_i2_type">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_attributes_oneOf_i2_type" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_attributes_oneOf_i2_type" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i2_type')" type="button"><span class="property-name">type</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_attributes_oneOf_i2_type" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_attributes_oneOf_i2_type" id="ADDED_fields_devices_items_attributes_oneOf_i2_type">
+<div class="card-body pl-5">
+<h4>Type</h4><span class="badge badge-dark value-type">Type: enum (of string)</span> <span class="badge badge-success default-value">Default: "E1000"</span><br/>
+<span class="description"><p>Network interface controller type. <code>E1000</code> for Intel compatibility, <code>VIRTIO</code> for performance.</p>
+</span><div class="enum-value" id="ADDED_fields_devices_items_attributes_oneOf_i2_type_enum">
+<h5>Must be one of:</h5>
+<ul class="list-group"><li class="list-group-item enum-item">"E1000"</li><li class="list-group-item enum-item">"VIRTIO"</li></ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_devices_items_attributes_oneOf_i2_nic_attach">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_attributes_oneOf_i2_nic_attach">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_attributes_oneOf_i2_nic_attach" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_attributes_oneOf_i2_nic_attach" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i2_nic_attach')" type="button"><span class="property-name">nic_attach</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_attributes_oneOf_i2_nic_attach" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_attributes_oneOf_i2_nic_attach" id="ADDED_fields_devices_items_attributes_oneOf_i2_nic_attach">
+<div class="card-body pl-5">
+<h4>Nic Attach</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>Host network interface or bridge to attach to. <code>null</code> for no attachment.</p>
+</span><div class="any-of-value" id="ADDED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsADDED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_i0" id="ADDED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_i0" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_i1" id="ADDED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_i1" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+</div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_devices_items_attributes_oneOf_i2_mac">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_attributes_oneOf_i2_mac">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_attributes_oneOf_i2_mac" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_attributes_oneOf_i2_mac" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i2_mac')" type="button"><span class="property-name">mac</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_attributes_oneOf_i2_mac" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_attributes_oneOf_i2_mac" id="ADDED_fields_devices_items_attributes_oneOf_i2_mac">
+<div class="card-body pl-5">
+<h4>Mac</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>MAC address for the virtual network interface. <code>null</code> for auto-generation.</p>
+</span><div class="any-of-value" id="ADDED_fields_devices_items_attributes_oneOf_i2_mac_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsADDED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i0" id="ADDED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i0" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i1" id="ADDED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i1" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="pattern-value" id="ADDED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i0_pattern">Must match regular expression: <code>^([0-9A-Fa-f]{2}[:-]?){5}([0-9A-Fa-f]{2})$</code></span>
+</div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_devices_items_attributes_oneOf_i3" role="tabpanel">
+<h4>ContainerUSBDevice</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionADDED_fields_devices_items_attributes_oneOf_i3_dtype">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_attributes_oneOf_i3_dtype">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_attributes_oneOf_i3_dtype" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_attributes_oneOf_i3_dtype" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i3_dtype')" type="button"><span class="property-name">dtype</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_attributes_oneOf_i3_dtype" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_attributes_oneOf_i3_dtype" id="ADDED_fields_devices_items_attributes_oneOf_i3_dtype">
+<div class="card-body pl-5">
+<h4>Dtype</h4><span class="badge badge-dark value-type">Type: const</span><br/>
+<span class="description"><p>Device type identifier for USB devices.</p>
+</span><span class="const-value" id="ADDED_fields_devices_items_attributes_oneOf_i3_dtype_const">Specific value: <code>"USB"</code></span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_devices_items_attributes_oneOf_i3_usb">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_attributes_oneOf_i3_usb">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_attributes_oneOf_i3_usb" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_attributes_oneOf_i3_usb" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i3_usb')" type="button"><span class="property-name">usb</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_attributes_oneOf_i3_usb" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_attributes_oneOf_i3_usb" id="ADDED_fields_devices_items_attributes_oneOf_i3_usb">
+<div class="card-body pl-5">
+<span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>USB device attributes for identification. <code>null</code> for USB host controller only.</p>
+</span><div class="any-of-value" id="ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0" id="ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0')" role="tab">USBAttributes</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i1" id="ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i1" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0" role="tabpanel">
+<h4>USBAttributes</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id')" type="button"><span class="property-name">vendor_id</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id" id="ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id">
+<div class="card-body pl-5">
+<h4>Vendor Id</h4><span class="badge badge-dark value-type">Type: string</span> <span class="badge badge-success default-value">Default: "/usr/bin/zsh"</span><br/>
+<span class="description"><p>USB vendor identifier in hexadecimal format (e.g., '0x1d6b' for Linux Foundation).</p>
+</span><span class="pattern-value" id="ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id_pattern">Must match regular expression: <code>^0x.*</code></span>
+<p><span class="badge badge-light restriction min-length-restriction" id="ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id_minLength">Must be at least <code>1</code> characters long</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id')" type="button"><span class="property-name">product_id</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id" id="ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id">
+<div class="card-body pl-5">
+<h4>Product Id</h4><span class="badge badge-dark value-type">Type: string</span> <span class="badge badge-success default-value">Default: "/usr/bin/zsh"</span><br/>
+<span class="description"><p>USB product identifier in hexadecimal format (e.g., '0x0002' for 2.0 root hub).</p>
+</span><span class="pattern-value" id="ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id_pattern">Must match regular expression: <code>^0x.*</code></span>
+<p><span class="badge badge-light restriction min-length-restriction" id="ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id_minLength">Must be at least <code>1</code> characters long</span></p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_devices_items_attributes_oneOf_i3_device">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_attributes_oneOf_i3_device">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_attributes_oneOf_i3_device" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_attributes_oneOf_i3_device" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i3_device')" type="button"><span class="property-name">device</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_attributes_oneOf_i3_device" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_attributes_oneOf_i3_device" id="ADDED_fields_devices_items_attributes_oneOf_i3_device">
+<div class="card-body pl-5">
+<h4>Device</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>Host USB device path to pass through. <code>null</code> for controller only.</p>
+</span><div class="any-of-value" id="ADDED_fields_devices_items_attributes_oneOf_i3_device_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsADDED_fields_devices_items_attributes_oneOf_i3_device_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i0" id="ADDED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i0" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i1" id="ADDED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i1" onclick="setAnchor('#ADDED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+<p><span class="badge badge-light restriction min-length-restriction" id="ADDED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i0_minLength">Must be at least <code>1</code> characters long</span></p>
+</div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_devices_items_container">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_devices_items_container">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_devices_items_container" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devices_items_container" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devices_items_container')" type="button"><span class="property-name">container</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_devices_items_container" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devices_items_container" id="ADDED_fields_devices_items_container">
+<div class="card-body pl-5">
+<h4>Container</h4><span class="badge badge-dark value-type">Type: integer</span><br/>
+<span class="description"><p>ID of the container this device belongs to.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_cpuset">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_cpuset">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_cpuset" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_cpuset" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_cpuset')" type="button"><span class="property-name">cpuset</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_cpuset" class="collapse property-definition-div" data-parent="#accordionADDED_fields_cpuset" id="ADDED_fields_cpuset">
+<div class="card-body pl-5">
+<h4>Cpuset</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>List of physical CPU numbers that domain process and virtual CPUs can be pinned to by default.</p>
+</span><div class="any-of-value" id="ADDED_fields_cpuset_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsADDED_fields_cpuset_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_cpuset_anyOf_i0" id="ADDED_fields_cpuset_anyOf_i0" onclick="setAnchor('#ADDED_fields_cpuset_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_cpuset_anyOf_i1" id="ADDED_fields_cpuset_anyOf_i1" onclick="setAnchor('#ADDED_fields_cpuset_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_cpuset_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+</div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_cpuset_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_autostart">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_autostart">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_autostart" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_autostart" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_autostart')" type="button"><span class="property-name">autostart</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_autostart" class="collapse property-definition-div" data-parent="#accordionADDED_fields_autostart" id="ADDED_fields_autostart">
+<div class="card-body pl-5">
+<h4>Autostart</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+<span class="description"><p>Automatically start the container on boot.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_time">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_time">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_time" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_time" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_time')" type="button"><span class="property-name">time</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_time" class="collapse property-definition-div" data-parent="#accordionADDED_fields_time" id="ADDED_fields_time">
+<div class="card-body pl-5">
+<h4>Time</h4><span class="badge badge-dark value-type">Type: enum (of string)</span> <span class="badge badge-success default-value">Default: "LOCAL"</span><br/>
+<span class="description"><p>Whether container time should be local time or UTC time.</p>
+</span><div class="enum-value" id="ADDED_fields_time_enum">
+<h5>Must be one of:</h5>
+<ul class="list-group"><li class="list-group-item enum-item">"LOCAL"</li><li class="list-group-item enum-item">"UTC"</li></ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_shutdown_timeout">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_shutdown_timeout">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_shutdown_timeout" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_shutdown_timeout" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_shutdown_timeout')" type="button"><span class="property-name">shutdown_timeout</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_shutdown_timeout" class="collapse property-definition-div" data-parent="#accordionADDED_fields_shutdown_timeout" id="ADDED_fields_shutdown_timeout">
+<div class="card-body pl-5">
+<h4>Shutdown Timeout</h4><span class="badge badge-dark value-type">Type: integer</span> <span class="badge badge-success default-value">Default: 90</span><br/>
+<span class="description"><p>How many seconds to wait for container to shut down before killing it.</p>
+</span>
+<p><span class="badge badge-light restriction numeric-restriction" id="ADDED_fields_shutdown_timeout_number">Value must be greater or equal to <code>5</code> and lesser or equal to <code>300</code></span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_dataset">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_dataset">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_dataset" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_dataset" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_dataset')" type="button"><span class="property-name">dataset</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_dataset" class="collapse property-definition-div" data-parent="#accordionADDED_fields_dataset" id="ADDED_fields_dataset">
+<div class="card-body pl-5">
+<h4>Dataset</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="description"><p>Which dataset to use as the container root filesystem.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_init">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_init">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_init" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_init" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_init')" type="button"><span class="property-name">init</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_init" class="collapse property-definition-div" data-parent="#accordionADDED_fields_init" id="ADDED_fields_init">
+<div class="card-body pl-5">
+<h4>Init</h4><span class="badge badge-dark value-type">Type: string</span> <span class="badge badge-success default-value">Default: "/sbin/init"</span><br/>
+<span class="description"><p>"init" process commandline.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_initdir">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_initdir">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_initdir" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_initdir" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_initdir')" type="button"><span class="property-name">initdir</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_initdir" class="collapse property-definition-div" data-parent="#accordionADDED_fields_initdir" id="ADDED_fields_initdir">
+<div class="card-body pl-5">
+<h4>Initdir</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>"init" process working dir.</p>
+</span><div class="any-of-value" id="ADDED_fields_initdir_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsADDED_fields_initdir_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_initdir_anyOf_i0" id="ADDED_fields_initdir_anyOf_i0" onclick="setAnchor('#ADDED_fields_initdir_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_initdir_anyOf_i1" id="ADDED_fields_initdir_anyOf_i1" onclick="setAnchor('#ADDED_fields_initdir_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_initdir_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+</div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_initdir_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_initenv">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_initenv">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_initenv" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_initenv" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_initenv')" type="button"><span class="property-name">initenv</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_initenv" class="collapse property-definition-div" data-parent="#accordionADDED_fields_initenv" id="ADDED_fields_initenv">
+<div class="card-body pl-5">
+<h4>Initenv</h4><span class="badge badge-dark value-type">Type: object</span> <span class="badge badge-success default-value">Default: {}</span><br/>
+<span class="description"><p>"init" process environment variables.</p>
+</span>
+<div class="accordion" id="accordionADDED_fields_initenv_additionalProperties">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_initenv_additionalProperties">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_initenv_additionalProperties" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_initenv_additionalProperties" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_initenv_additionalProperties')" type="button"><em><span class="property-name">Additional Properties</span></em></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_initenv_additionalProperties" class="collapse property-definition-div" data-parent="#accordionADDED_fields_initenv_additionalProperties" id="ADDED_fields_initenv_additionalProperties">
+<div class="card-body pl-5"><p class="additional-properties">Each additional property must conform to the following schema</p>
+<span class="badge badge-dark value-type">Type: string</span><br/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_inituser">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_inituser">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_inituser" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_inituser" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_inituser')" type="button"><span class="property-name">inituser</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_inituser" class="collapse property-definition-div" data-parent="#accordionADDED_fields_inituser" id="ADDED_fields_inituser">
+<div class="card-body pl-5">
+<h4>Inituser</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>"init" process username.</p>
+</span><div class="any-of-value" id="ADDED_fields_inituser_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsADDED_fields_inituser_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_inituser_anyOf_i0" id="ADDED_fields_inituser_anyOf_i0" onclick="setAnchor('#ADDED_fields_inituser_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_inituser_anyOf_i1" id="ADDED_fields_inituser_anyOf_i1" onclick="setAnchor('#ADDED_fields_inituser_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_inituser_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+</div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_inituser_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_initgroup">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_initgroup">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_initgroup" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_initgroup" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_initgroup')" type="button"><span class="property-name">initgroup</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_initgroup" class="collapse property-definition-div" data-parent="#accordionADDED_fields_initgroup" id="ADDED_fields_initgroup">
+<div class="card-body pl-5">
+<h4>Initgroup</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>"init" process group.</p>
+</span><div class="any-of-value" id="ADDED_fields_initgroup_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsADDED_fields_initgroup_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_initgroup_anyOf_i0" id="ADDED_fields_initgroup_anyOf_i0" onclick="setAnchor('#ADDED_fields_initgroup_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_initgroup_anyOf_i1" id="ADDED_fields_initgroup_anyOf_i1" onclick="setAnchor('#ADDED_fields_initgroup_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_initgroup_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+</div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_initgroup_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_idmap">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_idmap">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_idmap" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_idmap" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_idmap')" type="button"><span class="property-name">idmap</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_idmap" class="collapse property-definition-div" data-parent="#accordionADDED_fields_idmap" id="ADDED_fields_idmap">
+<div class="card-body pl-5">
+<h4>Idmap</h4> <span class="badge badge-success default-value">Default: {"type": "DEFAULT"}</span><br/>
+<span class="description"><p>Idmap configuration for the container        There are three two possible values:        DEFAULT: This applies the standard TrueNAS idmap namespace configuration.    It changes user ID (UID) 0 (root) in the container to UID 2147000001 (truenas<em>container</em>unpriv_root).    It offsets the other container UIDs by the same amount.    For example, UID 1000 in the container becomes UID 2147001001 in the host.        ISOLATED: Same as <code>DEFAULT</code>, but UID will be calculated as <code>2147000001 + 65536 * slice</code>.    This will ensure unique ID for each container (provided that the <code>slice</code> is also unique).<br/>
+None: The container does not apply any idmap namespace.    Container UIDs map directly to host UIDs.    For example, UID 0 in the container is UID 0 in the host.        WARNING: For security, use the DEFAULT value. Security best practice is to run containers with idmap namespaces.</p>
+</span><div class="any-of-value" id="ADDED_fields_idmap_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsADDED_fields_idmap_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_idmap_anyOf_i0" id="ADDED_fields_idmap_anyOf_i0" onclick="setAnchor('#ADDED_fields_idmap_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_idmap_anyOf_i1" id="ADDED_fields_idmap_anyOf_i1" onclick="setAnchor('#ADDED_fields_idmap_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_idmap_anyOf_i0" role="tabpanel">
+<br/>
+<div class="one-of-value" id="ADDED_fields_idmap_anyOf_i0_oneOf"><h2 class="handle">
+<label>One of</label>
+</h2><ul class="nav nav-tabs" id="tabsADDED_fields_idmap_anyOf_i0_oneOf_oneOf" role="tablist"><li class="nav-item">
+<a class="nav-link active oneOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_idmap_anyOf_i0_oneOf_i0" id="ADDED_fields_idmap_anyOf_i0_oneOf_i0" onclick="setAnchor('#ADDED_fields_idmap_anyOf_i0_oneOf_i0')" role="tab">DefaultIdmapConfiguration</a>
+</li><li class="nav-item">
+<a class="nav-link oneOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_idmap_anyOf_i0_oneOf_i1" id="ADDED_fields_idmap_anyOf_i0_oneOf_i1" onclick="setAnchor('#ADDED_fields_idmap_anyOf_i0_oneOf_i1')" role="tab">IsolatedIdmapConfiguration</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_idmap_anyOf_i0_oneOf_i0" role="tabpanel">
+<h4>DefaultIdmapConfiguration</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionADDED_fields_idmap_anyOf_i0_oneOf_i0_type">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_idmap_anyOf_i0_oneOf_i0_type">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_idmap_anyOf_i0_oneOf_i0_type" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_idmap_anyOf_i0_oneOf_i0_type" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_idmap_anyOf_i0_oneOf_i0_type')" type="button"><span class="property-name">type</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_idmap_anyOf_i0_oneOf_i0_type" class="collapse property-definition-div" data-parent="#accordionADDED_fields_idmap_anyOf_i0_oneOf_i0_type" id="ADDED_fields_idmap_anyOf_i0_oneOf_i0_type">
+<div class="card-body pl-5">
+<h4>Type</h4><span class="badge badge-dark value-type">Type: const</span><br/>
+<span class="description"><p>Configuration type for default ID mapping.</p>
+</span><span class="const-value" id="ADDED_fields_idmap_anyOf_i0_oneOf_i0_type_const">Specific value: <code>"DEFAULT"</code></span>
+</div>
+</div>
+</div>
+</div>
+</div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_idmap_anyOf_i0_oneOf_i1" role="tabpanel">
+<h4>IsolatedIdmapConfiguration</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionADDED_fields_idmap_anyOf_i0_oneOf_i1_type">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_idmap_anyOf_i0_oneOf_i1_type">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_idmap_anyOf_i0_oneOf_i1_type" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_idmap_anyOf_i0_oneOf_i1_type" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_idmap_anyOf_i0_oneOf_i1_type')" type="button"><span class="property-name">type</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_idmap_anyOf_i0_oneOf_i1_type" class="collapse property-definition-div" data-parent="#accordionADDED_fields_idmap_anyOf_i0_oneOf_i1_type" id="ADDED_fields_idmap_anyOf_i0_oneOf_i1_type">
+<div class="card-body pl-5">
+<h4>Type</h4><span class="badge badge-dark value-type">Type: const</span><br/>
+<span class="description"><p>Configuration type for isolated ID mapping.</p>
+</span><span class="const-value" id="ADDED_fields_idmap_anyOf_i0_oneOf_i1_type_const">Specific value: <code>"ISOLATED"</code></span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_idmap_anyOf_i0_oneOf_i1_slice">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_idmap_anyOf_i0_oneOf_i1_slice">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_idmap_anyOf_i0_oneOf_i1_slice" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_idmap_anyOf_i0_oneOf_i1_slice" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_idmap_anyOf_i0_oneOf_i1_slice')" type="button"><span class="property-name">slice</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_idmap_anyOf_i0_oneOf_i1_slice" class="collapse property-definition-div" data-parent="#accordionADDED_fields_idmap_anyOf_i0_oneOf_i1_slice" id="ADDED_fields_idmap_anyOf_i0_oneOf_i1_slice">
+<div class="card-body pl-5">
+<h4>Slice</h4><br/>
+<span class="description"><p><code>null</code> when creating means we'll look up an unused slice on backend.</p>
+</span><div class="any-of-value" id="ADDED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsADDED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i0" id="ADDED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i0" onclick="setAnchor('#ADDED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i1" id="ADDED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i1" onclick="setAnchor('#ADDED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: integer</span><br/>
+<p><span class="badge badge-light restriction numeric-restriction" id="ADDED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i0_number">Value must be strictly greater than <code>0</code> and strictly lesser than <code>1000</code></span></p>
+</div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div></div></div>
+</div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_idmap_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_capabilities_policy">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_capabilities_policy">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_capabilities_policy" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_capabilities_policy" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_capabilities_policy')" type="button"><span class="property-name">capabilities_policy</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_capabilities_policy" class="collapse property-definition-div" data-parent="#accordionADDED_fields_capabilities_policy" id="ADDED_fields_capabilities_policy">
+<div class="card-body pl-5">
+<h4>Capabilities Policy</h4><span class="badge badge-dark value-type">Type: enum (of string)</span> <span class="badge badge-success default-value">Default: "DEFAULT"</span><br/>
+<span class="description"><p>Default rules for capabilities: either keep the default behavior that is dropping the following capabilities:    sys<em>module, sys</em>time, mknod, audit<em>control, mac</em>admin. Or keep all capabilities, or drop all capabilities.</p>
+</span><div class="enum-value" id="ADDED_fields_capabilities_policy_enum">
+<h5>Must be one of:</h5>
+<ul class="list-group"><li class="list-group-item enum-item">"DEFAULT"</li><li class="list-group-item enum-item">"ALLOW"</li><li class="list-group-item enum-item">"DENY"</li></ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_capabilities_state">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_capabilities_state">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_capabilities_state" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_capabilities_state" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_capabilities_state')" type="button"><span class="property-name">capabilities_state</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_capabilities_state" class="collapse property-definition-div" data-parent="#accordionADDED_fields_capabilities_state" id="ADDED_fields_capabilities_state">
+<div class="card-body pl-5">
+<h4>Capabilities State</h4><span class="badge badge-dark value-type">Type: object</span> <span class="badge badge-success default-value">Default: {}</span><br/>
+<span class="description"><p>Enable or disable specific capabilities.</p>
+</span>
+<div class="accordion" id="accordionADDED_fields_capabilities_state_additionalProperties">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_capabilities_state_additionalProperties">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_capabilities_state_additionalProperties" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_capabilities_state_additionalProperties" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_capabilities_state_additionalProperties')" type="button"><em><span class="property-name">Additional Properties</span></em></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_capabilities_state_additionalProperties" class="collapse property-definition-div" data-parent="#accordionADDED_fields_capabilities_state_additionalProperties" id="ADDED_fields_capabilities_state_additionalProperties">
+<div class="card-body pl-5"><p class="additional-properties">Each additional property must conform to the following schema</p>
+<span class="badge badge-dark value-type">Type: boolean</span><br/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_default_network">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_default_network">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_default_network" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_default_network" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_default_network')" type="button"><span class="property-name">default_network</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_default_network" class="collapse property-definition-div" data-parent="#accordionADDED_fields_default_network" id="ADDED_fields_default_network">
+<div class="card-body pl-5">
+<h4>Default Network</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>The default network bridge this container will use when no NIC devices are explicitly attached. When the    container has explicitly configured NIC devices, this is <code>null</code> because the NIC configuration is visible in    the <code>devices</code> list.</p>
+</span><div class="any-of-value" id="ADDED_fields_default_network_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsADDED_fields_default_network_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_default_network_anyOf_i0" id="ADDED_fields_default_network_anyOf_i0" onclick="setAnchor('#ADDED_fields_default_network_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_default_network_anyOf_i1" id="ADDED_fields_default_network_anyOf_i1" onclick="setAnchor('#ADDED_fields_default_network_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_default_network_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+</div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_default_network_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_status">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_status">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_status" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_status" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_status')" type="button"><span class="property-name">status</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_status" class="collapse property-definition-div" data-parent="#accordionADDED_fields_status" id="ADDED_fields_status">
+<div class="card-body pl-5">
+<h4>ContainerStatus</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="description"><p>Container state.</p>
+</span> <span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionADDED_fields_status_state">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_status_state">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_status_state" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_status_state" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_status_state')" type="button"><span class="property-name">state</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_status_state" class="collapse property-definition-div" data-parent="#accordionADDED_fields_status_state" id="ADDED_fields_status_state">
+<div class="card-body pl-5">
+<h4>State</h4><span class="badge badge-dark value-type">Type: enum (of string)</span><br/>
+<span class="description"><p>Container state.</p>
+</span><div class="enum-value" id="ADDED_fields_status_state_enum">
+<h5>Must be one of:</h5>
+<ul class="list-group"><li class="list-group-item enum-item">"RUNNING"</li><li class="list-group-item enum-item">"STOPPED"</li></ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_status_pid">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_status_pid">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_status_pid" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_status_pid" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_status_pid')" type="button"><span class="property-name">pid</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_status_pid" class="collapse property-definition-div" data-parent="#accordionADDED_fields_status_pid" id="ADDED_fields_status_pid">
+<div class="card-body pl-5">
+<h4>Pid</h4><br/>
+<span class="description"><p>Container host PID (if running). Informational only    do not rely on this value to identify the container's init process.</p>
+</span><div class="any-of-value" id="ADDED_fields_status_pid_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsADDED_fields_status_pid_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_status_pid_anyOf_i0" id="ADDED_fields_status_pid_anyOf_i0" onclick="setAnchor('#ADDED_fields_status_pid_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_status_pid_anyOf_i1" id="ADDED_fields_status_pid_anyOf_i1" onclick="setAnchor('#ADDED_fields_status_pid_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_status_pid_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: integer</span><br/>
+</div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_status_pid_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionADDED_fields_status_domain_state">
+<div class="card">
+<div class="card-header" id="headingADDED_fields_status_domain_state">
+<h2 class="mb-0">
+<button aria-controls="ADDED_fields_status_domain_state" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_status_domain_state" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_status_domain_state')" type="button"><span class="property-name">domain_state</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingADDED_fields_status_domain_state" class="collapse property-definition-div" data-parent="#accordionADDED_fields_status_domain_state" id="ADDED_fields_status_domain_state">
+<div class="card-body pl-5">
+<h4>Domain State</h4><br/>
+<span class="description"><p>Domain state reported by libvirt.</p>
+</span><div class="any-of-value" id="ADDED_fields_status_domain_state_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsADDED_fields_status_domain_state_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_status_domain_state_anyOf_i0" id="ADDED_fields_status_domain_state_anyOf_i0" onclick="setAnchor('#ADDED_fields_status_domain_state_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_status_domain_state_anyOf_i1" id="ADDED_fields_status_domain_state_anyOf_i1" onclick="setAnchor('#ADDED_fields_status_domain_state_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_status_domain_state_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+<p><span class="badge badge-light restriction min-length-restriction" id="ADDED_fields_status_domain_state_anyOf_i0_minLength">Must be at least <code>1</code> characters long</span></p>
+</div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_status_domain_state_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED">
+<div class="card">
+<div class="card-header" id="headingCHANGED">
+<h2 class="mb-0">
+<button aria-controls="CHANGED" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED" data-toggle="collapse" onclick="setAnchor('#CHANGED')" type="button"><span class="property-name">CHANGED</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED" class="collapse property-definition-div" data-parent="#accordionCHANGED" id="CHANGED">
+<div class="card-body pl-5">
+<h4>ContainerChangedEvent</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_id">
+<div class="card">
+<div class="card-header" id="headingCHANGED_id">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_id" data-toggle="collapse" onclick="setAnchor('#CHANGED_id')" type="button"><span class="property-name">id</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_id" class="collapse property-definition-div" data-parent="#accordionCHANGED_id" id="CHANGED_id">
+<div class="card-body pl-5">
+<h4>Id</h4><span class="badge badge-dark value-type">Type: integer</span><br/>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields')" type="button"><span class="property-name">fields</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields" id="CHANGED_fields">
+<div class="card-body pl-5">
+<h4>ContainerEntry</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_fields_id">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_id">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_id" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_id')" type="button"><span class="property-name">id</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_id" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_id" id="CHANGED_fields_id">
+<div class="card-body pl-5">
+<h4>Id</h4><span class="badge badge-dark value-type">Type: integer</span><br/>
+<span class="description"><p>Container ID.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_uuid">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_uuid">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_uuid" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_uuid" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_uuid')" type="button"><span class="property-name">uuid</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_uuid" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_uuid" id="CHANGED_fields_uuid">
+<div class="card-body pl-5">
+<h4>Uuid</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="description"><p>Container UUID (for libvirt).</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_name">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_name">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_name" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_name" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_name')" type="button"><span class="property-name">name</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_name" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_name" id="CHANGED_fields_name">
+<div class="card-body pl-5">
+<h4>Name</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="description"><p>Container name.</p>
+</span>
+<p><span class="badge badge-light restriction min-length-restriction" id="CHANGED_fields_name_minLength">Must be at least <code>1</code> characters long</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_description">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_description">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_description" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_description" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_description')" type="button"><span class="property-name">description</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_description" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_description" id="CHANGED_fields_description">
+<div class="card-body pl-5">
+<h4>Description</h4><span class="badge badge-dark value-type">Type: string</span> <span class="badge badge-success default-value">Default: ""</span><br/>
+<span class="description"><p>Container description.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_devices">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices')" type="button"><span class="property-name">devices</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices" id="CHANGED_fields_devices">
+<div class="card-body pl-5">
+<h4>Devices</h4><span class="badge badge-dark value-type">Type: array of object</span> <span class="badge badge-success default-value">Default: []</span><br/>
+<span class="description"><p>Container's devices.</p>
+</span>
+<span class="badge badge-info no-additional">No Additional Items</span><h5>Each item of this array must be:</h5>
+<div class="card">
+<div class="card-body items-definition" id="CHANGED_fields_devices_items">
+<h4>ContainerDeviceEntry</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_id">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_id">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_id" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_id')" type="button"><span class="property-name">id</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_id" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_id" id="CHANGED_fields_devices_items_id">
+<div class="card-body pl-5">
+<h4>Id</h4><span class="badge badge-dark value-type">Type: integer</span><br/>
+<span class="description"><p>Unique identifier for the containers device.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_attributes">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_attributes">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_attributes" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_attributes" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_attributes')" type="button"><span class="property-name">attributes</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_attributes" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_attributes" id="CHANGED_fields_devices_items_attributes">
+<div class="card-body pl-5">
+<h4>Attributes</h4><br/>
+<span class="description"><p>Device-specific configuration attributes.</p>
+</span><div class="one-of-value" id="CHANGED_fields_devices_items_attributes_oneOf"><h2 class="handle">
+<label>One of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_devices_items_attributes_oneOf_oneOf" role="tablist"><li class="nav-item">
+<a class="nav-link active oneOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i0" id="CHANGED_fields_devices_items_attributes_oneOf_i0" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i0')" role="tab">ContainerFilesystemDevice</a>
+</li><li class="nav-item">
+<a class="nav-link oneOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i1" id="CHANGED_fields_devices_items_attributes_oneOf_i1" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i1')" role="tab">ContainerGPUDevice</a>
+</li><li class="nav-item">
+<a class="nav-link oneOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i2" id="CHANGED_fields_devices_items_attributes_oneOf_i2" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i2')" role="tab">ContainerNICDevice</a>
+</li><li class="nav-item">
+<a class="nav-link oneOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i3" id="CHANGED_fields_devices_items_attributes_oneOf_i3" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i3')" role="tab">ContainerUSBDevice</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i0" role="tabpanel">
+<h4>ContainerFilesystemDevice</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_attributes_oneOf_i0_dtype">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_attributes_oneOf_i0_dtype">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_attributes_oneOf_i0_dtype" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_attributes_oneOf_i0_dtype" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i0_dtype')" type="button"><span class="property-name">dtype</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_attributes_oneOf_i0_dtype" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_attributes_oneOf_i0_dtype" id="CHANGED_fields_devices_items_attributes_oneOf_i0_dtype">
+<div class="card-body pl-5">
+<h4>Dtype</h4><span class="badge badge-dark value-type">Type: const</span><br/>
+<span class="description"><p>Device type identifier for FILESYSTEM devices.</p>
+</span><span class="const-value" id="CHANGED_fields_devices_items_attributes_oneOf_i0_dtype_const">Specific value: <code>"FILESYSTEM"</code></span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_attributes_oneOf_i0_target">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_attributes_oneOf_i0_target">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_attributes_oneOf_i0_target" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_attributes_oneOf_i0_target" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i0_target')" type="button"><span class="property-name">target</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_attributes_oneOf_i0_target" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_attributes_oneOf_i0_target" id="CHANGED_fields_devices_items_attributes_oneOf_i0_target">
+<div class="card-body pl-5">
+<h4>Target</h4><span class="badge badge-dark value-type">Type: string</span> <span class="badge badge-success default-value">Default: "/usr/bin/zsh"</span><br/>
+<span class="description"><p>Target must not contain braces.</p>
+</span><span class="pattern-value" id="CHANGED_fields_devices_items_attributes_oneOf_i0_target_pattern">Must match regular expression: <code>^[^{}]*$</code></span>
+<p><span class="badge badge-light restriction min-length-restriction" id="CHANGED_fields_devices_items_attributes_oneOf_i0_target_minLength">Must be at least <code>1</code> characters long</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_attributes_oneOf_i0_source">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_attributes_oneOf_i0_source">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_attributes_oneOf_i0_source" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_attributes_oneOf_i0_source" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i0_source')" type="button"><span class="property-name">source</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_attributes_oneOf_i0_source" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_attributes_oneOf_i0_source" id="CHANGED_fields_devices_items_attributes_oneOf_i0_source">
+<div class="card-body pl-5">
+<h4>Source</h4><span class="badge badge-dark value-type">Type: string</span> <span class="badge badge-success default-value">Default: "/usr/bin/zsh"</span><br/>
+<span class="description"><p>Source must not contain braces, and not start with /mnt/.</p>
+</span><span class="pattern-value" id="CHANGED_fields_devices_items_attributes_oneOf_i0_source_pattern">Must match regular expression: <code>^[^{}]*$</code></span>
+<p><span class="badge badge-light restriction min-length-restriction" id="CHANGED_fields_devices_items_attributes_oneOf_i0_source_minLength">Must be at least <code>1</code> characters long</span></p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i1" role="tabpanel">
+<h4>ContainerGPUDevice</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_attributes_oneOf_i1_dtype">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_attributes_oneOf_i1_dtype">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_attributes_oneOf_i1_dtype" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_attributes_oneOf_i1_dtype" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i1_dtype')" type="button"><span class="property-name">dtype</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_attributes_oneOf_i1_dtype" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_attributes_oneOf_i1_dtype" id="CHANGED_fields_devices_items_attributes_oneOf_i1_dtype">
+<div class="card-body pl-5">
+<h4>Dtype</h4><span class="badge badge-dark value-type">Type: const</span><br/>
+<span class="description"><p>Device type identifier for GPU devices.</p>
+</span><span class="const-value" id="CHANGED_fields_devices_items_attributes_oneOf_i1_dtype_const">Specific value: <code>"GPU"</code></span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_attributes_oneOf_i1_gpu_type">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_attributes_oneOf_i1_gpu_type">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_attributes_oneOf_i1_gpu_type" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_attributes_oneOf_i1_gpu_type" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i1_gpu_type')" type="button"><span class="property-name">gpu_type</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_attributes_oneOf_i1_gpu_type" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_attributes_oneOf_i1_gpu_type" id="CHANGED_fields_devices_items_attributes_oneOf_i1_gpu_type">
+<div class="card-body pl-5">
+<h4>Gpu Type</h4><span class="badge badge-dark value-type">Type: enum (of string)</span><br/>
+<span class="description"><p>GPU device type.</p>
+</span><div class="enum-value" id="CHANGED_fields_devices_items_attributes_oneOf_i1_gpu_type_enum">
+<h5>Must be one of:</h5>
+<ul class="list-group"><li class="list-group-item enum-item">"AMD"</li><li class="list-group-item enum-item">"INTEL"</li><li class="list-group-item enum-item">"NVIDIA"</li></ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_attributes_oneOf_i1_pci_address">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_attributes_oneOf_i1_pci_address">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_attributes_oneOf_i1_pci_address" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_attributes_oneOf_i1_pci_address" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i1_pci_address')" type="button"><span class="property-name">pci_address</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_attributes_oneOf_i1_pci_address" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_attributes_oneOf_i1_pci_address" id="CHANGED_fields_devices_items_attributes_oneOf_i1_pci_address">
+<div class="card-body pl-5">
+<h4>Pci Address</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="description"><p>PCI address of the GPU device on the host system.</p>
+</span>
+<p><span class="badge badge-light restriction min-length-restriction" id="CHANGED_fields_devices_items_attributes_oneOf_i1_pci_address_minLength">Must be at least <code>1</code> characters long</span></p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i2" role="tabpanel">
+<h4>ContainerNICDevice</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_attributes_oneOf_i2_dtype">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_attributes_oneOf_i2_dtype">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_attributes_oneOf_i2_dtype" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_attributes_oneOf_i2_dtype" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i2_dtype')" type="button"><span class="property-name">dtype</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_attributes_oneOf_i2_dtype" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_attributes_oneOf_i2_dtype" id="CHANGED_fields_devices_items_attributes_oneOf_i2_dtype">
+<div class="card-body pl-5">
+<h4>Dtype</h4><span class="badge badge-dark value-type">Type: const</span><br/>
+<span class="description"><p>Device type identifier for network interface cards.</p>
+</span><span class="const-value" id="CHANGED_fields_devices_items_attributes_oneOf_i2_dtype_const">Specific value: <code>"NIC"</code></span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_attributes_oneOf_i2_trust_guest_rx_filters">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_attributes_oneOf_i2_trust_guest_rx_filters">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_attributes_oneOf_i2_trust_guest_rx_filters" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_attributes_oneOf_i2_trust_guest_rx_filters" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i2_trust_guest_rx_filters')" type="button"><span class="property-name">trust_guest_rx_filters</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_attributes_oneOf_i2_trust_guest_rx_filters" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_attributes_oneOf_i2_trust_guest_rx_filters" id="CHANGED_fields_devices_items_attributes_oneOf_i2_trust_guest_rx_filters">
+<div class="card-body pl-5">
+<h4>Trust Guest Rx Filters</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: false</span><br/>
+<span class="description"><p>Whether to trust guest OS receive filter settings for better performance.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_attributes_oneOf_i2_type">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_attributes_oneOf_i2_type">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_attributes_oneOf_i2_type" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_attributes_oneOf_i2_type" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i2_type')" type="button"><span class="property-name">type</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_attributes_oneOf_i2_type" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_attributes_oneOf_i2_type" id="CHANGED_fields_devices_items_attributes_oneOf_i2_type">
+<div class="card-body pl-5">
+<h4>Type</h4><span class="badge badge-dark value-type">Type: enum (of string)</span> <span class="badge badge-success default-value">Default: "E1000"</span><br/>
+<span class="description"><p>Network interface controller type. <code>E1000</code> for Intel compatibility, <code>VIRTIO</code> for performance.</p>
+</span><div class="enum-value" id="CHANGED_fields_devices_items_attributes_oneOf_i2_type_enum">
+<h5>Must be one of:</h5>
+<ul class="list-group"><li class="list-group-item enum-item">"E1000"</li><li class="list-group-item enum-item">"VIRTIO"</li></ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach')" type="button"><span class="property-name">nic_attach</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach" id="CHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach">
+<div class="card-body pl-5">
+<h4>Nic Attach</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>Host network interface or bridge to attach to. <code>null</code> for no attachment.</p>
+</span><div class="any-of-value" id="CHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_i0" id="CHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_i0" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_i1" id="CHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_i1" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i2_nic_attach_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_attributes_oneOf_i2_mac">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_attributes_oneOf_i2_mac">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_attributes_oneOf_i2_mac" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_attributes_oneOf_i2_mac" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i2_mac')" type="button"><span class="property-name">mac</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_attributes_oneOf_i2_mac" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_attributes_oneOf_i2_mac" id="CHANGED_fields_devices_items_attributes_oneOf_i2_mac">
+<div class="card-body pl-5">
+<h4>Mac</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>MAC address for the virtual network interface. <code>null</code> for auto-generation.</p>
+</span><div class="any-of-value" id="CHANGED_fields_devices_items_attributes_oneOf_i2_mac_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i0" id="CHANGED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i0" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i1" id="CHANGED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i1" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="pattern-value" id="CHANGED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i0_pattern">Must match regular expression: <code>^([0-9A-Fa-f]{2}[:-]?){5}([0-9A-Fa-f]{2})$</code></span>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i2_mac_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i3" role="tabpanel">
+<h4>ContainerUSBDevice</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_attributes_oneOf_i3_dtype">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_attributes_oneOf_i3_dtype">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_attributes_oneOf_i3_dtype" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_attributes_oneOf_i3_dtype" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i3_dtype')" type="button"><span class="property-name">dtype</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_attributes_oneOf_i3_dtype" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_attributes_oneOf_i3_dtype" id="CHANGED_fields_devices_items_attributes_oneOf_i3_dtype">
+<div class="card-body pl-5">
+<h4>Dtype</h4><span class="badge badge-dark value-type">Type: const</span><br/>
+<span class="description"><p>Device type identifier for USB devices.</p>
+</span><span class="const-value" id="CHANGED_fields_devices_items_attributes_oneOf_i3_dtype_const">Specific value: <code>"USB"</code></span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_attributes_oneOf_i3_usb">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_attributes_oneOf_i3_usb">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_attributes_oneOf_i3_usb" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_attributes_oneOf_i3_usb" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i3_usb')" type="button"><span class="property-name">usb</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_attributes_oneOf_i3_usb" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_attributes_oneOf_i3_usb" id="CHANGED_fields_devices_items_attributes_oneOf_i3_usb">
+<div class="card-body pl-5">
+<span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>USB device attributes for identification. <code>null</code> for USB host controller only.</p>
+</span><div class="any-of-value" id="CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0" id="CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0')" role="tab">USBAttributes</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i1" id="CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i1" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0" role="tabpanel">
+<h4>USBAttributes</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id')" type="button"><span class="property-name">vendor_id</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id" id="CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id">
+<div class="card-body pl-5">
+<h4>Vendor Id</h4><span class="badge badge-dark value-type">Type: string</span> <span class="badge badge-success default-value">Default: "/usr/bin/zsh"</span><br/>
+<span class="description"><p>USB vendor identifier in hexadecimal format (e.g., '0x1d6b' for Linux Foundation).</p>
+</span><span class="pattern-value" id="CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id_pattern">Must match regular expression: <code>^0x.*</code></span>
+<p><span class="badge badge-light restriction min-length-restriction" id="CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_vendor_id_minLength">Must be at least <code>1</code> characters long</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id')" type="button"><span class="property-name">product_id</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id" id="CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id">
+<div class="card-body pl-5">
+<h4>Product Id</h4><span class="badge badge-dark value-type">Type: string</span> <span class="badge badge-success default-value">Default: "/usr/bin/zsh"</span><br/>
+<span class="description"><p>USB product identifier in hexadecimal format (e.g., '0x0002' for 2.0 root hub).</p>
+</span><span class="pattern-value" id="CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id_pattern">Must match regular expression: <code>^0x.*</code></span>
+<p><span class="badge badge-light restriction min-length-restriction" id="CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i0_product_id_minLength">Must be at least <code>1</code> characters long</span></p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i3_usb_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_attributes_oneOf_i3_device">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_attributes_oneOf_i3_device">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_attributes_oneOf_i3_device" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_attributes_oneOf_i3_device" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i3_device')" type="button"><span class="property-name">device</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_attributes_oneOf_i3_device" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_attributes_oneOf_i3_device" id="CHANGED_fields_devices_items_attributes_oneOf_i3_device">
+<div class="card-body pl-5">
+<h4>Device</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>Host USB device path to pass through. <code>null</code> for controller only.</p>
+</span><div class="any-of-value" id="CHANGED_fields_devices_items_attributes_oneOf_i3_device_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_devices_items_attributes_oneOf_i3_device_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i0" id="CHANGED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i0" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i1" id="CHANGED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i1" onclick="setAnchor('#CHANGED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+<p><span class="badge badge-light restriction min-length-restriction" id="CHANGED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i0_minLength">Must be at least <code>1</code> characters long</span></p>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_devices_items_attributes_oneOf_i3_device_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_devices_items_container">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_devices_items_container">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_devices_items_container" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devices_items_container" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devices_items_container')" type="button"><span class="property-name">container</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_devices_items_container" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devices_items_container" id="CHANGED_fields_devices_items_container">
+<div class="card-body pl-5">
+<h4>Container</h4><span class="badge badge-dark value-type">Type: integer</span><br/>
+<span class="description"><p>ID of the container this device belongs to.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_cpuset">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_cpuset">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_cpuset" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_cpuset" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_cpuset')" type="button"><span class="property-name">cpuset</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_cpuset" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_cpuset" id="CHANGED_fields_cpuset">
+<div class="card-body pl-5">
+<h4>Cpuset</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>List of physical CPU numbers that domain process and virtual CPUs can be pinned to by default.</p>
+</span><div class="any-of-value" id="CHANGED_fields_cpuset_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_cpuset_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_cpuset_anyOf_i0" id="CHANGED_fields_cpuset_anyOf_i0" onclick="setAnchor('#CHANGED_fields_cpuset_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_cpuset_anyOf_i1" id="CHANGED_fields_cpuset_anyOf_i1" onclick="setAnchor('#CHANGED_fields_cpuset_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_cpuset_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_cpuset_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_autostart">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_autostart">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_autostart" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_autostart" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_autostart')" type="button"><span class="property-name">autostart</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_autostart" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_autostart" id="CHANGED_fields_autostart">
+<div class="card-body pl-5">
+<h4>Autostart</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+<span class="description"><p>Automatically start the container on boot.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_time">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_time">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_time" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_time" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_time')" type="button"><span class="property-name">time</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_time" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_time" id="CHANGED_fields_time">
+<div class="card-body pl-5">
+<h4>Time</h4><span class="badge badge-dark value-type">Type: enum (of string)</span> <span class="badge badge-success default-value">Default: "LOCAL"</span><br/>
+<span class="description"><p>Whether container time should be local time or UTC time.</p>
+</span><div class="enum-value" id="CHANGED_fields_time_enum">
+<h5>Must be one of:</h5>
+<ul class="list-group"><li class="list-group-item enum-item">"LOCAL"</li><li class="list-group-item enum-item">"UTC"</li></ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_shutdown_timeout">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_shutdown_timeout">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_shutdown_timeout" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_shutdown_timeout" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_shutdown_timeout')" type="button"><span class="property-name">shutdown_timeout</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_shutdown_timeout" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_shutdown_timeout" id="CHANGED_fields_shutdown_timeout">
+<div class="card-body pl-5">
+<h4>Shutdown Timeout</h4><span class="badge badge-dark value-type">Type: integer</span> <span class="badge badge-success default-value">Default: 90</span><br/>
+<span class="description"><p>How many seconds to wait for container to shut down before killing it.</p>
+</span>
+<p><span class="badge badge-light restriction numeric-restriction" id="CHANGED_fields_shutdown_timeout_number">Value must be greater or equal to <code>5</code> and lesser or equal to <code>300</code></span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_dataset">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_dataset">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_dataset" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_dataset" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_dataset')" type="button"><span class="property-name">dataset</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_dataset" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_dataset" id="CHANGED_fields_dataset">
+<div class="card-body pl-5">
+<h4>Dataset</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="description"><p>Which dataset to use as the container root filesystem.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_init">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_init">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_init" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_init" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_init')" type="button"><span class="property-name">init</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_init" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_init" id="CHANGED_fields_init">
+<div class="card-body pl-5">
+<h4>Init</h4><span class="badge badge-dark value-type">Type: string</span> <span class="badge badge-success default-value">Default: "/sbin/init"</span><br/>
+<span class="description"><p>"init" process commandline.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_initdir">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_initdir">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_initdir" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_initdir" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_initdir')" type="button"><span class="property-name">initdir</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_initdir" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_initdir" id="CHANGED_fields_initdir">
+<div class="card-body pl-5">
+<h4>Initdir</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>"init" process working dir.</p>
+</span><div class="any-of-value" id="CHANGED_fields_initdir_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_initdir_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_initdir_anyOf_i0" id="CHANGED_fields_initdir_anyOf_i0" onclick="setAnchor('#CHANGED_fields_initdir_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_initdir_anyOf_i1" id="CHANGED_fields_initdir_anyOf_i1" onclick="setAnchor('#CHANGED_fields_initdir_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_initdir_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_initdir_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_initenv">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_initenv">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_initenv" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_initenv" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_initenv')" type="button"><span class="property-name">initenv</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_initenv" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_initenv" id="CHANGED_fields_initenv">
+<div class="card-body pl-5">
+<h4>Initenv</h4><span class="badge badge-dark value-type">Type: object</span> <span class="badge badge-success default-value">Default: {}</span><br/>
+<span class="description"><p>"init" process environment variables.</p>
+</span>
+<div class="accordion" id="accordionCHANGED_fields_initenv_additionalProperties">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_initenv_additionalProperties">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_initenv_additionalProperties" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_initenv_additionalProperties" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_initenv_additionalProperties')" type="button"><em><span class="property-name">Additional Properties</span></em></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_initenv_additionalProperties" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_initenv_additionalProperties" id="CHANGED_fields_initenv_additionalProperties">
+<div class="card-body pl-5"><p class="additional-properties">Each additional property must conform to the following schema</p>
+<span class="badge badge-dark value-type">Type: string</span><br/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_inituser">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_inituser">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_inituser" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_inituser" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_inituser')" type="button"><span class="property-name">inituser</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_inituser" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_inituser" id="CHANGED_fields_inituser">
+<div class="card-body pl-5">
+<h4>Inituser</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>"init" process username.</p>
+</span><div class="any-of-value" id="CHANGED_fields_inituser_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_inituser_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_inituser_anyOf_i0" id="CHANGED_fields_inituser_anyOf_i0" onclick="setAnchor('#CHANGED_fields_inituser_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_inituser_anyOf_i1" id="CHANGED_fields_inituser_anyOf_i1" onclick="setAnchor('#CHANGED_fields_inituser_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_inituser_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_inituser_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_initgroup">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_initgroup">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_initgroup" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_initgroup" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_initgroup')" type="button"><span class="property-name">initgroup</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_initgroup" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_initgroup" id="CHANGED_fields_initgroup">
+<div class="card-body pl-5">
+<h4>Initgroup</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>"init" process group.</p>
+</span><div class="any-of-value" id="CHANGED_fields_initgroup_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_initgroup_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_initgroup_anyOf_i0" id="CHANGED_fields_initgroup_anyOf_i0" onclick="setAnchor('#CHANGED_fields_initgroup_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_initgroup_anyOf_i1" id="CHANGED_fields_initgroup_anyOf_i1" onclick="setAnchor('#CHANGED_fields_initgroup_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_initgroup_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_initgroup_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_idmap">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_idmap">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_idmap" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_idmap" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_idmap')" type="button"><span class="property-name">idmap</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_idmap" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_idmap" id="CHANGED_fields_idmap">
+<div class="card-body pl-5">
+<h4>Idmap</h4> <span class="badge badge-success default-value">Default: {"type": "DEFAULT"}</span><br/>
+<span class="description"><p>Idmap configuration for the container        There are three two possible values:        DEFAULT: This applies the standard TrueNAS idmap namespace configuration.    It changes user ID (UID) 0 (root) in the container to UID 2147000001 (truenas<em>container</em>unpriv_root).    It offsets the other container UIDs by the same amount.    For example, UID 1000 in the container becomes UID 2147001001 in the host.        ISOLATED: Same as <code>DEFAULT</code>, but UID will be calculated as <code>2147000001 + 65536 * slice</code>.    This will ensure unique ID for each container (provided that the <code>slice</code> is also unique).<br/>
+None: The container does not apply any idmap namespace.    Container UIDs map directly to host UIDs.    For example, UID 0 in the container is UID 0 in the host.        WARNING: For security, use the DEFAULT value. Security best practice is to run containers with idmap namespaces.</p>
+</span><div class="any-of-value" id="CHANGED_fields_idmap_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_idmap_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_idmap_anyOf_i0" id="CHANGED_fields_idmap_anyOf_i0" onclick="setAnchor('#CHANGED_fields_idmap_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_idmap_anyOf_i1" id="CHANGED_fields_idmap_anyOf_i1" onclick="setAnchor('#CHANGED_fields_idmap_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_idmap_anyOf_i0" role="tabpanel">
+<br/>
+<div class="one-of-value" id="CHANGED_fields_idmap_anyOf_i0_oneOf"><h2 class="handle">
+<label>One of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_idmap_anyOf_i0_oneOf_oneOf" role="tablist"><li class="nav-item">
+<a class="nav-link active oneOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_idmap_anyOf_i0_oneOf_i0" id="CHANGED_fields_idmap_anyOf_i0_oneOf_i0" onclick="setAnchor('#CHANGED_fields_idmap_anyOf_i0_oneOf_i0')" role="tab">DefaultIdmapConfiguration</a>
+</li><li class="nav-item">
+<a class="nav-link oneOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_idmap_anyOf_i0_oneOf_i1" id="CHANGED_fields_idmap_anyOf_i0_oneOf_i1" onclick="setAnchor('#CHANGED_fields_idmap_anyOf_i0_oneOf_i1')" role="tab">IsolatedIdmapConfiguration</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_idmap_anyOf_i0_oneOf_i0" role="tabpanel">
+<h4>DefaultIdmapConfiguration</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_fields_idmap_anyOf_i0_oneOf_i0_type">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_idmap_anyOf_i0_oneOf_i0_type">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_idmap_anyOf_i0_oneOf_i0_type" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_idmap_anyOf_i0_oneOf_i0_type" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_idmap_anyOf_i0_oneOf_i0_type')" type="button"><span class="property-name">type</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_idmap_anyOf_i0_oneOf_i0_type" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_idmap_anyOf_i0_oneOf_i0_type" id="CHANGED_fields_idmap_anyOf_i0_oneOf_i0_type">
+<div class="card-body pl-5">
+<h4>Type</h4><span class="badge badge-dark value-type">Type: const</span><br/>
+<span class="description"><p>Configuration type for default ID mapping.</p>
+</span><span class="const-value" id="CHANGED_fields_idmap_anyOf_i0_oneOf_i0_type_const">Specific value: <code>"DEFAULT"</code></span>
+</div>
+</div>
+</div>
+</div>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_idmap_anyOf_i0_oneOf_i1" role="tabpanel">
+<h4>IsolatedIdmapConfiguration</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_fields_idmap_anyOf_i0_oneOf_i1_type">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_idmap_anyOf_i0_oneOf_i1_type">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_idmap_anyOf_i0_oneOf_i1_type" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_idmap_anyOf_i0_oneOf_i1_type" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_idmap_anyOf_i0_oneOf_i1_type')" type="button"><span class="property-name">type</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_idmap_anyOf_i0_oneOf_i1_type" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_idmap_anyOf_i0_oneOf_i1_type" id="CHANGED_fields_idmap_anyOf_i0_oneOf_i1_type">
+<div class="card-body pl-5">
+<h4>Type</h4><span class="badge badge-dark value-type">Type: const</span><br/>
+<span class="description"><p>Configuration type for isolated ID mapping.</p>
+</span><span class="const-value" id="CHANGED_fields_idmap_anyOf_i0_oneOf_i1_type_const">Specific value: <code>"ISOLATED"</code></span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice')" type="button"><span class="property-name">slice</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice" id="CHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice">
+<div class="card-body pl-5">
+<h4>Slice</h4><br/>
+<span class="description"><p><code>null</code> when creating means we'll look up an unused slice on backend.</p>
+</span><div class="any-of-value" id="CHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i0" id="CHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i0" onclick="setAnchor('#CHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i1" id="CHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i1" onclick="setAnchor('#CHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: integer</span><br/>
+<p><span class="badge badge-light restriction numeric-restriction" id="CHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i0_number">Value must be strictly greater than <code>0</code> and strictly lesser than <code>1000</code></span></p>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_idmap_anyOf_i0_oneOf_i1_slice_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div></div></div>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_idmap_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_capabilities_policy">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_capabilities_policy">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_capabilities_policy" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_capabilities_policy" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_capabilities_policy')" type="button"><span class="property-name">capabilities_policy</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_capabilities_policy" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_capabilities_policy" id="CHANGED_fields_capabilities_policy">
+<div class="card-body pl-5">
+<h4>Capabilities Policy</h4><span class="badge badge-dark value-type">Type: enum (of string)</span> <span class="badge badge-success default-value">Default: "DEFAULT"</span><br/>
+<span class="description"><p>Default rules for capabilities: either keep the default behavior that is dropping the following capabilities:    sys<em>module, sys</em>time, mknod, audit<em>control, mac</em>admin. Or keep all capabilities, or drop all capabilities.</p>
+</span><div class="enum-value" id="CHANGED_fields_capabilities_policy_enum">
+<h5>Must be one of:</h5>
+<ul class="list-group"><li class="list-group-item enum-item">"DEFAULT"</li><li class="list-group-item enum-item">"ALLOW"</li><li class="list-group-item enum-item">"DENY"</li></ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_capabilities_state">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_capabilities_state">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_capabilities_state" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_capabilities_state" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_capabilities_state')" type="button"><span class="property-name">capabilities_state</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_capabilities_state" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_capabilities_state" id="CHANGED_fields_capabilities_state">
+<div class="card-body pl-5">
+<h4>Capabilities State</h4><span class="badge badge-dark value-type">Type: object</span> <span class="badge badge-success default-value">Default: {}</span><br/>
+<span class="description"><p>Enable or disable specific capabilities.</p>
+</span>
+<div class="accordion" id="accordionCHANGED_fields_capabilities_state_additionalProperties">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_capabilities_state_additionalProperties">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_capabilities_state_additionalProperties" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_capabilities_state_additionalProperties" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_capabilities_state_additionalProperties')" type="button"><em><span class="property-name">Additional Properties</span></em></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_capabilities_state_additionalProperties" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_capabilities_state_additionalProperties" id="CHANGED_fields_capabilities_state_additionalProperties">
+<div class="card-body pl-5"><p class="additional-properties">Each additional property must conform to the following schema</p>
+<span class="badge badge-dark value-type">Type: boolean</span><br/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_default_network">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_default_network">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_default_network" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_default_network" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_default_network')" type="button"><span class="property-name">default_network</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_default_network" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_default_network" id="CHANGED_fields_default_network">
+<div class="card-body pl-5">
+<h4>Default Network</h4> <span class="badge badge-success default-value">Default: null</span><br/>
+<span class="description"><p>The default network bridge this container will use when no NIC devices are explicitly attached. When the    container has explicitly configured NIC devices, this is <code>null</code> because the NIC configuration is visible in    the <code>devices</code> list.</p>
+</span><div class="any-of-value" id="CHANGED_fields_default_network_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_default_network_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_default_network_anyOf_i0" id="CHANGED_fields_default_network_anyOf_i0" onclick="setAnchor('#CHANGED_fields_default_network_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_default_network_anyOf_i1" id="CHANGED_fields_default_network_anyOf_i1" onclick="setAnchor('#CHANGED_fields_default_network_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_default_network_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_default_network_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_status">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_status">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_status" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_status" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_status')" type="button"><span class="property-name">status</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_status" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_status" id="CHANGED_fields_status">
+<div class="card-body pl-5">
+<h4>ContainerStatus</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="description"><p>Container state.</p>
+</span> <span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_fields_status_state">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_status_state">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_status_state" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_status_state" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_status_state')" type="button"><span class="property-name">state</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_status_state" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_status_state" id="CHANGED_fields_status_state">
+<div class="card-body pl-5">
+<h4>State</h4><span class="badge badge-dark value-type">Type: enum (of string)</span><br/>
+<span class="description"><p>Container state.</p>
+</span><div class="enum-value" id="CHANGED_fields_status_state_enum">
+<h5>Must be one of:</h5>
+<ul class="list-group"><li class="list-group-item enum-item">"RUNNING"</li><li class="list-group-item enum-item">"STOPPED"</li></ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_status_pid">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_status_pid">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_status_pid" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_status_pid" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_status_pid')" type="button"><span class="property-name">pid</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_status_pid" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_status_pid" id="CHANGED_fields_status_pid">
+<div class="card-body pl-5">
+<h4>Pid</h4><br/>
+<span class="description"><p>Container host PID (if running). Informational only    do not rely on this value to identify the container's init process.</p>
+</span><div class="any-of-value" id="CHANGED_fields_status_pid_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_status_pid_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_status_pid_anyOf_i0" id="CHANGED_fields_status_pid_anyOf_i0" onclick="setAnchor('#CHANGED_fields_status_pid_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_status_pid_anyOf_i1" id="CHANGED_fields_status_pid_anyOf_i1" onclick="setAnchor('#CHANGED_fields_status_pid_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_status_pid_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: integer</span><br/>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_status_pid_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_fields_status_domain_state">
+<div class="card">
+<div class="card-header" id="headingCHANGED_fields_status_domain_state">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_fields_status_domain_state" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_status_domain_state" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_status_domain_state')" type="button"><span class="property-name">domain_state</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_fields_status_domain_state" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_status_domain_state" id="CHANGED_fields_status_domain_state">
+<div class="card-body pl-5">
+<h4>Domain State</h4><br/>
+<span class="description"><p>Domain state reported by libvirt.</p>
+</span><div class="any-of-value" id="CHANGED_fields_status_domain_state_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_status_domain_state_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_status_domain_state_anyOf_i0" id="CHANGED_fields_status_domain_state_anyOf_i0" onclick="setAnchor('#CHANGED_fields_status_domain_state_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_status_domain_state_anyOf_i1" id="CHANGED_fields_status_domain_state_anyOf_i1" onclick="setAnchor('#CHANGED_fields_status_domain_state_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_status_domain_state_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+<p><span class="badge badge-light restriction min-length-restriction" id="CHANGED_fields_status_domain_state_anyOf_i0_minLength">Must be at least <code>1</code> characters long</span></p>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_status_domain_state_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionREMOVED">
+<div class="card">
+<div class="card-header" id="headingREMOVED">
+<h2 class="mb-0">
+<button aria-controls="REMOVED" aria-expanded="" class="btn btn-link property-name-button" data-target="#REMOVED" data-toggle="collapse" onclick="setAnchor('#REMOVED')" type="button"><span class="property-name">REMOVED</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingREMOVED" class="collapse property-definition-div" data-parent="#accordionREMOVED" id="REMOVED">
+<div class="card-body pl-5">
+<h4>ContainerRemovedEvent</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionREMOVED_id">
+<div class="card">
+<div class="card-header" id="headingREMOVED_id">
+<h2 class="mb-0">
+<button aria-controls="REMOVED_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#REMOVED_id" data-toggle="collapse" onclick="setAnchor('#REMOVED_id')" type="button"><span class="property-name">id</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingREMOVED_id" class="collapse property-definition-div" data-parent="#accordionREMOVED_id" id="REMOVED_id">
+<div class="card-body pl-5">
+<h4>Id</h4><span class="badge badge-dark value-type">Type: integer</span><br/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><br><br><p><em>Required roles:</em> CONTAINER_READ</p>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="clearer"></div>
+      </div>
+    </div>
+<footer class="footer d-flex justify-content-between flex-wrap">
+    <div class="copyright">
+        <div>&copy; Copyright  2026, iXsystems, Inc. dba TrueNAS.</div>
+    </div>
+    <div>
+        <a href="#" class="btn btn-primary btn-sm" role="botton">Back to top</a>
+    </div>
+</footer>
+  </body>
+</html>

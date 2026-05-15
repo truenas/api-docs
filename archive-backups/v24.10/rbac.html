@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Role-Based Access Control &#8212; TrueNAS API v24.10  documentation</title>
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=649a27d8" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=5c69cfe2" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css?v=1fc06b6a" />
+    <link rel="stylesheet" href="_static/bootstrap-4.3.1-dist/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxbootstrap4.css" type="text/css" />
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/language_data.js?v=8b189327"></script>
+    <script src="_static/script.js?v=2c76d6a4"></script>
+    <script src="_static/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="_static/sphinxbootstrap4.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Query Methods" href="query_methods.html" /> 
+  </head><body>
+  <nav class="navbar navbar-expand-md  full navbar-dark bg-dark flex-wrap">
+    <button class="navbar-toggler ml-auto py-2" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+      &#9776;
+    </button>
+      <div class="navbar-collapse collapse" id="exCollapsingNavbar2">
+           <a class="navbar-brand py-1" href="index.html">
+                  TrueNAS API v24.10
+          </a>
+          <form class="form-inline"><select class="form-control" onchange="navigateToVersion(this.value);"><option value="v27.0.0" >v27.0.0 (current)</option><option value="v26.0.0" >v26.0.0</option><option value="v25.10.2" >v25.10.2</option><option value="v25.10.1" >v25.10.1</option><option value="v25.10.0" >v25.10.0</option><option value="v25.04.2" >v25.04.2</option><option value="v25.04.1" >v25.04.1</option><option value="v25.04.0" >v25.04.0</option><option value="v24.10" selected>v24.10</option></select></form><ul class="navbar-nav mr-auto">
+          
+          </ul>
+          <div class="dropdown-divider d-block d-sm-none mb-4"></div>
+             
+<form class="form-inline" action="search.html" method="get">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+      </div>
+
+      <!--<div class="row hidden-sm-up">
+          <div class="collapse navbar-toggleable-xs container" id="exCollapsingNavbar2">
+              <div class="container">
+             　　 <a class="navbar-brand" href="index.html">
+                      TrueNAS API v24.10
+                  </a>
+              </div>
+              <ul class="nav navbar-nav">
+              </ul>
+              <div class="dropdown-divider"></div>
+              <div class="navbar-text">search<div>
+              
+<form class="form-inline" action="search.html" method="get">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          </div>
+      </div>-->
+    </nav>
+  </div>
+
+    <div class="related d-flex justify-content-between bg-light flex-wrap" role="navigation" aria-label="related navigation">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">TrueNAS API v24.10  documentation</a></li>
+            <li class="breadcrumb-item active">Role-Based Access Control</li>
+        </ol>
+       <div>
+          <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+               <a href="query_methods.html" title="Previous Chapter: Query Methods" class="btn btn-primary" role="botton" accesskey="P">
+                   &laquo; Query Methods
+               </a>
+           </div>
+       </div>
+    </div>
+
+  <div class="main container-fluid">
+    <div class="row"> 
+      <div class="sphinxsidebar d-none d-md-block">
+        <div class="sphinxsidebarwrapper">          
+            <h4>Table Of Contents</h4>
+            
+            
+              <div class="sidebartoctree">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="jsonrpc.html">JSON-RPC 2.0 over WebSocket API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jsonrpc.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jsonrpc.html#json-rpc-2-0-protocol">JSON-RPC 2.0 Protocol</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#communication-mechanism">Communication Mechanism</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jsonrpc.html#request-and-response-format">Request and Response Format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#json-rpc-request-structure">JSON-RPC Request Structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jsonrpc.html#example-request">Example Request:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#json-rpc-response-structure">JSON-RPC Response Structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jsonrpc.html#example-response">Example Response:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#error-response">Error Response</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jsonrpc.html#custom-error-codes">Custom Error Codes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jsonrpc.html#event-notifications">Event Notifications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#json-rpc-notification-structure">JSON-RPC Notification Structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jsonrpc.html#example-notification">Example Notification:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#important-notes-on-notifications">Important Notes on Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jsonrpc.html#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_methods.html">API Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_methods_cloudsync.credentials.html">cloudsync.credentials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_methods_cloudsync.credentials.create.html">cloudsync.credentials.create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_methods_cloudsync.credentials.delete.html">cloudsync.credentials.delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_methods_cloudsync.credentials.get_instance.html">cloudsync.credentials.get_instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_methods_cloudsync.credentials.update.html">cloudsync.credentials.update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_methods_cloudsync.credentials.verify.html">cloudsync.credentials.verify</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_events.html">API Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_events_acme.dns.authenticator.html">acme.dns.authenticator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_acme.dns.authenticator.query.html">acme.dns.authenticator.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_alert.html">alert</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_alert.list.html">alert.list</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_alertservice.html">alertservice</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_alertservice.query.html">alertservice.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_api_key.html">api_key</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_api_key.query.html">api_key.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_app.html">app</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_app.container_log_follow.html">app.container_log_follow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_app.query.html">app.query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_app.stats.html">app.stats</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_auth.html">auth</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_auth.sessions.html">auth.sessions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_certificate.html">certificate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_certificate.query.html">certificate.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_cloud_backup.html">cloud_backup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_cloud_backup.query.html">cloud_backup.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_cloudsync.html">cloudsync</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_cloudsync.query.html">cloudsync.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_cloudsync.credentials.html">cloudsync.credentials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_cloudsync.credentials.query.html">cloudsync.credentials.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_container.html">container</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_container.metrics.html">container.metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_container.query.html">container.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_container.device.html">container.device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_container.device.query.html">container.device.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_core.html">core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_core.get_jobs.html">core.get_jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_cronjob.html">cronjob</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_cronjob.query.html">cronjob.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_directoryservices.html">directoryservices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_directoryservices.status.html">directoryservices.status</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_disk.html">disk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_disk.query.html">disk.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_docker.html">docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_docker.events.html">docker.events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_docker.state.html">docker.state</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_docker.network.html">docker.network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_docker.network.query.html">docker.network.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_failover.html">failover</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_failover.status.html">failover.status</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_failover.disabled.html">failover.disabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_failover.disabled.reasons.html">failover.disabled.reasons</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_failover.reboot.html">failover.reboot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_failover.reboot.info.html">failover.reboot.info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_fc.fc_host.html">fc.fc_host</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_fc.fc_host.query.html">fc.fc_host.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_fcport.html">fcport</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_fcport.query.html">fcport.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_filesystem.html">filesystem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_filesystem.file_tail_follow.html">filesystem.file_tail_follow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_filesystem.acltemplate.html">filesystem.acltemplate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_filesystem.acltemplate.query.html">filesystem.acltemplate.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_group.html">group</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_group.query.html">group.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_initshutdownscript.html">initshutdownscript</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_initshutdownscript.query.html">initshutdownscript.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_interface.html">interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_interface.query.html">interface.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.auth.html">iscsi.auth</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.auth.query.html">iscsi.auth.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.extent.html">iscsi.extent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.extent.query.html">iscsi.extent.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.initiator.html">iscsi.initiator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.initiator.query.html">iscsi.initiator.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.portal.html">iscsi.portal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.portal.query.html">iscsi.portal.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.target.html">iscsi.target</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.target.query.html">iscsi.target.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.targetextent.html">iscsi.targetextent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.targetextent.query.html">iscsi.targetextent.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_jbof.html">jbof</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_jbof.query.html">jbof.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_kerberos.keytab.html">kerberos.keytab</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_kerberos.keytab.query.html">kerberos.keytab.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_kerberos.realm.html">kerberos.realm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_kerberos.realm.query.html">kerberos.realm.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_keychaincredential.html">keychaincredential</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_keychaincredential.query.html">keychaincredential.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.host.html">nvmet.host</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.host.query.html">nvmet.host.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.host_subsys.html">nvmet.host_subsys</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.host_subsys.query.html">nvmet.host_subsys.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.namespace.html">nvmet.namespace</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.namespace.query.html">nvmet.namespace.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.port.html">nvmet.port</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.port.query.html">nvmet.port.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.port_subsys.html">nvmet.port_subsys</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.port_subsys.query.html">nvmet.port_subsys.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.subsys.html">nvmet.subsys</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.subsys.query.html">nvmet.subsys.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_pool.html">pool</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.query.html">pool.query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.scan.html">pool.scan</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_pool.dataset.html">pool.dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.dataset.query.html">pool.dataset.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_pool.scrub.html">pool.scrub</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.scrub.query.html">pool.scrub.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_pool.snapshot.html">pool.snapshot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.snapshot.query.html">pool.snapshot.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_pool.snapshottask.html">pool.snapshottask</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.snapshottask.query.html">pool.snapshottask.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_privilege.html">privilege</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_privilege.query.html">privilege.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_replication.html">replication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_replication.query.html">replication.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_reporting.html">reporting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_reporting.realtime.html">reporting.realtime</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_reporting.exporters.html">reporting.exporters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_reporting.exporters.query.html">reporting.exporters.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_rsynctask.html">rsynctask</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_rsynctask.query.html">rsynctask.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_service.html">service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_service.query.html">service.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_sharing.nfs.html">sharing.nfs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_sharing.nfs.query.html">sharing.nfs.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_sharing.smb.html">sharing.smb</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_sharing.smb.query.html">sharing.smb.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_sharing.webshare.html">sharing.webshare</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_sharing.webshare.query.html">sharing.webshare.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_staticroute.html">staticroute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_staticroute.query.html">staticroute.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_system.html">system</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_system.ready.html">system.ready</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_system.reboot.html">system.reboot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_events_system.reboot.info.html">system.reboot.info</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_system.shutdown.html">system.shutdown</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_system.ntpserver.html">system.ntpserver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_system.ntpserver.query.html">system.ntpserver.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_system.reboot.html">system.reboot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_system.reboot.info.html">system.reboot.info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_tn_connect.html">tn_connect</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_tn_connect.config.html">tn_connect.config</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_truecommand.html">truecommand</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_truecommand.config.html">truecommand.config</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_tunable.html">tunable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_tunable.query.html">tunable.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_update.html">update</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_update.status.html">update.status</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_user.html">user</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_user.query.html">user.query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_user.web_ui_login_disabled.html">user.web_ui_login_disabled</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_vm.html">vm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_vm.query.html">vm.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_vm.device.html">vm.device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_vm.device.query.html">vm.device.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_vmware.html">vmware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_vmware.query.html">vmware.query</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jobs.html">Jobs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html#example-of-calling-a-job-method">Example of Calling a Job Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html#query-job-status">Query Job Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html#uploading-downloading-files">Uploading / Downloading Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jobs.html#downloading-a-file">Downloading a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jobs.html#uploading-a-file">Uploading a File</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="query_methods.html">Query Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="query_methods.html#query-filters">Query Filters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#multiple-filters">Multiple Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#connectives">Connectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#datetime-information">Datetime information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="query_methods.html#query-options">Query Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#count">Count</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#limit">Limit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#offset">Offset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#select">Select</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#order-by">Order By</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="query_methods.html#sql-statements-translated-into-filters-and-options">SQL Statements Translated Into Filters and Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#example-1">Example 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#example-2">Example 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#example-3">Example 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#example-4">Example 4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Role-Based Access Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#role-concepts">Role Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#individual-roles-builtin-true">Individual roles (<code class="docutils literal notranslate"><span class="pre">builtin=true</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#predefined-group-roles-builtin-false">Predefined group roles (<code class="docutils literal notranslate"><span class="pre">builtin=false</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#role-inclusion">Role inclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#predefined-group-roles">Predefined Group Roles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#full-admin">FULL_ADMIN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#readonly-admin">READONLY_ADMIN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sharing-admin">SHARING_ADMIN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#replication-admin">REPLICATION_ADMIN</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#individual-roles-reference">Individual Roles Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gpos-stig-mode">GPOS STIG Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-privileges">Managing Privileges</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            
+          
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="query_methods.html"
+                          title="previous chapter">Query Methods</a></p>
+  </div>
+<div id="searchbox" style="display: none">
+    <form class="form search" action="search.html" method="get">
+      <input type="text" name="q" class="form-control" placeholder="Search..." />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <ul class="this-page-menu list-unstyled text-right">
+    <li><a href="_sources/rbac.rst.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+        </div>
+      </div> 
+
+      <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper" role="main">
+          <div class="body">
+            
+  <section id="role-based-access-control">
+<h1>Role-Based Access Control<a class="headerlink" href="#role-based-access-control" title="Link to this heading">¶</a></h1>
+<p>TrueNAS uses a role-based access control (RBAC) system to restrict which API
+methods a session may call.  Roles are grouped into <em>privileges</em>, and privileges
+are linked to local or directory-service groups.  When a user authenticates, the
+TrueNAS resolves that user’s group memberships to a set of active roles, which
+are then checked against every API call the user makes.</p>
+<p>Privilege management is performed via the <code class="docutils literal notranslate"><span class="pre">privilege.*</span></code> API namespace
+(<code class="docutils literal notranslate"><span class="pre">privilege.create</span></code>, <code class="docutils literal notranslate"><span class="pre">privilege.update</span></code>, <code class="docutils literal notranslate"><span class="pre">privilege.delete</span></code>,
+<code class="docutils literal notranslate"><span class="pre">privilege.query</span></code>).</p>
+<section id="role-concepts">
+<h2>Role Concepts<a class="headerlink" href="#role-concepts" title="Link to this heading">¶</a></h2>
+<section id="individual-roles-builtin-true">
+<h3>Individual roles (<code class="docutils literal notranslate"><span class="pre">builtin=true</span></code>)<a class="headerlink" href="#individual-roles-builtin-true" title="Link to this heading">¶</a></h3>
+<p>Individual roles are fine-grained roles attached directly to individual API
+methods.  Examples: <code class="docutils literal notranslate"><span class="pre">DISK_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SHARING_SMB_WRITE</span></code>, <code class="docutils literal notranslate"><span class="pre">ACCOUNT_READ</span></code>.
+They are provided to allow selective expansion of access beyond what the
+predefined group roles cover.  Custom privileges can combine any set of these
+roles to grant precisely the access required for a given use case.</p>
+</section>
+<section id="predefined-group-roles-builtin-false">
+<h3>Predefined group roles (<code class="docutils literal notranslate"><span class="pre">builtin=false</span></code>)<a class="headerlink" href="#predefined-group-roles-builtin-false" title="Link to this heading">¶</a></h3>
+<p>Predefined group roles are the four top-level roles surfaced in the UI and API
+for privilege assignment:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FULL_ADMIN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">READONLY_ADMIN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SHARING_ADMIN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REPLICATION_ADMIN</span></code></p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">READONLY_ADMIN</span></code> is the minimum role required for UI access.  A privilege
+that grants only individual roles — without including at least
+<code class="docutils literal notranslate"><span class="pre">READONLY_ADMIN</span></code> — will not be sufficient to log in to the web interface.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">privilege.roles</span></code> (filter <code class="docutils literal notranslate"><span class="pre">builtin=false</span></code>) to retrieve the current list
+of predefined group roles at runtime.</p>
+</section>
+<section id="role-inclusion">
+<h3>Role inclusion<a class="headerlink" href="#role-inclusion" title="Link to this heading">¶</a></h3>
+<p>Roles can declare that they <em>include</em> other roles.  Inclusion is expanded
+transitively, so a user assigned <code class="docutils literal notranslate"><span class="pre">SHARING_ADMIN</span></code> automatically gains all of
+the individual roles that <code class="docutils literal notranslate"><span class="pre">READONLY_ADMIN</span></code> expands into, plus the additional
+write roles specific to sharing.</p>
+<p>As a general convention, write roles include their corresponding read role.
+For example, <code class="docutils literal notranslate"><span class="pre">ACCOUNT_WRITE</span></code> includes <code class="docutils literal notranslate"><span class="pre">ACCOUNT_READ</span></code>, so granting write
+access to a subsystem always implies read access to that same subsystem.</p>
+<p>Roles are additive and cannot be scoped down.  There is no way to grant a
+role while simultaneously excluding a subset of what it includes — for
+example, it is not possible to assign <code class="docutils literal notranslate"><span class="pre">FULL_ADMIN</span></code> while blocking
+<code class="docutils literal notranslate"><span class="pre">ACCOUNT_WRITE</span></code>.  If finer-grained control is required, build a custom
+privilege from individual roles rather than starting from a broad predefined
+group role.</p>
+</section>
+</section>
+<section id="predefined-group-roles">
+<h2>Predefined Group Roles<a class="headerlink" href="#predefined-group-roles" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Role</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Notable included roles</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">FULL_ADMIN</span></code></p></td>
+<td><p>Unrestricted access to all API methods</p></td>
+<td><p>All roles</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">READONLY_ADMIN</span></code></p></td>
+<td><p>Read-only access across all subsystems</p></td>
+<td><p>All <code class="docutils literal notranslate"><span class="pre">*_READ</span></code> individual roles</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SHARING_ADMIN</span></code></p></td>
+<td><p>Manage datasets and all file-sharing protocols</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">READONLY_ADMIN</span></code> + <code class="docutils literal notranslate"><span class="pre">DATASET_WRITE</span></code> + <code class="docutils literal notranslate"><span class="pre">SHARING_WRITE</span></code> +
+<code class="docutils literal notranslate"><span class="pre">FILESYSTEM_ATTRS_WRITE</span></code> + <code class="docutils literal notranslate"><span class="pre">SERVICE_READ</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">REPLICATION_ADMIN</span></code></p></td>
+<td><p>Manage replication, snapshots, and keychain credentials</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">KEYCHAIN_CREDENTIAL_WRITE</span></code> + <code class="docutils literal notranslate"><span class="pre">REPLICATION_TASK_CONFIG_WRITE</span></code> +
+<code class="docutils literal notranslate"><span class="pre">REPLICATION_TASK_WRITE</span></code> + <code class="docutils literal notranslate"><span class="pre">SNAPSHOT_TASK_WRITE</span></code> + <code class="docutils literal notranslate"><span class="pre">SNAPSHOT_WRITE</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<section id="full-admin">
+<h3>FULL_ADMIN<a class="headerlink" href="#full-admin" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">FULL_ADMIN</span></code> grants unrestricted access to every API method.  It cannot be
+scoped down — a session holding this role may call any method regardless of
+what other roles are present or absent.</p>
+<p>The local <code class="docutils literal notranslate"><span class="pre">root</span></code> and <code class="docutils literal notranslate"><span class="pre">truenas_admin</span></code> accounts implicitly hold this privilege.</p>
+<p>Under GPOS STIG mode, any method not covered by a role becomes unreachable
+for <em>all</em> users.</p>
+</section>
+<section id="readonly-admin">
+<h3>READONLY_ADMIN<a class="headerlink" href="#readonly-admin" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">READONLY_ADMIN</span></code> expands into every <code class="docutils literal notranslate"><span class="pre">*_READ</span></code> individual role defined in the
+system.  A session with this role can call any <code class="docutils literal notranslate"><span class="pre">*.query</span></code> or
+<code class="docutils literal notranslate"><span class="pre">*.get_instance</span></code> endpoint and any other read-only method, but cannot create,
+update, or delete any resource or change any configuration.</p>
+<p>This role corresponds to the built-in <code class="docutils literal notranslate"><span class="pre">READONLY_ADMINISTRATOR</span></code> privilege.</p>
+<p>GPOS STIG has no effect on this role — all <code class="docutils literal notranslate"><span class="pre">*_READ</span></code> individual roles are
+GPOS-available.</p>
+</section>
+<section id="sharing-admin">
+<h3>SHARING_ADMIN<a class="headerlink" href="#sharing-admin" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">SHARING_ADMIN</span></code> is a superset of <code class="docutils literal notranslate"><span class="pre">READONLY_ADMIN</span></code> with additional write
+access scoped to storage and sharing:</p>
+<ul class="simple">
+<li><p>Create, update, and delete ZFS datasets</p></li>
+<li><p>Manage all file-sharing protocols: SMB, NFS, iSCSI, NVMe-oF, FTP, WebShare</p></li>
+<li><p>Modify filesystem ACLs and other filesystem attributes</p></li>
+<li><p>Read service status (but not change service settings)</p></li>
+</ul>
+<p>A session with <code class="docutils literal notranslate"><span class="pre">SHARING_ADMIN</span></code> <em>cannot</em> manage user accounts, system-level
+settings, network interfaces, storage pools, replication tasks, virtual
+machines, or applications.</p>
+<p>This role corresponds to the built-in <code class="docutils literal notranslate"><span class="pre">SHARING_ADMINISTRATOR</span></code> privilege.</p>
+<p>GPOS STIG has no effect on this role — all included roles are GPOS-available.</p>
+</section>
+<section id="replication-admin">
+<h3>REPLICATION_ADMIN<a class="headerlink" href="#replication-admin" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">REPLICATION_ADMIN</span></code> provides write access to the replication subsystem:</p>
+<ul class="simple">
+<li><p>Replication tasks (push and pull)</p></li>
+<li><p>Periodic snapshot tasks</p></li>
+<li><p>ZFS snapshots</p></li>
+<li><p>Keychain credentials (SSH keypairs and cloud credentials used by replication)</p></li>
+</ul>
+<p>A session with <code class="docutils literal notranslate"><span class="pre">REPLICATION_ADMIN</span></code> <em>cannot</em> manage datasets or pools
+directly, configure sharing protocols, manage user accounts, or change system
+settings.</p>
+<p>There is no built-in local group for <code class="docutils literal notranslate"><span class="pre">REPLICATION_ADMIN</span></code>; it must be
+assigned through a custom privilege entry.</p>
+<p>GPOS STIG has no effect on this role — all included roles are GPOS-available.</p>
+</section>
+</section>
+<section id="individual-roles-reference">
+<h2>Individual Roles Reference<a class="headerlink" href="#individual-roles-reference" title="Link to this heading">¶</a></h2>
+<p>The table below lists all individual roles available for use in custom
+privileges.  Roles marked <em>unavailable under STIG</em> cannot be granted to any
+session when <code class="docutils literal notranslate"><span class="pre">system.security</span></code> has <code class="docutils literal notranslate"><span class="pre">enable_gpos_stig=true</span></code>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 45.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Subsystem</p></th>
+<th class="head"><p>Roles</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Local Accounts</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ACCOUNT_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">ACCOUNT_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>API Keys</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">API_KEY_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">API_KEY_WRITE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">API_KEY_WRITE</span></code> unavailable under STIG</p></td>
+</tr>
+<tr class="row-even"><td><p>Auth Sessions</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AUTH_SESSIONS_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">AUTH_SESSIONS_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Boot Environments</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BOOT_ENV_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">BOOT_ENV_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Certificates</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CERTIFICATE_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">CERTIFICATE_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Cloud Backup</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CLOUD_BACKUP_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">CLOUD_BACKUP_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Cloud Sync</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CLOUD_SYNC_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">CLOUD_SYNC_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Containers / LXC</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CONTAINER_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">CONTAINER_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">CONTAINER_DEVICE_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">CONTAINER_DEVICE_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">CONTAINER_IMAGE_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">CONTAINER_IMAGE_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">LXC_CONFIG_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">LXC_CONFIG_WRITE</span></code></p></td>
+<td><p>All <code class="docutils literal notranslate"><span class="pre">*_WRITE</span></code> roles unavailable under STIG</p></td>
+</tr>
+<tr class="row-even"><td><p>Dataset</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">DATASET_WRITE</span></code>, <code class="docutils literal notranslate"><span class="pre">DATASET_DELETE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Directory Services</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DIRECTORY_SERVICE_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">DIRECTORY_SERVICE_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Disk</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DISK_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">DISK_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Apps / Docker</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">APPS_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">APPS_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">CATALOG_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">CATALOG_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">DOCKER_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">DOCKER_WRITE</span></code></p></td>
+<td><p>All <code class="docutils literal notranslate"><span class="pre">*_WRITE</span></code> roles unavailable under STIG</p></td>
+</tr>
+<tr class="row-even"><td><p>Enclosure / JBOF</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ENCLOSURE_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">ENCLOSURE_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">JBOF_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">JBOF_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Failover</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FAILOVER_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">FAILOVER_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Filesystem</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FILESYSTEM_ATTRS_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">FILESYSTEM_ATTRS_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">FILESYSTEM_DATA_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">FILESYSTEM_DATA_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">FILESYSTEM_FULL_CONTROL</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>IPMI</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">IPMI_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">IPMI_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Keychain Credentials</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">KEYCHAIN_CREDENTIAL_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">KEYCHAIN_CREDENTIAL_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>KMIP</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">KMIP_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">KMIP_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Mail</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MAIL_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Network</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NETWORK_GENERAL_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">NETWORK_GENERAL_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">NETWORK_INTERFACE_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">NETWORK_INTERFACE_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Pool</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">POOL_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">POOL_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">POOL_SCRUB_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">POOL_SCRUB_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Privilege</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PRIVILEGE_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">PRIVILEGE_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Replication</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">REPLICATION_TASK_CONFIG_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">REPLICATION_TASK_CONFIG_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">REPLICATION_TASK_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">REPLICATION_TASK_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">REPLICATION_TASK_WRITE_PULL</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Reporting</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">REPORTING_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">REPORTING_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Services</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SERVICE_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SERVICE_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Sharing — FTP</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SHARING_FTP_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SHARING_FTP_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Sharing — iSCSI</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_AUTH_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_AUTH_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_EXTENT_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_EXTENT_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_GLOBAL_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_GLOBAL_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_HOST_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_HOST_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_INITIATOR_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_INITIATOR_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_PORTAL_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_PORTAL_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_TARGET_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_TARGET_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_TARGETEXTENT_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SHARING_ISCSI_TARGETEXTENT_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Sharing — NFS</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SHARING_NFS_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SHARING_NFS_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Sharing — NVMe-oF</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SHARING_NVME_TARGET_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SHARING_NVME_TARGET_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Sharing — SMB</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SHARING_SMB_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SHARING_SMB_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Sharing — WebShare</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SHARING_WEBSHARE_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SHARING_WEBSHARE_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Sharing (aggregate)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SHARING_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SHARING_WRITE</span></code></p></td>
+<td><p>Each expands into all <code class="docutils literal notranslate"><span class="pre">SHARING_*_READ</span></code> / <code class="docutils literal notranslate"><span class="pre">SHARING_*_WRITE</span></code> roles</p></td>
+</tr>
+<tr class="row-even"><td><p>Snapshots</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SNAPSHOT_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SNAPSHOT_WRITE</span></code>, <code class="docutils literal notranslate"><span class="pre">SNAPSHOT_DELETE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SNAPSHOT_TASK_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SNAPSHOT_TASK_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>SSH</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SSH_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SSH_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Support</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SUPPORT_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SUPPORT_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>System Audit</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SYSTEM_AUDIT_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SYSTEM_AUDIT_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>System Settings</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SYSTEM_ADVANCED_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SYSTEM_ADVANCED_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SYSTEM_CRON_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SYSTEM_CRON_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SYSTEM_GENERAL_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SYSTEM_GENERAL_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SYSTEM_PRODUCT_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SYSTEM_PRODUCT_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SYSTEM_SECURITY_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SYSTEM_SECURITY_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SYSTEM_TUNABLE_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SYSTEM_TUNABLE_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SYSTEM_UPDATE_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">SYSTEM_UPDATE_WRITE</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>TrueCommand</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TRUECOMMAND_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">TRUECOMMAND_WRITE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TRUECOMMAND_WRITE</span></code> unavailable under STIG</p></td>
+</tr>
+<tr class="row-even"><td><p>TrueNAS Connect</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TRUENAS_CONNECT_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">TRUENAS_CONNECT_WRITE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TRUENAS_CONNECT_WRITE</span></code> unavailable under STIG</p></td>
+</tr>
+<tr class="row-odd"><td><p>Virtual Machines</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VM_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">VM_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">VM_DEVICE_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">VM_DEVICE_WRITE</span></code></p></td>
+<td><p>All <code class="docutils literal notranslate"><span class="pre">*_WRITE</span></code> roles unavailable under STIG</p></td>
+</tr>
+<tr class="row-even"><td><p>ZFS Resources (filesystems, zvols)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ZFS_RESOURCE_READ</span></code>, <code class="docutils literal notranslate"><span class="pre">ZFS_RESOURCE_WRITE</span></code>, <code class="docutils literal notranslate"><span class="pre">ZFS_RESOURCE_DELETE</span></code></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="gpos-stig-mode">
+<h2>GPOS STIG Mode<a class="headerlink" href="#gpos-stig-mode" title="Link to this heading">¶</a></h2>
+<p>When <code class="docutils literal notranslate"><span class="pre">system.security</span></code> has <code class="docutils literal notranslate"><span class="pre">enable_gpos_stig=true</span></code>, the GPOS STIG profile
+is active.  Under this profile certain write roles become <strong>unavailable</strong>,
+meaning sessions that hold only those roles lose write access to the
+corresponding subsystems.  The matching read roles remain available in all
+cases.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">stig</span></code> field in <code class="docutils literal notranslate"><span class="pre">privilege.roles</span></code> output indicates which STIG profiles
+permit a role.  A value of <code class="docutils literal notranslate"><span class="pre">null</span></code> means the role is not permitted under any
+STIG profile; a non-null value identifies the profile(s) that allow it.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Unavailable role(s)</p></th>
+<th class="head"><p>Affected area</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">API_KEY_WRITE</span></code></p></td>
+<td><p>API key management (<code class="docutils literal notranslate"><span class="pre">API_KEY_READ</span></code> still permitted)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">VM_WRITE</span></code>, <code class="docutils literal notranslate"><span class="pre">VM_DEVICE_WRITE</span></code></p></td>
+<td><p>Virtual machines</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CONTAINER_WRITE</span></code>, <code class="docutils literal notranslate"><span class="pre">CONTAINER_DEVICE_WRITE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">CONTAINER_IMAGE_WRITE</span></code>, <code class="docutils literal notranslate"><span class="pre">LXC_CONFIG_WRITE</span></code></p></td>
+<td><p>Containers and LXC</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DOCKER_WRITE</span></code></p></td>
+<td><p>Docker back-end</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">APPS_WRITE</span></code>, <code class="docutils literal notranslate"><span class="pre">CATALOG_WRITE</span></code></p></td>
+<td><p>Applications catalog</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TRUECOMMAND_WRITE</span></code></p></td>
+<td><p>TrueCommand integration</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TRUENAS_CONNECT_WRITE</span></code></p></td>
+<td><p>TrueNAS Connect cloud service</p></td>
+</tr>
+</tbody>
+</table>
+<p>For <code class="docutils literal notranslate"><span class="pre">FULL_ADMIN</span></code> specifically, see the note in the <a class="reference internal" href="#full-admin">FULL_ADMIN</a> section above.</p>
+</section>
+<section id="managing-privileges">
+<h2>Managing Privileges<a class="headerlink" href="#managing-privileges" title="Link to this heading">¶</a></h2>
+<p>Use the following API methods to manage privileges:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">privilege.create</span></code> — create a new privilege and link it to one or more
+local or directory-service groups</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">privilege.update</span></code> — modify an existing privilege (change roles or group
+membership)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">privilege.delete</span></code> — remove a custom privilege</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">privilege.query</span></code> — list all privileges, including the three built-in ones</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">privilege.roles</span></code> — list all roles; pass <code class="docutils literal notranslate"><span class="pre">[[&quot;builtin&quot;,</span> <span class="pre">&quot;=&quot;,</span> <span class="pre">false]]</span></code> as
+the filter argument to return only the predefined group roles</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">auth.me</span></code> — returns the currently authenticated session, including the full
+list of roles that have been granted to it</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Enterprise license requirement.</strong> Linking a privilege to a
+directory-service group (Active Directory or LDAP group) requires an
+Enterprise license.  On Community Edition, privileges can only be
+assigned to local Unix groups.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Secret field redaction.</strong> API responses automatically redact fields
+marked <code class="docutils literal notranslate"><span class="pre">secret</span></code> in the schema (for example, credentials and passwords)
+for any session that does not hold the <code class="docutils literal notranslate"><span class="pre">FULL_ADMIN</span></code> role.  Such fields
+are replaced with a redacted placeholder rather than being omitted, so the
+response structure remains consistent.</p>
+</div>
+</section>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="clearer"></div>
+      </div>
+    </div>
+<footer class="footer d-flex justify-content-between flex-wrap">
+    <div class="copyright">
+        <div>&copy; Copyright  2026, iXsystems, Inc. dba TrueNAS.</div>
+    </div>
+    <div>
+        <a href="#" class="btn btn-primary btn-sm" role="botton">Back to top</a>
+    </div>
+</footer>
+  </body>
+</html>

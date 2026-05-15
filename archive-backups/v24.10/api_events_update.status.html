@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>update.status &#8212; TrueNAS API v24.10  documentation</title>
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=649a27d8" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=5c69cfe2" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css?v=1fc06b6a" />
+    <link rel="stylesheet" href="_static/bootstrap-4.3.1-dist/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxbootstrap4.css" type="text/css" />
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/language_data.js?v=8b189327"></script>
+    <script src="_static/script.js?v=2c76d6a4"></script>
+    <script src="_static/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="_static/sphinxbootstrap4.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="user" href="api_events_user.html" />
+    <link rel="prev" title="update" href="api_events_update.html" /> 
+  </head><body>
+  <nav class="navbar navbar-expand-md  full navbar-dark bg-dark flex-wrap">
+    <button class="navbar-toggler ml-auto py-2" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+      &#9776;
+    </button>
+      <div class="navbar-collapse collapse" id="exCollapsingNavbar2">
+           <a class="navbar-brand py-1" href="index.html">
+                  TrueNAS API v24.10
+          </a>
+          <form class="form-inline"><select class="form-control" onchange="navigateToVersion(this.value);"><option value="v27.0.0" >v27.0.0 (current)</option><option value="v26.0.0" >v26.0.0</option><option value="v25.10.2" >v25.10.2</option><option value="v25.10.1" >v25.10.1</option><option value="v25.10.0" >v25.10.0</option><option value="v25.04.2" >v25.04.2</option><option value="v25.04.1" >v25.04.1</option><option value="v25.04.0" >v25.04.0</option><option value="v24.10" selected>v24.10</option></select></form><ul class="navbar-nav mr-auto">
+          
+          </ul>
+          <div class="dropdown-divider d-block d-sm-none mb-4"></div>
+             
+<form class="form-inline" action="search.html" method="get">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+      </div>
+
+      <!--<div class="row hidden-sm-up">
+          <div class="collapse navbar-toggleable-xs container" id="exCollapsingNavbar2">
+              <div class="container">
+             　　 <a class="navbar-brand" href="index.html">
+                      TrueNAS API v24.10
+                  </a>
+              </div>
+              <ul class="nav navbar-nav">
+              </ul>
+              <div class="dropdown-divider"></div>
+              <div class="navbar-text">search<div>
+              
+<form class="form-inline" action="search.html" method="get">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          </div>
+      </div>-->
+    </nav>
+  </div>
+
+    <div class="related d-flex justify-content-between bg-light flex-wrap" role="navigation" aria-label="related navigation">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">TrueNAS API v24.10  documentation</a></li>
+                <li class="breadcrumb-item"><a href="api_events.html"
+                       >API Events</a></li>
+                <li class="breadcrumb-item"><a href="api_events_update.html"
+                       
+                         accesskey="U"
+                         class="active"
+                       >update</a></li>
+            <li class="breadcrumb-item active">update.status</li>
+        </ol>
+       <div>
+          <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+               <a href="api_events_update.html" title="Previous Chapter: update" class="btn btn-primary" role="botton" accesskey="P">
+                   &laquo; update
+               </a>
+               <a href="api_events_user.html" title="Next Chapter: user" class="btn btn-primary" role="botton" accesskey="N">
+                   user &raquo;
+               </a>
+           </div>
+       </div>
+    </div>
+
+  <div class="main container-fluid">
+    <div class="row"> 
+      <div class="sphinxsidebar d-none d-md-block">
+        <div class="sphinxsidebarwrapper">          
+            <h4>Table Of Contents</h4>
+            
+            
+              <div class="sidebartoctree">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="jsonrpc.html">JSON-RPC 2.0 over WebSocket API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jsonrpc.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jsonrpc.html#json-rpc-2-0-protocol">JSON-RPC 2.0 Protocol</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#communication-mechanism">Communication Mechanism</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jsonrpc.html#request-and-response-format">Request and Response Format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#json-rpc-request-structure">JSON-RPC Request Structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jsonrpc.html#example-request">Example Request:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#json-rpc-response-structure">JSON-RPC Response Structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jsonrpc.html#example-response">Example Response:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#error-response">Error Response</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jsonrpc.html#custom-error-codes">Custom Error Codes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jsonrpc.html#event-notifications">Event Notifications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#json-rpc-notification-structure">JSON-RPC Notification Structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jsonrpc.html#example-notification">Example Notification:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jsonrpc.html#important-notes-on-notifications">Important Notes on Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jsonrpc.html#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_methods.html">API Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_methods_cloudsync.credentials.html">cloudsync.credentials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_methods_cloudsync.credentials.create.html">cloudsync.credentials.create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_methods_cloudsync.credentials.delete.html">cloudsync.credentials.delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_methods_cloudsync.credentials.get_instance.html">cloudsync.credentials.get_instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_methods_cloudsync.credentials.update.html">cloudsync.credentials.update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_methods_cloudsync.credentials.verify.html">cloudsync.credentials.verify</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="api_events.html">API Events</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api_events_acme.dns.authenticator.html">acme.dns.authenticator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_acme.dns.authenticator.query.html">acme.dns.authenticator.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_alert.html">alert</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_alert.list.html">alert.list</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_alertservice.html">alertservice</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_alertservice.query.html">alertservice.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_api_key.html">api_key</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_api_key.query.html">api_key.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_app.html">app</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_app.container_log_follow.html">app.container_log_follow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_app.query.html">app.query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_app.stats.html">app.stats</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_auth.html">auth</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_auth.sessions.html">auth.sessions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_certificate.html">certificate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_certificate.query.html">certificate.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_cloud_backup.html">cloud_backup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_cloud_backup.query.html">cloud_backup.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_cloudsync.html">cloudsync</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_cloudsync.query.html">cloudsync.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_cloudsync.credentials.html">cloudsync.credentials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_cloudsync.credentials.query.html">cloudsync.credentials.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_container.html">container</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_container.metrics.html">container.metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_container.query.html">container.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_container.device.html">container.device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_container.device.query.html">container.device.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_core.html">core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_core.get_jobs.html">core.get_jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_cronjob.html">cronjob</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_cronjob.query.html">cronjob.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_directoryservices.html">directoryservices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_directoryservices.status.html">directoryservices.status</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_disk.html">disk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_disk.query.html">disk.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_docker.html">docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_docker.events.html">docker.events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_docker.state.html">docker.state</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_docker.network.html">docker.network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_docker.network.query.html">docker.network.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_failover.html">failover</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_failover.status.html">failover.status</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_failover.disabled.html">failover.disabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_failover.disabled.reasons.html">failover.disabled.reasons</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_failover.reboot.html">failover.reboot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_failover.reboot.info.html">failover.reboot.info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_fc.fc_host.html">fc.fc_host</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_fc.fc_host.query.html">fc.fc_host.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_fcport.html">fcport</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_fcport.query.html">fcport.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_filesystem.html">filesystem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_filesystem.file_tail_follow.html">filesystem.file_tail_follow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_filesystem.acltemplate.html">filesystem.acltemplate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_filesystem.acltemplate.query.html">filesystem.acltemplate.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_group.html">group</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_group.query.html">group.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_initshutdownscript.html">initshutdownscript</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_initshutdownscript.query.html">initshutdownscript.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_interface.html">interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_interface.query.html">interface.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.auth.html">iscsi.auth</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.auth.query.html">iscsi.auth.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.extent.html">iscsi.extent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.extent.query.html">iscsi.extent.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.initiator.html">iscsi.initiator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.initiator.query.html">iscsi.initiator.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.portal.html">iscsi.portal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.portal.query.html">iscsi.portal.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.target.html">iscsi.target</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.target.query.html">iscsi.target.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_iscsi.targetextent.html">iscsi.targetextent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_iscsi.targetextent.query.html">iscsi.targetextent.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_jbof.html">jbof</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_jbof.query.html">jbof.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_kerberos.keytab.html">kerberos.keytab</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_kerberos.keytab.query.html">kerberos.keytab.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_kerberos.realm.html">kerberos.realm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_kerberos.realm.query.html">kerberos.realm.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_keychaincredential.html">keychaincredential</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_keychaincredential.query.html">keychaincredential.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.host.html">nvmet.host</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.host.query.html">nvmet.host.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.host_subsys.html">nvmet.host_subsys</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.host_subsys.query.html">nvmet.host_subsys.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.namespace.html">nvmet.namespace</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.namespace.query.html">nvmet.namespace.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.port.html">nvmet.port</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.port.query.html">nvmet.port.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.port_subsys.html">nvmet.port_subsys</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.port_subsys.query.html">nvmet.port_subsys.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_nvmet.subsys.html">nvmet.subsys</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_nvmet.subsys.query.html">nvmet.subsys.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_pool.html">pool</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.query.html">pool.query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.scan.html">pool.scan</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_pool.dataset.html">pool.dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.dataset.query.html">pool.dataset.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_pool.scrub.html">pool.scrub</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.scrub.query.html">pool.scrub.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_pool.snapshot.html">pool.snapshot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.snapshot.query.html">pool.snapshot.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_pool.snapshottask.html">pool.snapshottask</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_pool.snapshottask.query.html">pool.snapshottask.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_privilege.html">privilege</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_privilege.query.html">privilege.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_replication.html">replication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_replication.query.html">replication.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_reporting.html">reporting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_reporting.realtime.html">reporting.realtime</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_reporting.exporters.html">reporting.exporters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_reporting.exporters.query.html">reporting.exporters.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_rsynctask.html">rsynctask</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_rsynctask.query.html">rsynctask.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_service.html">service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_service.query.html">service.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_sharing.nfs.html">sharing.nfs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_sharing.nfs.query.html">sharing.nfs.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_sharing.smb.html">sharing.smb</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_sharing.smb.query.html">sharing.smb.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_sharing.webshare.html">sharing.webshare</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_sharing.webshare.query.html">sharing.webshare.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_staticroute.html">staticroute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_staticroute.query.html">staticroute.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_system.html">system</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_system.ready.html">system.ready</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_system.reboot.html">system.reboot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_events_system.reboot.info.html">system.reboot.info</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_system.shutdown.html">system.shutdown</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_system.ntpserver.html">system.ntpserver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_system.ntpserver.query.html">system.ntpserver.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_system.reboot.html">system.reboot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_system.reboot.info.html">system.reboot.info</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_tn_connect.html">tn_connect</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_tn_connect.config.html">tn_connect.config</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_truecommand.html">truecommand</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_truecommand.config.html">truecommand.config</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_tunable.html">tunable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_tunable.query.html">tunable.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="api_events_update.html">update</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">update.status</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_user.html">user</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_user.query.html">user.query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_events_user.web_ui_login_disabled.html">user.web_ui_login_disabled</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_vm.html">vm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_vm.query.html">vm.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_vm.device.html">vm.device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_vm.device.query.html">vm.device.query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_events_vmware.html">vmware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_events_vmware.query.html">vmware.query</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jobs.html">Jobs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html#example-of-calling-a-job-method">Example of Calling a Job Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html#query-job-status">Query Job Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html#uploading-downloading-files">Uploading / Downloading Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jobs.html#downloading-a-file">Downloading a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jobs.html#uploading-a-file">Uploading a File</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="query_methods.html">Query Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="query_methods.html#query-filters">Query Filters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#multiple-filters">Multiple Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#connectives">Connectives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#datetime-information">Datetime information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="query_methods.html#query-options">Query Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#count">Count</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#limit">Limit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#offset">Offset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#select">Select</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#order-by">Order By</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="query_methods.html#sql-statements-translated-into-filters-and-options">SQL Statements Translated Into Filters and Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#example-1">Example 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#example-2">Example 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#example-3">Example 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="query_methods.html#example-4">Example 4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rbac.html">Role-Based Access Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rbac.html#role-concepts">Role Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rbac.html#individual-roles-builtin-true">Individual roles (<code class="docutils literal notranslate"><span class="pre">builtin=true</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rbac.html#predefined-group-roles-builtin-false">Predefined group roles (<code class="docutils literal notranslate"><span class="pre">builtin=false</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rbac.html#role-inclusion">Role inclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rbac.html#predefined-group-roles">Predefined Group Roles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rbac.html#full-admin">FULL_ADMIN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rbac.html#readonly-admin">READONLY_ADMIN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rbac.html#sharing-admin">SHARING_ADMIN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rbac.html#replication-admin">REPLICATION_ADMIN</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rbac.html#individual-roles-reference">Individual Roles Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rbac.html#gpos-stig-mode">GPOS STIG Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rbac.html#managing-privileges">Managing Privileges</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            
+          
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="api_events_update.html"
+                          title="previous chapter">update</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="api_events_user.html"
+                          title="next chapter">user</a></p>
+  </div>
+<div id="searchbox" style="display: none">
+    <form class="form search" action="search.html" method="get">
+      <input type="text" name="q" class="form-control" placeholder="Search..." />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <ul class="this-page-menu list-unstyled text-right">
+    <li><a href="_sources/api_events_update.status.rst.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+        </div>
+      </div> 
+
+      <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper" role="main">
+          <div class="body">
+            
+  <section id="update-status">
+<h1>update.status<a class="headerlink" href="#update-status" title="Link to this heading">¶</a></h1>
+<p>Updated on update status changes.</p>
+<div id="json-schema">
+<span class="badge badge-dark value-type">Type: object</span><br/>
+<div class="accordion" id="accordionCHANGED">
+<div class="card">
+<div class="card-header" id="headingCHANGED">
+<h2 class="mb-0">
+<button aria-controls="CHANGED" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED" data-toggle="collapse" onclick="setAnchor('#CHANGED')" type="button"><span class="property-name">CHANGED</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED" class="collapse property-definition-div" data-parent="#accordionCHANGED" id="CHANGED">
+<div class="card-body pl-5">
+<h4>UpdateStatusChangedEvent</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_status">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status" data-toggle="collapse" onclick="setAnchor('#CHANGED_status')" type="button"><span class="property-name">status</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status" class="collapse property-definition-div" data-parent="#accordionCHANGED_status" id="CHANGED_status">
+<div class="card-body pl-5">
+<h4>UpdateStatus</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="description"><p>Updated system update status information.</p>
+</span> <span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_status_code">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_code">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_code" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_code" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_code')" type="button"><span class="property-name">code</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_code" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_code" id="CHANGED_status_code">
+<div class="card-body pl-5">
+<h4>Code</h4><span class="badge badge-dark value-type">Type: enum (of string)</span><br/>
+<span class="description"><p>Status code:<br/>
+* NORMAL - normal status, see <code>status</code> dictionary for details.<br/>
+* ERROR - an error occurred, see <code>error</code> for details.</p>
+</span><div class="enum-value" id="CHANGED_status_code_enum">
+<h5>Must be one of:</h5>
+<ul class="list-group"><li class="list-group-item enum-item">"NORMAL"</li><li class="list-group-item enum-item">"ERROR"</li></ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_status_status">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_status">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_status" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_status" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_status')" type="button"><span class="property-name">status</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_status" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_status" id="CHANGED_status_status">
+<div class="card-body pl-5">
+<br/>
+<span class="description"><p>Detailed update status information. <code>null</code> if code is ERROR.</p>
+</span><div class="any-of-value" id="CHANGED_status_status_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_status_status_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_status_status_anyOf_i0" id="CHANGED_status_status_anyOf_i0" onclick="setAnchor('#CHANGED_status_status_anyOf_i0')" role="tab">UpdateStatusStatus</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_status_status_anyOf_i1" id="CHANGED_status_status_anyOf_i1" onclick="setAnchor('#CHANGED_status_status_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_status_status_anyOf_i0" role="tabpanel">
+<h4>UpdateStatusStatus</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_status_status_anyOf_i0_current_version">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_status_anyOf_i0_current_version">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_status_anyOf_i0_current_version" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_status_anyOf_i0_current_version" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_status_anyOf_i0_current_version')" type="button"><span class="property-name">current_version</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_status_anyOf_i0_current_version" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_status_anyOf_i0_current_version" id="CHANGED_status_status_anyOf_i0_current_version">
+<div class="card-body pl-5">
+<h4>UpdateStatusCurrentVersion</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="description"><p>Currently running system version information.</p>
+</span> <span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_status_status_anyOf_i0_current_version_train">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_status_anyOf_i0_current_version_train">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_status_anyOf_i0_current_version_train" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_status_anyOf_i0_current_version_train" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_status_anyOf_i0_current_version_train')" type="button"><span class="property-name">train</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_status_anyOf_i0_current_version_train" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_status_anyOf_i0_current_version_train" id="CHANGED_status_status_anyOf_i0_current_version_train">
+<div class="card-body pl-5">
+<h4>Train</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="description"><p>Train name.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_status_status_anyOf_i0_current_version_profile">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_status_anyOf_i0_current_version_profile">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_status_anyOf_i0_current_version_profile" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_status_anyOf_i0_current_version_profile" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_status_anyOf_i0_current_version_profile')" type="button"><span class="property-name">profile</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_status_anyOf_i0_current_version_profile" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_status_anyOf_i0_current_version_profile" id="CHANGED_status_status_anyOf_i0_current_version_profile">
+<div class="card-body pl-5">
+<h4>Profile</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="description"><p>Update profile assigned for the version.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_status_status_anyOf_i0_current_version_matches_profile">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_status_anyOf_i0_current_version_matches_profile">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_status_anyOf_i0_current_version_matches_profile" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_status_anyOf_i0_current_version_matches_profile" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_status_anyOf_i0_current_version_matches_profile')" type="button"><span class="property-name">matches_profile</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_status_anyOf_i0_current_version_matches_profile" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_status_anyOf_i0_current_version_matches_profile" id="CHANGED_status_status_anyOf_i0_current_version_matches_profile">
+<div class="card-body pl-5">
+<h4>Matches Profile</h4><span class="badge badge-dark value-type">Type: boolean</span><br/>
+<span class="description"><p>Whether the system version running matches the configured update profile.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_status_status_anyOf_i0_new_version">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_status_anyOf_i0_new_version">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_status_anyOf_i0_new_version" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_status_anyOf_i0_new_version" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_status_anyOf_i0_new_version')" type="button"><span class="property-name">new_version</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_status_anyOf_i0_new_version" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_status_anyOf_i0_new_version" id="CHANGED_status_status_anyOf_i0_new_version">
+<div class="card-body pl-5">
+<br/>
+<span class="description"><p>New system version information (or <code>null</code> if no new system version is available).</p>
+</span><div class="any-of-value" id="CHANGED_status_status_anyOf_i0_new_version_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_status_status_anyOf_i0_new_version_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_status_status_anyOf_i0_new_version_anyOf_i0" id="CHANGED_status_status_anyOf_i0_new_version_anyOf_i0" onclick="setAnchor('#CHANGED_status_status_anyOf_i0_new_version_anyOf_i0')" role="tab">UpdateStatusNewVersion</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_status_status_anyOf_i0_new_version_anyOf_i1" id="CHANGED_status_status_anyOf_i0_new_version_anyOf_i1" onclick="setAnchor('#CHANGED_status_status_anyOf_i0_new_version_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_status_status_anyOf_i0_new_version_anyOf_i0" role="tabpanel">
+<h4>UpdateStatusNewVersion</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_status_status_anyOf_i0_new_version_anyOf_i0_version">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_status_anyOf_i0_new_version_anyOf_i0_version">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_version" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_version" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_version')" type="button"><span class="property-name">version</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_status_anyOf_i0_new_version_anyOf_i0_version" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_status_anyOf_i0_new_version_anyOf_i0_version" id="CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_version">
+<div class="card-body pl-5">
+<h4>Version</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="description"><p>Newly available version number.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_status_status_anyOf_i0_new_version_anyOf_i0_manifest">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_status_anyOf_i0_new_version_anyOf_i0_manifest">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_manifest" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_manifest" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_manifest')" type="button"><span class="property-name">manifest</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_status_anyOf_i0_new_version_anyOf_i0_manifest" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_status_anyOf_i0_new_version_anyOf_i0_manifest" id="CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_manifest">
+<div class="card-body pl-5">
+<h4>Manifest</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="description"><p>Object containing detailed version information and metadata.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes')" type="button"><span class="property-name">release_notes</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes" id="CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes">
+<div class="card-body pl-5">
+<h4>Release Notes</h4><br/>
+<span class="description"><p>Release notes.</p>
+</span><div class="any-of-value" id="CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_anyOf_i0" id="CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_anyOf_i0" onclick="setAnchor('#CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_anyOf_i0')" role="tab">Option 1</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_anyOf_i1" id="CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_anyOf_i1" onclick="setAnchor('#CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_anyOf_i0" role="tabpanel">
+<span class="badge badge-dark value-type">Type: string</span><br/>
+<p><span class="badge badge-light restriction max-length-restriction" id="CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_anyOf_i0_maxLength">Must be at most <code>2147483647</code> characters long</span></p>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_url">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_url">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_url" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_url" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_url')" type="button"><span class="property-name">release_notes_url</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_url" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_url" id="CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_url">
+<div class="card-body pl-5">
+<h4>Release Notes Url</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="description"><p>Release notes URL.</p>
+</span>
+<p><span class="badge badge-light restriction max-length-restriction" id="CHANGED_status_status_anyOf_i0_new_version_anyOf_i0_release_notes_url_maxLength">Must be at most <code>2147483647</code> characters long</span></p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_status_status_anyOf_i0_new_version_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_status_status_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_status_error">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_error">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_error" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_error" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_error')" type="button"><span class="property-name">error</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_error" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_error" id="CHANGED_status_error">
+<div class="card-body pl-5">
+<br/>
+<span class="description"><p>Error message if code is ERROR. <code>null</code> otherwise.</p>
+</span><div class="any-of-value" id="CHANGED_status_error_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_status_error_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_status_error_anyOf_i0" id="CHANGED_status_error_anyOf_i0" onclick="setAnchor('#CHANGED_status_error_anyOf_i0')" role="tab">UpdateStatusError</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_status_error_anyOf_i1" id="CHANGED_status_error_anyOf_i1" onclick="setAnchor('#CHANGED_status_error_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_status_error_anyOf_i0" role="tabpanel">
+<h4>UpdateStatusError</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_status_error_anyOf_i0_errname">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_error_anyOf_i0_errname">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_error_anyOf_i0_errname" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_error_anyOf_i0_errname" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_error_anyOf_i0_errname')" type="button"><span class="property-name">errname</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_error_anyOf_i0_errname" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_error_anyOf_i0_errname" id="CHANGED_status_error_anyOf_i0_errname">
+<div class="card-body pl-5">
+<h4>Errname</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="description"><p>Error code (i.e. ENONET).</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_status_error_anyOf_i0_reason">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_error_anyOf_i0_reason">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_error_anyOf_i0_reason" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_error_anyOf_i0_reason" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_error_anyOf_i0_reason')" type="button"><span class="property-name">reason</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_error_anyOf_i0_reason" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_error_anyOf_i0_reason" id="CHANGED_status_error_anyOf_i0_reason">
+<div class="card-body pl-5">
+<h4>Reason</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="description"><p>Error text.</p>
+</span>
+<p><span class="badge badge-light restriction max-length-restriction" id="CHANGED_status_error_anyOf_i0_reason_maxLength">Must be at most <code>2147483647</code> characters long</span></p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_status_error_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_status_update_download_progress">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_update_download_progress">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_update_download_progress" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_update_download_progress" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_update_download_progress')" type="button"><span class="property-name">update_download_progress</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_update_download_progress" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_update_download_progress" id="CHANGED_status_update_download_progress">
+<div class="card-body pl-5">
+<br/>
+<span class="description"><p>Current update download progress.</p>
+</span><div class="any-of-value" id="CHANGED_status_update_download_progress_anyOf"><h2 class="handle">
+<label>Any of</label>
+</h2><ul class="nav nav-tabs" id="tabsCHANGED_status_update_download_progress_anyOf_anyOf" role="tablist"><li class="nav-item">
+<a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_status_update_download_progress_anyOf_i0" id="CHANGED_status_update_download_progress_anyOf_i0" onclick="setAnchor('#CHANGED_status_update_download_progress_anyOf_i0')" role="tab">UpdateDownloadProgress</a>
+</li><li class="nav-item">
+<a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_status_update_download_progress_anyOf_i1" id="CHANGED_status_update_download_progress_anyOf_i1" onclick="setAnchor('#CHANGED_status_update_download_progress_anyOf_i1')" role="tab">Option 2</a>
+</li></ul>
+<div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_status_update_download_progress_anyOf_i0" role="tabpanel">
+<h4>UpdateDownloadProgress</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+<span class="badge badge-info no-additional">No Additional Properties</span>
+<div class="accordion" id="accordionCHANGED_status_update_download_progress_anyOf_i0_percent">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_update_download_progress_anyOf_i0_percent">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_update_download_progress_anyOf_i0_percent" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_update_download_progress_anyOf_i0_percent" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_update_download_progress_anyOf_i0_percent')" type="button"><span class="property-name">percent</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_update_download_progress_anyOf_i0_percent" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_update_download_progress_anyOf_i0_percent" id="CHANGED_status_update_download_progress_anyOf_i0_percent">
+<div class="card-body pl-5">
+<h4>Percent</h4><span class="badge badge-dark value-type">Type: number</span><br/>
+<span class="description"><p>Download completion percentage (0.0 to 100.0).</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_status_update_download_progress_anyOf_i0_description">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_update_download_progress_anyOf_i0_description">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_update_download_progress_anyOf_i0_description" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_update_download_progress_anyOf_i0_description" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_update_download_progress_anyOf_i0_description')" type="button"><span class="property-name">description</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_update_download_progress_anyOf_i0_description" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_update_download_progress_anyOf_i0_description" id="CHANGED_status_update_download_progress_anyOf_i0_description">
+<div class="card-body pl-5">
+<h4>Description</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="description"><p>Human-readable description of the current download activity.</p>
+</span>
+<p><span class="badge badge-light restriction max-length-restriction" id="CHANGED_status_update_download_progress_anyOf_i0_description_maxLength">Must be at most <code>2147483647</code> characters long</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="accordionCHANGED_status_update_download_progress_anyOf_i0_version">
+<div class="card">
+<div class="card-header" id="headingCHANGED_status_update_download_progress_anyOf_i0_version">
+<h2 class="mb-0">
+<button aria-controls="CHANGED_status_update_download_progress_anyOf_i0_version" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_status_update_download_progress_anyOf_i0_version" data-toggle="collapse" onclick="setAnchor('#CHANGED_status_update_download_progress_anyOf_i0_version')" type="button"><span class="property-name">version</span> <span class="badge badge-warning required-property">Required</span></button>
+</h2>
+</div>
+<div aria-labelledby="headingCHANGED_status_update_download_progress_anyOf_i0_version" class="collapse property-definition-div" data-parent="#accordionCHANGED_status_update_download_progress_anyOf_i0_version" id="CHANGED_status_update_download_progress_anyOf_i0_version">
+<div class="card-body pl-5">
+<h4>Version</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+<span class="description"><p>Version number being downloaded.</p>
+</span>
+</div>
+</div>
+</div>
+</div>
+</div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_status_update_download_progress_anyOf_i1" role="tabpanel">
+<span class="badge badge-dark value-type">Type: null</span><br/>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><br><br><p><em>Required roles:</em> SYSTEM_UPDATE_READ</p>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="clearer"></div>
+      </div>
+    </div>
+<footer class="footer d-flex justify-content-between flex-wrap">
+    <div class="copyright">
+        <div>&copy; Copyright  2026, iXsystems, Inc. dba TrueNAS.</div>
+    </div>
+    <div>
+        <a href="#" class="btn btn-primary btn-sm" role="botton">Back to top</a>
+    </div>
+</footer>
+  </body>
+</html>
