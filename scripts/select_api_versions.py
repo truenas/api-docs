@@ -38,14 +38,22 @@ def extract_major_version(version_string: str) -> str:
         v24.10.2.4 -> "24.10"
         v25.04.0 -> "25.04"
         v25.10.2 -> "25.10"
-        v26.04.0 -> "26.04"
+        v25.10-BETA.1 -> "25.10"
+        v26.0.0 -> "26.0"
+        v26.0.0-BETA.1 -> "26.0"
+        v26.1.0 -> "26.1"
 
     Returns major version without 'v' prefix.
     """
     # Remove 'v' prefix if present
     version = version_string.lstrip('v')
 
-    # Split by dots and take first two parts (Year.Month)
+    # Strip hyphenated pre-release suffix (BETA.1, RC.1) before splitting, so
+    # pre-release directories don't get bucketed under a bogus "X.Y-BETA" major.
+    if '-' in version:
+        version = version.split('-', 1)[0]
+
+    # Split by dots and take first two parts (Year.Month or semver Major.Minor)
     parts = version.split('.')
     if len(parts) >= 2:
         return f"{parts[0]}.{parts[1]}"
@@ -111,8 +119,8 @@ def match_release_to_directory(release_version: str, available_versions: List[st
     if not matches:
         return None
 
-    # Sort by semantic version
-    sorted_matches = sorted(matches, key=lambda v: [int(x) if x.isdigit() else x for x in v.lstrip('v').split('.')], reverse=True)
+    # Sort highest-first using the pre-release-aware comparator (see _sort_versions_desc).
+    sorted_matches = _sort_versions_desc(matches)
 
     # For exact patch-level matches, prefer the exact version
     exact_match = f"v{release_version}"
@@ -160,6 +168,43 @@ def _parse_release_date(rd):
         return datetime.date.fromisoformat(rd)
     except (ValueError, TypeError):
         return None
+
+
+def _sort_versions_desc(versions: List[str]) -> List[str]:
+    """Sort version directory names highest-first, tolerating pre-release suffixes.
+
+    Each dotted component is split into (leading-int, is-stable, trailing-str)
+    so mixed parts compare cleanly without TypeErrors AND pre-release suffixes
+    sort *below* the corresponding stable version (semver convention):
+        v25.10.3.1     -> [(25,True,""), (10,True,""), (3,True,""), (1,True,"")]
+        v25.10-BETA.1  -> [(25,True,""), (10,False,"-BETA"), (1,True,"")]
+    25.10.3.1 sorts higher than 25.10-BETA.1 because (10,True,"") > (10,False,"-BETA").
+    """
+    def key(v):
+        out = []
+        for part in v.lstrip('v').split('.'):
+            m = re.match(r'(\d+)(.*)$', part)
+            if m:
+                n = int(m.group(1))
+                suffix = m.group(2)
+                # `suffix == ''` is True for stable, False for pre-release; True
+                # sorts greater than False, so stable beats pre-release.
+                out.append((n, suffix == '', suffix))
+            else:
+                out.append((0, False, part))
+        return out
+    return sorted(versions, key=key, reverse=True)
+
+
+def _dir_major_for_lifecycle(lifecycle: str) -> str:
+    """Map a yaml lifecycle to the directory-major form `extract_major_version` returns.
+
+    YY.MM lifecycles (e.g., "25.10") match their own form. Integer lifecycles
+    (e.g., "26") map to `<lifecycle>.0` — the API directories use semver (26.0.0,
+    26.1.0, 26.0.1), so `extract_major_version("v26.0.0")` returns "26.0".
+    This mirrors the existing archived-majors bridge.
+    """
+    return lifecycle if '.' in lifecycle else f"{lifecycle}.0"
 
 
 def select_versions(release_data: Dict, available_versions: List[str]) -> Dict[str, str]:
@@ -248,15 +293,36 @@ def select_versions(release_data: Dict, available_versions: List[str]) -> Dict[s
         if not candidate:
             continue
 
-        parsed = parse_release_version(candidate.get('name', ''))
-        if not parsed:
+        lifecycle = major_version_group.get('lifecycle', '')
+        if not lifecycle:
             continue
+        dir_major = _dir_major_for_lifecycle(lifecycle)
 
-        major, full_version = parsed
-        matched_dir = match_release_to_directory(full_version, available_versions)
+        # First try an exact release-name → directory match (works for
+        # YY.MM patches like 25.10.3.1 where the yaml release name and the
+        # directory name align).
+        matched_dir = None
+        parsed = parse_release_version(candidate.get('name', ''))
+        if parsed:
+            _, full_version = parsed
+            matched_dir = match_release_to_directory(full_version, available_versions)
+
+        # No exact match — bridge from yaml lifecycle to directory major and
+        # pick the highest semver among directories belonging to this lifecycle.
+        # Covers integer-lifecycle cases (yaml "26-BETA.1" doesn't match
+        # directory "v26.0.0-BETA.1" literally, but both belong to dir_major "26.0").
+        if not matched_dir:
+            bridged = [v for v in available_versions if extract_major_version(v) == dir_major]
+            if bridged:
+                matched_dir = _sort_versions_desc(bridged)[0]
+
         if matched_dir:
-            selected[f"v{major}"] = matched_dir
-            matched_majors.add(major)
+            selected[f"v{dir_major}"] = matched_dir
+            matched_majors.add(dir_major)
+            if '.' not in lifecycle:
+                # Mirror the archived-majors bridge so the fallback loop below
+                # doesn't re-emit the lifecycle under its branding-only key.
+                matched_majors.add(lifecycle)
 
     # Handle versions not in release data (fallback to semver)
     available_by_major = {}
@@ -271,8 +337,7 @@ def select_versions(release_data: Dict, available_versions: List[str]) -> Dict[s
 
     # For each unmatched major, select highest semver
     for major, versions in available_by_major.items():
-        sorted_versions = sorted(versions, key=lambda v: [int(x) if x.isdigit() else x for x in v.lstrip('v').split('.')], reverse=True)
-        selected[f"v{major}"] = sorted_versions[0]
+        selected[f"v{major}"] = _sort_versions_desc(versions)[0]
 
     return selected
 
