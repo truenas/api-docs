@@ -2,4 +2,4 @@ module github.com/truenas/api-docs
 
 go 1.24.4
 
-require github.com/truenas/docs-shared v0.0.0-20251107151355-955ee5450aab // indirect
+require github.com/truenas/docs-shared v0.0.0-20260713160400-c3791782a908 // indirect
