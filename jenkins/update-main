@@ -14,7 +14,11 @@ pipeline {
     stage('Build') {
         steps {
             sh 'hugo mod clean'
-            sh 'hugo mod get -u'
+            // Fetch only docs-shared (main), no -u: keeps the shared module fresh without
+            // force-upgrading any other module. The geekdoc theme is local, so the only module
+            // today is docs-shared — but this is forward-safe for the eventual Docsy migration,
+            // when Docsy becomes a pinned module that must NOT be force-upgraded in CI.
+            sh 'hugo mod get github.com/truenas/docs-shared@main'
             sh 'npm install -D --save autoprefixer'
             sh 'npm install -D --save postcss-cli'
 			sh 'pip3 install -r requirements.txt --break-system-packages'
