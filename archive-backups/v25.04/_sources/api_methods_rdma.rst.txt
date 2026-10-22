@@ -1,0 +1,7 @@
+rdma
+----
+
+.. toctree::
+
+   api_methods_rdma.capable_protocols
+   api_methods_rdma.get_card_choices

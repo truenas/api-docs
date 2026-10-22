@@ -1,0 +1,6 @@
+webui.crypto
+------------
+
+.. toctree::
+
+   api_methods_webui.crypto.csr_profiles

@@ -1,0 +1,6 @@
+fc
+--
+
+.. toctree::
+
+   api_methods_fc.capable

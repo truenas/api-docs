@@ -1,0 +1,9 @@
+reporting
+---------
+
+.. toctree::
+
+   api_methods_reporting.config
+   api_methods_reporting.netdata_graph
+   api_methods_reporting.netdata_graphs
+   api_methods_reporting.update

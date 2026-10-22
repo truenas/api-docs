@@ -1,0 +1,6 @@
+container.device
+----------------
+
+.. toctree::
+
+   api_events_container.device.query

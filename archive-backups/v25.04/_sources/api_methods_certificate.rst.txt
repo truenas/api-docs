@@ -1,0 +1,8 @@
+certificate
+-----------
+
+.. toctree::
+
+   api_methods_certificate.acme_server_choices
+   api_methods_certificate.ec_curve_choices
+   api_methods_certificate.extended_key_usage_choices

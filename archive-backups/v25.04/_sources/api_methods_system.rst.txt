@@ -1,0 +1,7 @@
+system
+------
+
+.. toctree::
+
+   api_methods_system.reboot
+   api_methods_system.shutdown

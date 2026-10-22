@@ -1,0 +1,154 @@
+rdma.get_card_choices
+=====================
+
+Return an array containing details about each RDMA card. Dual cards will contain two RDMA links.
+
+.. raw:: html
+
+    <div id="json-schema">
+    <span class="badge badge-dark value-type">Type: object</span><br/>
+    <div class="accordion" id="accordionCall_parameters">
+    <div class="card">
+    <div class="card-header" id="headingCall_parameters">
+    <h2 class="mb-0">
+    <button aria-controls="Call_parameters" aria-expanded="" class="btn btn-link property-name-button" data-target="#Call_parameters" data-toggle="collapse" onclick="setAnchor('#Call_parameters')" type="button"><span class="property-name">Call parameters</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCall_parameters" class="collapse property-definition-div" data-parent="#accordionCall_parameters" id="Call_parameters">
+    <div class="card-body pl-5">
+    <span class="badge badge-dark value-type">Type: array</span><br/>
+    <span class="badge badge-info no-additional">No Additional Items</span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value" data-toggle="collapse" onclick="setAnchor('#Return_value')" type="button"><span class="property-name">Return value</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value" class="collapse property-definition-div" data-parent="#accordionReturn_value" id="Return_value">
+    <div class="card-body pl-5">
+    <h4>Result</h4><span class="badge badge-dark value-type">Type: array of object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Items</span><h5>Each item of this array must be:</h5>
+    <div class="card">
+    <div class="card-body items-definition" id="Return_value_items">
+    <h4>RdmaCardConfig</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionReturn_value_items_name">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_items_name">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_items_name" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_items_name" data-toggle="collapse" onclick="setAnchor('#Return_value_items_name')" type="button"><span class="property-name">name</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_items_name" class="collapse property-definition-div" data-parent="#accordionReturn_value_items_name" id="Return_value_items_name">
+    <div class="card-body pl-5">
+    <h4>Name</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_items_serial">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_items_serial">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_items_serial" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_items_serial" data-toggle="collapse" onclick="setAnchor('#Return_value_items_serial')" type="button"><span class="property-name">serial</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_items_serial" class="collapse property-definition-div" data-parent="#accordionReturn_value_items_serial" id="Return_value_items_serial">
+    <div class="card-body pl-5">
+    <h4>Serial</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_items_product">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_items_product">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_items_product" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_items_product" data-toggle="collapse" onclick="setAnchor('#Return_value_items_product')" type="button"><span class="property-name">product</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_items_product" class="collapse property-definition-div" data-parent="#accordionReturn_value_items_product" id="Return_value_items_product">
+    <div class="card-body pl-5">
+    <h4>Product</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_items_part_number">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_items_part_number">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_items_part_number" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_items_part_number" data-toggle="collapse" onclick="setAnchor('#Return_value_items_part_number')" type="button"><span class="property-name">part_number</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_items_part_number" class="collapse property-definition-div" data-parent="#accordionReturn_value_items_part_number" id="Return_value_items_part_number">
+    <div class="card-body pl-5">
+    <h4>Part Number</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_items_links">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_items_links">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_items_links" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_items_links" data-toggle="collapse" onclick="setAnchor('#Return_value_items_links')" type="button"><span class="property-name">links</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_items_links" class="collapse property-definition-div" data-parent="#accordionReturn_value_items_links" id="Return_value_items_links">
+    <div class="card-body pl-5">
+    <h4>Links</h4><span class="badge badge-dark value-type">Type: array of object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Items</span><h5>Each item of this array must be:</h5>
+    <div class="card">
+    <div class="card-body items-definition" id="Return_value_items_links_items">
+    <h4>RdmaLinkConfig</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionReturn_value_items_links_items_rdma">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_items_links_items_rdma">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_items_links_items_rdma" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_items_links_items_rdma" data-toggle="collapse" onclick="setAnchor('#Return_value_items_links_items_rdma')" type="button"><span class="property-name">rdma</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_items_links_items_rdma" class="collapse property-definition-div" data-parent="#accordionReturn_value_items_links_items_rdma" id="Return_value_items_links_items_rdma">
+    <div class="card-body pl-5">
+    <h4>Rdma</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_items_links_items_netdev">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_items_links_items_netdev">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_items_links_items_netdev" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_items_links_items_netdev" data-toggle="collapse" onclick="setAnchor('#Return_value_items_links_items_netdev')" type="button"><span class="property-name">netdev</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_items_links_items_netdev" class="collapse property-definition-div" data-parent="#accordionReturn_value_items_links_items_netdev" id="Return_value_items_links_items_netdev">
+    <div class="card-body pl-5">
+    <h4>Netdev</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div><br><br>
+
+*Required roles:* NETWORK_INTERFACE_READ | READONLY_ADMIN
+

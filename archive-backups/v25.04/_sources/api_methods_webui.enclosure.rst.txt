@@ -1,0 +1,6 @@
+webui.enclosure
+---------------
+
+.. toctree::
+
+   api_methods_webui.enclosure.dashboard

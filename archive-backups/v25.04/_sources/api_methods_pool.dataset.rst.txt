@@ -1,0 +1,7 @@
+pool.dataset
+------------
+
+.. toctree::
+
+   api_methods_pool.dataset.details
+   api_methods_pool.dataset.snapshot_count
