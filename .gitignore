@@ -12,3 +12,4 @@ tech-doc-hugo
 data/properties/scale-releases.yaml
 scripts/cleanup_api_docs.log
 archived-rclone-exclude.txt
+data/api_archived.yaml

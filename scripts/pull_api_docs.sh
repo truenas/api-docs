@@ -270,8 +270,23 @@ done
 
 log "TrueNAS API docs have been updated in $STATIC_DIR"
 
+log "Resolving archived versions (explicit state plus majors dropped from the build)"
+BUILT_LIST="$TMP_DIR/built_majors.txt"
+PUBLISHED_LIST="$TMP_DIR/published_dirs.txt"
+printf '%s\n' "${!major_versions_map[@]}" > "$BUILT_LIST"
+RESOLVE_ARGS=(--built "$BUILT_LIST" --output "$DATA_DIR/api_archived.yaml")
+# The storj listing tells us what has already been published. If it is
+# unavailable (e.g. local run without rclone), skip auto-archive rather than guess.
+if command -v rclone >/dev/null 2>&1 && \
+   rclone lsf --dirs-only "${API_RCLONE_REMOTE:-api-storj:api.truenas.com}" > "$PUBLISHED_LIST" 2>/dev/null; then
+  RESOLVE_ARGS+=(--published "$PUBLISHED_LIST")
+else
+  log "WARNING: could not list storj; auto-archive of dropped versions is disabled for this build"
+fi
+python3 "$SCRIPT_DIR/archive_helper.py" "$DATA_DIR/properties/scale-releases.yaml" resolve "${RESOLVE_ARGS[@]}"
+
 log "Generating rclone exclude file for archived versions"
 python3 "$SCRIPT_DIR/archive_helper.py" \
   "$DATA_DIR/properties/scale-releases.yaml" \
-  exclude --output "$HUGO_ROOT/archived-rclone-exclude.txt"
+  exclude --archived-file "$DATA_DIR/api_archived.yaml" --output "$HUGO_ROOT/archived-rclone-exclude.txt"
 log "Wrote $HUGO_ROOT/archived-rclone-exclude.txt"
