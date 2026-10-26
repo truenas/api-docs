@@ -13,6 +13,11 @@ pipeline {
   stages {
     stage('Build') {
         steps {
+            // Restore archived versions to storj from the git snapshots. `copy` only adds
+            // missing files (never deletes), so this is a no-op when storj is intact and
+            // self-heals it otherwise. Must run before pull_api_docs.sh, which lists storj
+            // to detect versions that dropped out of the build.
+            sh 'rclone copy archive-backups api-storj:api.truenas.com --stats-one-line --stats 5s'
             sh 'hugo mod clean'
             // Fetch only docs-shared (main), no -u: keeps the shared module fresh without
             // force-upgrading any other module. The geekdoc theme is local, so the only module
