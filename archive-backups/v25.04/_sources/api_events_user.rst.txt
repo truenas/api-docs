@@ -1,0 +1,7 @@
+user
+----
+
+.. toctree::
+
+   api_events_user.query
+   api_events_user.web_ui_login_disabled

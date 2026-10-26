@@ -1,0 +1,6 @@
+cloudsync
+---------
+
+.. toctree::
+
+   api_methods_cloudsync.onedrive_list_drives

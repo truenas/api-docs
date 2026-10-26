@@ -1,0 +1,6 @@
+system.reboot
+-------------
+
+.. toctree::
+
+   api_events_system.reboot.info

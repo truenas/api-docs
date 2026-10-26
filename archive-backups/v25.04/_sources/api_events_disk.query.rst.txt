@@ -1,0 +1,1272 @@
+disk.query
+==========
+
+Sent on disk changes.
+
+.. raw:: html
+
+    <div id="json-schema">
+    <span class="badge badge-dark value-type">Type: object</span><br/>
+    <div class="accordion" id="accordionADDED">
+    <div class="card">
+    <div class="card-header" id="headingADDED">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED" data-toggle="collapse" onclick="setAnchor('#ADDED')" type="button"><span class="property-name">ADDED</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED" class="collapse property-definition-div" data-parent="#accordionADDED" id="ADDED">
+    <div class="card-body pl-5">
+    <h4>DiskQueryAddedEvent</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionADDED_id">
+    <div class="card">
+    <div class="card-header" id="headingADDED_id">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_id" data-toggle="collapse" onclick="setAnchor('#ADDED_id')" type="button"><span class="property-name">id</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_id" class="collapse property-definition-div" data-parent="#accordionADDED_id" id="ADDED_id">
+    <div class="card-body pl-5">
+    <h4>Id</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Disk identifier.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields" data-toggle="collapse" onclick="setAnchor('#ADDED_fields')" type="button"><span class="property-name">fields</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields" class="collapse property-definition-div" data-parent="#accordionADDED_fields" id="ADDED_fields">
+    <div class="card-body pl-5">
+    <h4>DiskEntry</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="description"><p>Event fields.</p>
+    </span> <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionADDED_fields_identifier">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_identifier">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_identifier" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_identifier" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_identifier')" type="button"><span class="property-name">identifier</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_identifier" class="collapse property-definition-div" data-parent="#accordionADDED_fields_identifier" id="ADDED_fields_identifier">
+    <div class="card-body pl-5">
+    <h4>Identifier</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Unique identifier for the disk device.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_name">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_name">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_name" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_name" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_name')" type="button"><span class="property-name">name</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_name" class="collapse property-definition-div" data-parent="#accordionADDED_fields_name" id="ADDED_fields_name">
+    <div class="card-body pl-5">
+    <h4>Name</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>System name of the disk device.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_subsystem">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_subsystem">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_subsystem" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_subsystem" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_subsystem')" type="button"><span class="property-name">subsystem</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_subsystem" class="collapse property-definition-div" data-parent="#accordionADDED_fields_subsystem" id="ADDED_fields_subsystem">
+    <div class="card-body pl-5">
+    <h4>Subsystem</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Storage subsystem type.</p>
+    </span>
+    <br/>
+    <div class="badge badge-secondary">Examples:</div>
+    <br/><div class="jumbotron examples" id="ADDED_fields_subsystem_ex1"><div class="highlight"><pre><span></span><span class="s2">"SCSI"</span>
+    </pre></div>
+    </div><div class="jumbotron examples" id="ADDED_fields_subsystem_ex2"><div class="highlight"><pre><span></span><span class="s2">"ATA"</span>
+    </pre></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_number">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_number">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_number" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_number" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_number')" type="button"><span class="property-name">number</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_number" class="collapse property-definition-div" data-parent="#accordionADDED_fields_number" id="ADDED_fields_number">
+    <div class="card-body pl-5">
+    <h4>Number</h4><span class="badge badge-dark value-type">Type: integer</span><br/>
+    <span class="description"><p>Numeric identifier assigned to the disk.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_serial">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_serial">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_serial" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_serial" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_serial')" type="button"><span class="property-name">serial</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_serial" class="collapse property-definition-div" data-parent="#accordionADDED_fields_serial" id="ADDED_fields_serial">
+    <div class="card-body pl-5">
+    <h4>Serial</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Manufacturer serial number of the disk.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_lunid">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_lunid">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_lunid" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_lunid" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_lunid')" type="button"><span class="property-name">lunid</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_lunid" class="collapse property-definition-div" data-parent="#accordionADDED_fields_lunid" id="ADDED_fields_lunid">
+    <div class="card-body pl-5">
+    <h4>Lunid</h4><br/>
+    <span class="description"><p>Logical unit number identifier or <code>null</code> if not applicable.</p>
+    </span><div class="any-of-value" id="ADDED_fields_lunid_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsADDED_fields_lunid_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_lunid_anyOf_i0" id="ADDED_fields_lunid_anyOf_i0" onclick="setAnchor('#ADDED_fields_lunid_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_lunid_anyOf_i1" id="ADDED_fields_lunid_anyOf_i1" onclick="setAnchor('#ADDED_fields_lunid_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_lunid_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_lunid_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_size">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_size">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_size" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_size" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_size')" type="button"><span class="property-name">size</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_size" class="collapse property-definition-div" data-parent="#accordionADDED_fields_size" id="ADDED_fields_size">
+    <div class="card-body pl-5">
+    <h4>Size</h4><br/>
+    <span class="description"><p>Total size of the disk in bytes. <code>null</code> if not available.</p>
+    </span><div class="any-of-value" id="ADDED_fields_size_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsADDED_fields_size_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_size_anyOf_i0" id="ADDED_fields_size_anyOf_i0" onclick="setAnchor('#ADDED_fields_size_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_size_anyOf_i1" id="ADDED_fields_size_anyOf_i1" onclick="setAnchor('#ADDED_fields_size_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_size_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: integer</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_size_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_description">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_description">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_description" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_description" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_description')" type="button"><span class="property-name">description</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_description" class="collapse property-definition-div" data-parent="#accordionADDED_fields_description" id="ADDED_fields_description">
+    <div class="card-body pl-5">
+    <h4>Description</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Human-readable description of the disk device.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_transfermode">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_transfermode">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_transfermode" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_transfermode" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_transfermode')" type="button"><span class="property-name">transfermode</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_transfermode" class="collapse property-definition-div" data-parent="#accordionADDED_fields_transfermode" id="ADDED_fields_transfermode">
+    <div class="card-body pl-5">
+    <h4>Transfermode</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Data transfer mode and capabilities of the disk.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_hddstandby">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_hddstandby">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_hddstandby" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_hddstandby" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_hddstandby')" type="button"><span class="property-name">hddstandby</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_hddstandby" class="collapse property-definition-div" data-parent="#accordionADDED_fields_hddstandby" id="ADDED_fields_hddstandby">
+    <div class="card-body pl-5">
+    <h4>Hddstandby</h4><span class="badge badge-dark value-type">Type: enum (of string)</span><br/>
+    <span class="description"><p>Hard disk standby timer in minutes or <code>ALWAYS ON</code> to disable standby.</p>
+    </span><div class="enum-value" id="ADDED_fields_hddstandby_enum">
+    <h5>Must be one of:</h5>
+    <ul class="list-group"><li class="list-group-item enum-item">"ALWAYS ON"</li><li class="list-group-item enum-item">"5"</li><li class="list-group-item enum-item">"10"</li><li class="list-group-item enum-item">"20"</li><li class="list-group-item enum-item">"30"</li><li class="list-group-item enum-item">"60"</li><li class="list-group-item enum-item">"120"</li><li class="list-group-item enum-item">"180"</li><li class="list-group-item enum-item">"240"</li><li class="list-group-item enum-item">"300"</li><li class="list-group-item enum-item">"330"</li></ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_advpowermgmt">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_advpowermgmt">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_advpowermgmt" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_advpowermgmt" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_advpowermgmt')" type="button"><span class="property-name">advpowermgmt</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_advpowermgmt" class="collapse property-definition-div" data-parent="#accordionADDED_fields_advpowermgmt" id="ADDED_fields_advpowermgmt">
+    <div class="card-body pl-5">
+    <h4>Advpowermgmt</h4><span class="badge badge-dark value-type">Type: enum (of string)</span><br/>
+    <span class="description"><p>Advanced power management level or <code>DISABLED</code> to turn off power management.</p>
+    </span><div class="enum-value" id="ADDED_fields_advpowermgmt_enum">
+    <h5>Must be one of:</h5>
+    <ul class="list-group"><li class="list-group-item enum-item">"DISABLED"</li><li class="list-group-item enum-item">"1"</li><li class="list-group-item enum-item">"64"</li><li class="list-group-item enum-item">"127"</li><li class="list-group-item enum-item">"128"</li><li class="list-group-item enum-item">"192"</li><li class="list-group-item enum-item">"254"</li></ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_expiretime">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_expiretime">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_expiretime" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_expiretime" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_expiretime')" type="button"><span class="property-name">expiretime</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_expiretime" class="collapse property-definition-div" data-parent="#accordionADDED_fields_expiretime" id="ADDED_fields_expiretime">
+    <div class="card-body pl-5">
+    <h4>Expiretime</h4><br/>
+    <span class="description"><p>Expiration timestamp for disk data or <code>null</code> if not applicable.</p>
+    </span><div class="any-of-value" id="ADDED_fields_expiretime_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsADDED_fields_expiretime_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_expiretime_anyOf_i0" id="ADDED_fields_expiretime_anyOf_i0" onclick="setAnchor('#ADDED_fields_expiretime_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_expiretime_anyOf_i1" id="ADDED_fields_expiretime_anyOf_i1" onclick="setAnchor('#ADDED_fields_expiretime_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_expiretime_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><span class="badge badge-info value-type">Format: date-time</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_expiretime_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_model">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_model">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_model" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_model" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_model')" type="button"><span class="property-name">model</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_model" class="collapse property-definition-div" data-parent="#accordionADDED_fields_model" id="ADDED_fields_model">
+    <div class="card-body pl-5">
+    <h4>Model</h4><br/>
+    <span class="description"><p>Manufacturer model name/number of the disk. <code>null</code> if not available.</p>
+    </span><div class="any-of-value" id="ADDED_fields_model_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsADDED_fields_model_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_model_anyOf_i0" id="ADDED_fields_model_anyOf_i0" onclick="setAnchor('#ADDED_fields_model_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_model_anyOf_i1" id="ADDED_fields_model_anyOf_i1" onclick="setAnchor('#ADDED_fields_model_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_model_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_model_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_rotationrate">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_rotationrate">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_rotationrate" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_rotationrate" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_rotationrate')" type="button"><span class="property-name">rotationrate</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_rotationrate" class="collapse property-definition-div" data-parent="#accordionADDED_fields_rotationrate" id="ADDED_fields_rotationrate">
+    <div class="card-body pl-5">
+    <h4>Rotationrate</h4><br/>
+    <span class="description"><p>Disk rotation speed in RPM or <code>null</code> for SSDs and unknown devices.</p>
+    </span><div class="any-of-value" id="ADDED_fields_rotationrate_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsADDED_fields_rotationrate_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_rotationrate_anyOf_i0" id="ADDED_fields_rotationrate_anyOf_i0" onclick="setAnchor('#ADDED_fields_rotationrate_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_rotationrate_anyOf_i1" id="ADDED_fields_rotationrate_anyOf_i1" onclick="setAnchor('#ADDED_fields_rotationrate_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_rotationrate_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: integer</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_rotationrate_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_type">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_type">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_type" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_type" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_type')" type="button"><span class="property-name">type</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_type" class="collapse property-definition-div" data-parent="#accordionADDED_fields_type" id="ADDED_fields_type">
+    <div class="card-body pl-5">
+    <h4>Type</h4><br/>
+    <span class="description"><p>Disk type classification or <code>null</code> if not determined.</p>
+    </span><div class="any-of-value" id="ADDED_fields_type_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsADDED_fields_type_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_type_anyOf_i0" id="ADDED_fields_type_anyOf_i0" onclick="setAnchor('#ADDED_fields_type_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_type_anyOf_i1" id="ADDED_fields_type_anyOf_i1" onclick="setAnchor('#ADDED_fields_type_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_type_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_type_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_zfs_guid">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_zfs_guid">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_zfs_guid" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_zfs_guid" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_zfs_guid')" type="button"><span class="property-name">zfs_guid</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_zfs_guid" class="collapse property-definition-div" data-parent="#accordionADDED_fields_zfs_guid" id="ADDED_fields_zfs_guid">
+    <div class="card-body pl-5">
+    <h4>Zfs Guid</h4><br/>
+    <span class="description"><p>ZFS globally unique identifier for this disk or <code>null</code> if not used in ZFS.</p>
+    </span><div class="any-of-value" id="ADDED_fields_zfs_guid_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsADDED_fields_zfs_guid_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_zfs_guid_anyOf_i0" id="ADDED_fields_zfs_guid_anyOf_i0" onclick="setAnchor('#ADDED_fields_zfs_guid_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_zfs_guid_anyOf_i1" id="ADDED_fields_zfs_guid_anyOf_i1" onclick="setAnchor('#ADDED_fields_zfs_guid_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_zfs_guid_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_zfs_guid_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_bus">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_bus">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_bus" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_bus" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_bus')" type="button"><span class="property-name">bus</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_bus" class="collapse property-definition-div" data-parent="#accordionADDED_fields_bus" id="ADDED_fields_bus">
+    <div class="card-body pl-5">
+    <h4>Bus</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>System bus type the disk is connected to.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_devname">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_devname">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_devname" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_devname" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_devname')" type="button"><span class="property-name">devname</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_devname" class="collapse property-definition-div" data-parent="#accordionADDED_fields_devname" id="ADDED_fields_devname">
+    <div class="card-body pl-5">
+    <h4>Devname</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Device name in the operating system.</p>
+    </span>
+    <br/>
+    <div class="badge badge-secondary">Example:</div>
+    <br/><div class="jumbotron examples" id="ADDED_fields_devname_ex1"><div class="highlight"><pre><span></span><span class="s2">"/dev/sda"</span>
+    </pre></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_enclosure">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_enclosure">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_enclosure" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_enclosure" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_enclosure')" type="button"><span class="property-name">enclosure</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_enclosure" class="collapse property-definition-div" data-parent="#accordionADDED_fields_enclosure" id="ADDED_fields_enclosure">
+    <div class="card-body pl-5">
+    <br/>
+    <span class="description"><p>Physical enclosure information or <code>null</code> if not in an enclosure.</p>
+    </span><div class="any-of-value" id="ADDED_fields_enclosure_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsADDED_fields_enclosure_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_enclosure_anyOf_i0" id="ADDED_fields_enclosure_anyOf_i0" onclick="setAnchor('#ADDED_fields_enclosure_anyOf_i0')" role="tab">DiskEntryEnclosure</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_enclosure_anyOf_i1" id="ADDED_fields_enclosure_anyOf_i1" onclick="setAnchor('#ADDED_fields_enclosure_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_enclosure_anyOf_i0" role="tabpanel">
+    <h4>DiskEntryEnclosure</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionADDED_fields_enclosure_anyOf_i0_number">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_enclosure_anyOf_i0_number">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_enclosure_anyOf_i0_number" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_enclosure_anyOf_i0_number" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_enclosure_anyOf_i0_number')" type="button"><span class="property-name">number</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_enclosure_anyOf_i0_number" class="collapse property-definition-div" data-parent="#accordionADDED_fields_enclosure_anyOf_i0_number" id="ADDED_fields_enclosure_anyOf_i0_number">
+    <div class="card-body pl-5">
+    <h4>Number</h4><span class="badge badge-dark value-type">Type: integer</span><br/>
+    <span class="description"><p>Enclosure number where the disk is located.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_enclosure_anyOf_i0_slot">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_enclosure_anyOf_i0_slot">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_enclosure_anyOf_i0_slot" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_enclosure_anyOf_i0_slot" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_enclosure_anyOf_i0_slot')" type="button"><span class="property-name">slot</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_enclosure_anyOf_i0_slot" class="collapse property-definition-div" data-parent="#accordionADDED_fields_enclosure_anyOf_i0_slot" id="ADDED_fields_enclosure_anyOf_i0_slot">
+    <div class="card-body pl-5">
+    <h4>Slot</h4><span class="badge badge-dark value-type">Type: integer</span><br/>
+    <span class="description"><p>Physical slot position within the enclosure.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_enclosure_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_pool">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_pool">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_pool" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_pool" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_pool')" type="button"><span class="property-name">pool</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_pool" class="collapse property-definition-div" data-parent="#accordionADDED_fields_pool" id="ADDED_fields_pool">
+    <div class="card-body pl-5">
+    <h4>Pool</h4><br/>
+    <span class="description"><p>Name of the storage pool this disk belongs to. <code>null</code> if not part of any pool.</p>
+    </span><div class="any-of-value" id="ADDED_fields_pool_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsADDED_fields_pool_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_pool_anyOf_i0" id="ADDED_fields_pool_anyOf_i0" onclick="setAnchor('#ADDED_fields_pool_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_pool_anyOf_i1" id="ADDED_fields_pool_anyOf_i1" onclick="setAnchor('#ADDED_fields_pool_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_pool_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_pool_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_passwd">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_passwd">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_passwd" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_passwd" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_passwd')" type="button"><span class="property-name">passwd</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_passwd" class="collapse property-definition-div" data-parent="#accordionADDED_fields_passwd" id="ADDED_fields_passwd">
+    <div class="card-body pl-5">
+    <h4>Passwd</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Disk encryption password (masked for security).</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_kmip_uid">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_kmip_uid">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_kmip_uid" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_kmip_uid" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_kmip_uid')" type="button"><span class="property-name">kmip_uid</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_kmip_uid" class="collapse property-definition-div" data-parent="#accordionADDED_fields_kmip_uid" id="ADDED_fields_kmip_uid">
+    <div class="card-body pl-5">
+    <h4>Kmip Uid</h4><br/>
+    <span class="description"><p>KMIP (Key Management Interoperability Protocol) unique identifier or <code>null</code>.</p>
+    </span><div class="any-of-value" id="ADDED_fields_kmip_uid_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsADDED_fields_kmip_uid_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_kmip_uid_anyOf_i0" id="ADDED_fields_kmip_uid_anyOf_i0" onclick="setAnchor('#ADDED_fields_kmip_uid_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_kmip_uid_anyOf_i1" id="ADDED_fields_kmip_uid_anyOf_i1" onclick="setAnchor('#ADDED_fields_kmip_uid_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_kmip_uid_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_kmip_uid_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_sed">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_sed">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_sed" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_sed" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_sed')" type="button"><span class="property-name">sed</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_sed" class="collapse property-definition-div" data-parent="#accordionADDED_fields_sed" id="ADDED_fields_sed">
+    <div class="card-body pl-5">
+    <h4>Sed</h4><br/>
+    <span class="description"><p>Whether the disk is SED (Self-Encrypting Drive) capable. <code>null</code> if not yet determined.</p>
+    </span><div class="any-of-value" id="ADDED_fields_sed_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsADDED_fields_sed_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_sed_anyOf_i0" id="ADDED_fields_sed_anyOf_i0" onclick="setAnchor('#ADDED_fields_sed_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_sed_anyOf_i1" id="ADDED_fields_sed_anyOf_i1" onclick="setAnchor('#ADDED_fields_sed_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_sed_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: boolean</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_sed_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionADDED_fields_sed_status">
+    <div class="card">
+    <div class="card-header" id="headingADDED_fields_sed_status">
+    <h2 class="mb-0">
+    <button aria-controls="ADDED_fields_sed_status" aria-expanded="" class="btn btn-link property-name-button" data-target="#ADDED_fields_sed_status" data-toggle="collapse" onclick="setAnchor('#ADDED_fields_sed_status')" type="button"><span class="property-name">sed_status</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingADDED_fields_sed_status" class="collapse property-definition-div" data-parent="#accordionADDED_fields_sed_status" id="ADDED_fields_sed_status">
+    <div class="card-body pl-5">
+    <h4>Sed Status</h4><br/>
+    <span class="description"><p>SED Status of the disk. <code>null</code> if not yet determined.</p>
+    </span><div class="any-of-value" id="ADDED_fields_sed_status_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsADDED_fields_sed_status_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_sed_status_anyOf_i0" id="ADDED_fields_sed_status_anyOf_i0" onclick="setAnchor('#ADDED_fields_sed_status_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_ADDED_fields_sed_status_anyOf_i1" id="ADDED_fields_sed_status_anyOf_i1" onclick="setAnchor('#ADDED_fields_sed_status_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_ADDED_fields_sed_status_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_ADDED_fields_sed_status_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED" data-toggle="collapse" onclick="setAnchor('#CHANGED')" type="button"><span class="property-name">CHANGED</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED" class="collapse property-definition-div" data-parent="#accordionCHANGED" id="CHANGED">
+    <div class="card-body pl-5">
+    <h4>DiskQueryChangedEvent</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionCHANGED_id">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_id">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_id" data-toggle="collapse" onclick="setAnchor('#CHANGED_id')" type="button"><span class="property-name">id</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_id" class="collapse property-definition-div" data-parent="#accordionCHANGED_id" id="CHANGED_id">
+    <div class="card-body pl-5">
+    <h4>Id</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Disk identifier.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields')" type="button"><span class="property-name">fields</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields" id="CHANGED_fields">
+    <div class="card-body pl-5">
+    <h4>DiskEntry</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="description"><p>Event fields.</p>
+    </span> <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionCHANGED_fields_identifier">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_identifier">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_identifier" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_identifier" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_identifier')" type="button"><span class="property-name">identifier</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_identifier" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_identifier" id="CHANGED_fields_identifier">
+    <div class="card-body pl-5">
+    <h4>Identifier</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Unique identifier for the disk device.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_name">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_name">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_name" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_name" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_name')" type="button"><span class="property-name">name</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_name" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_name" id="CHANGED_fields_name">
+    <div class="card-body pl-5">
+    <h4>Name</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>System name of the disk device.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_subsystem">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_subsystem">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_subsystem" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_subsystem" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_subsystem')" type="button"><span class="property-name">subsystem</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_subsystem" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_subsystem" id="CHANGED_fields_subsystem">
+    <div class="card-body pl-5">
+    <h4>Subsystem</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Storage subsystem type.</p>
+    </span>
+    <br/>
+    <div class="badge badge-secondary">Examples:</div>
+    <br/><div class="jumbotron examples" id="CHANGED_fields_subsystem_ex1"><div class="highlight"><pre><span></span><span class="s2">"SCSI"</span>
+    </pre></div>
+    </div><div class="jumbotron examples" id="CHANGED_fields_subsystem_ex2"><div class="highlight"><pre><span></span><span class="s2">"ATA"</span>
+    </pre></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_number">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_number">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_number" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_number" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_number')" type="button"><span class="property-name">number</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_number" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_number" id="CHANGED_fields_number">
+    <div class="card-body pl-5">
+    <h4>Number</h4><span class="badge badge-dark value-type">Type: integer</span><br/>
+    <span class="description"><p>Numeric identifier assigned to the disk.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_serial">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_serial">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_serial" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_serial" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_serial')" type="button"><span class="property-name">serial</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_serial" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_serial" id="CHANGED_fields_serial">
+    <div class="card-body pl-5">
+    <h4>Serial</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Manufacturer serial number of the disk.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_lunid">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_lunid">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_lunid" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_lunid" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_lunid')" type="button"><span class="property-name">lunid</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_lunid" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_lunid" id="CHANGED_fields_lunid">
+    <div class="card-body pl-5">
+    <h4>Lunid</h4><br/>
+    <span class="description"><p>Logical unit number identifier or <code>null</code> if not applicable.</p>
+    </span><div class="any-of-value" id="CHANGED_fields_lunid_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_lunid_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_lunid_anyOf_i0" id="CHANGED_fields_lunid_anyOf_i0" onclick="setAnchor('#CHANGED_fields_lunid_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_lunid_anyOf_i1" id="CHANGED_fields_lunid_anyOf_i1" onclick="setAnchor('#CHANGED_fields_lunid_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_lunid_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_lunid_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_size">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_size">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_size" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_size" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_size')" type="button"><span class="property-name">size</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_size" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_size" id="CHANGED_fields_size">
+    <div class="card-body pl-5">
+    <h4>Size</h4><br/>
+    <span class="description"><p>Total size of the disk in bytes. <code>null</code> if not available.</p>
+    </span><div class="any-of-value" id="CHANGED_fields_size_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_size_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_size_anyOf_i0" id="CHANGED_fields_size_anyOf_i0" onclick="setAnchor('#CHANGED_fields_size_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_size_anyOf_i1" id="CHANGED_fields_size_anyOf_i1" onclick="setAnchor('#CHANGED_fields_size_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_size_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: integer</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_size_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_description">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_description">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_description" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_description" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_description')" type="button"><span class="property-name">description</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_description" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_description" id="CHANGED_fields_description">
+    <div class="card-body pl-5">
+    <h4>Description</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Human-readable description of the disk device.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_transfermode">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_transfermode">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_transfermode" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_transfermode" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_transfermode')" type="button"><span class="property-name">transfermode</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_transfermode" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_transfermode" id="CHANGED_fields_transfermode">
+    <div class="card-body pl-5">
+    <h4>Transfermode</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Data transfer mode and capabilities of the disk.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_hddstandby">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_hddstandby">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_hddstandby" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_hddstandby" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_hddstandby')" type="button"><span class="property-name">hddstandby</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_hddstandby" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_hddstandby" id="CHANGED_fields_hddstandby">
+    <div class="card-body pl-5">
+    <h4>Hddstandby</h4><span class="badge badge-dark value-type">Type: enum (of string)</span><br/>
+    <span class="description"><p>Hard disk standby timer in minutes or <code>ALWAYS ON</code> to disable standby.</p>
+    </span><div class="enum-value" id="CHANGED_fields_hddstandby_enum">
+    <h5>Must be one of:</h5>
+    <ul class="list-group"><li class="list-group-item enum-item">"ALWAYS ON"</li><li class="list-group-item enum-item">"5"</li><li class="list-group-item enum-item">"10"</li><li class="list-group-item enum-item">"20"</li><li class="list-group-item enum-item">"30"</li><li class="list-group-item enum-item">"60"</li><li class="list-group-item enum-item">"120"</li><li class="list-group-item enum-item">"180"</li><li class="list-group-item enum-item">"240"</li><li class="list-group-item enum-item">"300"</li><li class="list-group-item enum-item">"330"</li></ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_advpowermgmt">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_advpowermgmt">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_advpowermgmt" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_advpowermgmt" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_advpowermgmt')" type="button"><span class="property-name">advpowermgmt</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_advpowermgmt" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_advpowermgmt" id="CHANGED_fields_advpowermgmt">
+    <div class="card-body pl-5">
+    <h4>Advpowermgmt</h4><span class="badge badge-dark value-type">Type: enum (of string)</span><br/>
+    <span class="description"><p>Advanced power management level or <code>DISABLED</code> to turn off power management.</p>
+    </span><div class="enum-value" id="CHANGED_fields_advpowermgmt_enum">
+    <h5>Must be one of:</h5>
+    <ul class="list-group"><li class="list-group-item enum-item">"DISABLED"</li><li class="list-group-item enum-item">"1"</li><li class="list-group-item enum-item">"64"</li><li class="list-group-item enum-item">"127"</li><li class="list-group-item enum-item">"128"</li><li class="list-group-item enum-item">"192"</li><li class="list-group-item enum-item">"254"</li></ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_expiretime">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_expiretime">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_expiretime" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_expiretime" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_expiretime')" type="button"><span class="property-name">expiretime</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_expiretime" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_expiretime" id="CHANGED_fields_expiretime">
+    <div class="card-body pl-5">
+    <h4>Expiretime</h4><br/>
+    <span class="description"><p>Expiration timestamp for disk data or <code>null</code> if not applicable.</p>
+    </span><div class="any-of-value" id="CHANGED_fields_expiretime_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_expiretime_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_expiretime_anyOf_i0" id="CHANGED_fields_expiretime_anyOf_i0" onclick="setAnchor('#CHANGED_fields_expiretime_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_expiretime_anyOf_i1" id="CHANGED_fields_expiretime_anyOf_i1" onclick="setAnchor('#CHANGED_fields_expiretime_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_expiretime_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><span class="badge badge-info value-type">Format: date-time</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_expiretime_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_model">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_model">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_model" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_model" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_model')" type="button"><span class="property-name">model</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_model" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_model" id="CHANGED_fields_model">
+    <div class="card-body pl-5">
+    <h4>Model</h4><br/>
+    <span class="description"><p>Manufacturer model name/number of the disk. <code>null</code> if not available.</p>
+    </span><div class="any-of-value" id="CHANGED_fields_model_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_model_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_model_anyOf_i0" id="CHANGED_fields_model_anyOf_i0" onclick="setAnchor('#CHANGED_fields_model_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_model_anyOf_i1" id="CHANGED_fields_model_anyOf_i1" onclick="setAnchor('#CHANGED_fields_model_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_model_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_model_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_rotationrate">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_rotationrate">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_rotationrate" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_rotationrate" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_rotationrate')" type="button"><span class="property-name">rotationrate</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_rotationrate" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_rotationrate" id="CHANGED_fields_rotationrate">
+    <div class="card-body pl-5">
+    <h4>Rotationrate</h4><br/>
+    <span class="description"><p>Disk rotation speed in RPM or <code>null</code> for SSDs and unknown devices.</p>
+    </span><div class="any-of-value" id="CHANGED_fields_rotationrate_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_rotationrate_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_rotationrate_anyOf_i0" id="CHANGED_fields_rotationrate_anyOf_i0" onclick="setAnchor('#CHANGED_fields_rotationrate_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_rotationrate_anyOf_i1" id="CHANGED_fields_rotationrate_anyOf_i1" onclick="setAnchor('#CHANGED_fields_rotationrate_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_rotationrate_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: integer</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_rotationrate_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_type">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_type">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_type" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_type" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_type')" type="button"><span class="property-name">type</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_type" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_type" id="CHANGED_fields_type">
+    <div class="card-body pl-5">
+    <h4>Type</h4><br/>
+    <span class="description"><p>Disk type classification or <code>null</code> if not determined.</p>
+    </span><div class="any-of-value" id="CHANGED_fields_type_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_type_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_type_anyOf_i0" id="CHANGED_fields_type_anyOf_i0" onclick="setAnchor('#CHANGED_fields_type_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_type_anyOf_i1" id="CHANGED_fields_type_anyOf_i1" onclick="setAnchor('#CHANGED_fields_type_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_type_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_type_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_zfs_guid">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_zfs_guid">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_zfs_guid" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_zfs_guid" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_zfs_guid')" type="button"><span class="property-name">zfs_guid</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_zfs_guid" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_zfs_guid" id="CHANGED_fields_zfs_guid">
+    <div class="card-body pl-5">
+    <h4>Zfs Guid</h4><br/>
+    <span class="description"><p>ZFS globally unique identifier for this disk or <code>null</code> if not used in ZFS.</p>
+    </span><div class="any-of-value" id="CHANGED_fields_zfs_guid_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_zfs_guid_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_zfs_guid_anyOf_i0" id="CHANGED_fields_zfs_guid_anyOf_i0" onclick="setAnchor('#CHANGED_fields_zfs_guid_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_zfs_guid_anyOf_i1" id="CHANGED_fields_zfs_guid_anyOf_i1" onclick="setAnchor('#CHANGED_fields_zfs_guid_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_zfs_guid_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_zfs_guid_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_bus">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_bus">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_bus" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_bus" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_bus')" type="button"><span class="property-name">bus</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_bus" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_bus" id="CHANGED_fields_bus">
+    <div class="card-body pl-5">
+    <h4>Bus</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>System bus type the disk is connected to.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_devname">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_devname">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_devname" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_devname" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_devname')" type="button"><span class="property-name">devname</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_devname" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_devname" id="CHANGED_fields_devname">
+    <div class="card-body pl-5">
+    <h4>Devname</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Device name in the operating system.</p>
+    </span>
+    <br/>
+    <div class="badge badge-secondary">Example:</div>
+    <br/><div class="jumbotron examples" id="CHANGED_fields_devname_ex1"><div class="highlight"><pre><span></span><span class="s2">"/dev/sda"</span>
+    </pre></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_enclosure">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_enclosure">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_enclosure" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_enclosure" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_enclosure')" type="button"><span class="property-name">enclosure</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_enclosure" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_enclosure" id="CHANGED_fields_enclosure">
+    <div class="card-body pl-5">
+    <br/>
+    <span class="description"><p>Physical enclosure information or <code>null</code> if not in an enclosure.</p>
+    </span><div class="any-of-value" id="CHANGED_fields_enclosure_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_enclosure_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_enclosure_anyOf_i0" id="CHANGED_fields_enclosure_anyOf_i0" onclick="setAnchor('#CHANGED_fields_enclosure_anyOf_i0')" role="tab">DiskEntryEnclosure</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_enclosure_anyOf_i1" id="CHANGED_fields_enclosure_anyOf_i1" onclick="setAnchor('#CHANGED_fields_enclosure_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_enclosure_anyOf_i0" role="tabpanel">
+    <h4>DiskEntryEnclosure</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionCHANGED_fields_enclosure_anyOf_i0_number">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_enclosure_anyOf_i0_number">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_enclosure_anyOf_i0_number" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_enclosure_anyOf_i0_number" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_enclosure_anyOf_i0_number')" type="button"><span class="property-name">number</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_enclosure_anyOf_i0_number" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_enclosure_anyOf_i0_number" id="CHANGED_fields_enclosure_anyOf_i0_number">
+    <div class="card-body pl-5">
+    <h4>Number</h4><span class="badge badge-dark value-type">Type: integer</span><br/>
+    <span class="description"><p>Enclosure number where the disk is located.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_enclosure_anyOf_i0_slot">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_enclosure_anyOf_i0_slot">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_enclosure_anyOf_i0_slot" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_enclosure_anyOf_i0_slot" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_enclosure_anyOf_i0_slot')" type="button"><span class="property-name">slot</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_enclosure_anyOf_i0_slot" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_enclosure_anyOf_i0_slot" id="CHANGED_fields_enclosure_anyOf_i0_slot">
+    <div class="card-body pl-5">
+    <h4>Slot</h4><span class="badge badge-dark value-type">Type: integer</span><br/>
+    <span class="description"><p>Physical slot position within the enclosure.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_enclosure_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_pool">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_pool">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_pool" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_pool" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_pool')" type="button"><span class="property-name">pool</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_pool" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_pool" id="CHANGED_fields_pool">
+    <div class="card-body pl-5">
+    <h4>Pool</h4><br/>
+    <span class="description"><p>Name of the storage pool this disk belongs to. <code>null</code> if not part of any pool.</p>
+    </span><div class="any-of-value" id="CHANGED_fields_pool_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_pool_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_pool_anyOf_i0" id="CHANGED_fields_pool_anyOf_i0" onclick="setAnchor('#CHANGED_fields_pool_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_pool_anyOf_i1" id="CHANGED_fields_pool_anyOf_i1" onclick="setAnchor('#CHANGED_fields_pool_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_pool_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_pool_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_passwd">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_passwd">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_passwd" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_passwd" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_passwd')" type="button"><span class="property-name">passwd</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_passwd" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_passwd" id="CHANGED_fields_passwd">
+    <div class="card-body pl-5">
+    <h4>Passwd</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Disk encryption password (masked for security).</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_kmip_uid">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_kmip_uid">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_kmip_uid" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_kmip_uid" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_kmip_uid')" type="button"><span class="property-name">kmip_uid</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_kmip_uid" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_kmip_uid" id="CHANGED_fields_kmip_uid">
+    <div class="card-body pl-5">
+    <h4>Kmip Uid</h4><br/>
+    <span class="description"><p>KMIP (Key Management Interoperability Protocol) unique identifier or <code>null</code>.</p>
+    </span><div class="any-of-value" id="CHANGED_fields_kmip_uid_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_kmip_uid_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_kmip_uid_anyOf_i0" id="CHANGED_fields_kmip_uid_anyOf_i0" onclick="setAnchor('#CHANGED_fields_kmip_uid_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_kmip_uid_anyOf_i1" id="CHANGED_fields_kmip_uid_anyOf_i1" onclick="setAnchor('#CHANGED_fields_kmip_uid_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_kmip_uid_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_kmip_uid_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_sed">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_sed">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_sed" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_sed" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_sed')" type="button"><span class="property-name">sed</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_sed" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_sed" id="CHANGED_fields_sed">
+    <div class="card-body pl-5">
+    <h4>Sed</h4><br/>
+    <span class="description"><p>Whether the disk is SED (Self-Encrypting Drive) capable. <code>null</code> if not yet determined.</p>
+    </span><div class="any-of-value" id="CHANGED_fields_sed_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_sed_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_sed_anyOf_i0" id="CHANGED_fields_sed_anyOf_i0" onclick="setAnchor('#CHANGED_fields_sed_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_sed_anyOf_i1" id="CHANGED_fields_sed_anyOf_i1" onclick="setAnchor('#CHANGED_fields_sed_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_sed_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: boolean</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_sed_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionCHANGED_fields_sed_status">
+    <div class="card">
+    <div class="card-header" id="headingCHANGED_fields_sed_status">
+    <h2 class="mb-0">
+    <button aria-controls="CHANGED_fields_sed_status" aria-expanded="" class="btn btn-link property-name-button" data-target="#CHANGED_fields_sed_status" data-toggle="collapse" onclick="setAnchor('#CHANGED_fields_sed_status')" type="button"><span class="property-name">sed_status</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCHANGED_fields_sed_status" class="collapse property-definition-div" data-parent="#accordionCHANGED_fields_sed_status" id="CHANGED_fields_sed_status">
+    <div class="card-body pl-5">
+    <h4>Sed Status</h4><br/>
+    <span class="description"><p>SED Status of the disk. <code>null</code> if not yet determined.</p>
+    </span><div class="any-of-value" id="CHANGED_fields_sed_status_anyOf"><h2 class="handle">
+    <label>Any of</label>
+    </h2><ul class="nav nav-tabs" id="tabsCHANGED_fields_sed_status_anyOf_anyOf" role="tablist"><li class="nav-item">
+    <a class="nav-link active anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_sed_status_anyOf_i0" id="CHANGED_fields_sed_status_anyOf_i0" onclick="setAnchor('#CHANGED_fields_sed_status_anyOf_i0')" role="tab">Option 1</a>
+    </li><li class="nav-item">
+    <a class="nav-link anyOf-option" data-toggle="tab" href="#tab-pane_CHANGED_fields_sed_status_anyOf_i1" id="CHANGED_fields_sed_status_anyOf_i1" onclick="setAnchor('#CHANGED_fields_sed_status_anyOf_i1')" role="tab">Option 2</a>
+    </li></ul>
+    <div class="tab-content card"><div class="tab-pane fade card-body active show" id="tab-pane_CHANGED_fields_sed_status_anyOf_i0" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div><div class="tab-pane fade card-body" id="tab-pane_CHANGED_fields_sed_status_anyOf_i1" role="tabpanel">
+    <span class="badge badge-dark value-type">Type: null</span><br/>
+    </div></div></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionREMOVED">
+    <div class="card">
+    <div class="card-header" id="headingREMOVED">
+    <h2 class="mb-0">
+    <button aria-controls="REMOVED" aria-expanded="" class="btn btn-link property-name-button" data-target="#REMOVED" data-toggle="collapse" onclick="setAnchor('#REMOVED')" type="button"><span class="property-name">REMOVED</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingREMOVED" class="collapse property-definition-div" data-parent="#accordionREMOVED" id="REMOVED">
+    <div class="card-body pl-5">
+    <h4>DiskQueryRemovedEvent</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionREMOVED_id">
+    <div class="card">
+    <div class="card-header" id="headingREMOVED_id">
+    <h2 class="mb-0">
+    <button aria-controls="REMOVED_id" aria-expanded="" class="btn btn-link property-name-button" data-target="#REMOVED_id" data-toggle="collapse" onclick="setAnchor('#REMOVED_id')" type="button"><span class="property-name">id</span> <span class="badge badge-warning required-property">Required</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingREMOVED_id" class="collapse property-definition-div" data-parent="#accordionREMOVED_id" id="REMOVED_id">
+    <div class="card-body pl-5">
+    <h4>Id</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    <span class="description"><p>Disk identifier.</p>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div><br><br>
+
+*Required roles:* READONLY_ADMIN
+

@@ -10,6 +10,7 @@ LOGFILE="$SCRIPT_DIR/cleanup_api_docs.log"
 
 API_VERSIONS_YAML="$DATA_DIR/api_versions.yaml"
 STATIC_API_YAML="$DATA_DIR/api_static_pages.yaml"
+ARCHIVED_YAML="$DATA_DIR/api_archived.yaml"
 
 log() {
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*" | tee -a "$LOGFILE"
@@ -30,7 +31,7 @@ done
 shopt -u nullglob
 
 # Remove generated YAML files from data/
-for yaml in "$API_VERSIONS_YAML" "$STATIC_API_YAML"; do
+for yaml in "$API_VERSIONS_YAML" "$STATIC_API_YAML" "$ARCHIVED_YAML"; do
   if [[ -f "$yaml" ]]; then
     log "Removing $yaml"
     rm -f "$yaml"

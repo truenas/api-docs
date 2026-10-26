@@ -1,0 +1,726 @@
+webui.crypto.csr_profiles
+=========================
+
+Return predefined CSR profiles for common certificate types.
+
+Each profile provides recommended defaults for key type, key length or curve, lifetime, digest algorithm, and X.509 extensions (basic constraints, key usage, extended key usage).
+
+.. raw:: html
+
+    <div id="json-schema">
+    <span class="badge badge-dark value-type">Type: object</span><br/>
+    <div class="accordion" id="accordionCall_parameters">
+    <div class="card">
+    <div class="card-header" id="headingCall_parameters">
+    <h2 class="mb-0">
+    <button aria-controls="Call_parameters" aria-expanded="" class="btn btn-link property-name-button" data-target="#Call_parameters" data-toggle="collapse" onclick="setAnchor('#Call_parameters')" type="button"><span class="property-name">Call parameters</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCall_parameters" class="collapse property-definition-div" data-parent="#accordionCall_parameters" id="Call_parameters">
+    <div class="card-body pl-5">
+    <span class="badge badge-dark value-type">Type: array</span><br/>
+    <span class="badge badge-info no-additional">No Additional Items</span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value" data-toggle="collapse" onclick="setAnchor('#Return_value')" type="button"><span class="property-name">Return value</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value" class="collapse property-definition-div" data-parent="#accordionReturn_value" id="Return_value">
+    <div class="card-body pl-5">
+    <h4>CSRProfilesModel</h4><span class="badge badge-dark value-type">Type: object</span> <div class="json-default-value">Default:<div class="value">{
+      "HTTPS RSA Certificate": {
+        "cert_extensions": {
+          "BasicConstraints": {
+            "ca": false,
+            "enabled": true,
+            "extension_critical": true
+          },
+          "ExtendedKeyUsage": {
+            "enabled": true,
+            "extension_critical": true,
+            "usages": [
+              "SERVER_AUTH",
+              "CLIENT_AUTH"
+            ]
+          },
+          "KeyUsage": {
+            "digital_signature": true,
+            "enabled": true,
+            "extension_critical": true,
+            "key_agreement": true,
+            "key_encipherment": true
+          }
+        },
+        "digest_algorithm": "SHA256",
+        "key_length": 2048,
+        "key_type": "RSA",
+        "lifetime": 397
+      },
+      "HTTPS ECC Certificate": {
+        "cert_extensions": {
+          "BasicConstraints": {
+            "ca": false,
+            "enabled": true,
+            "extension_critical": true
+          },
+          "ExtendedKeyUsage": {
+            "enabled": true,
+            "extension_critical": true,
+            "usages": [
+              "SERVER_AUTH",
+              "CLIENT_AUTH"
+            ]
+          },
+          "KeyUsage": {
+            "digital_signature": true,
+            "enabled": true,
+            "extension_critical": true
+          }
+        },
+        "digest_algorithm": "SHA256",
+        "ec_curve": "SECP384R1",
+        "key_type": "EC",
+        "lifetime": 397
+      }
+    }</div></div><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate')" type="button"><span class="property-name">HTTPS RSA Certificate</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate" id="Return_value_HTTPS_RSA_Certificate">
+    <div class="card-body pl-5">
+    <h4>RSACSRExtensions</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_cert_extensions" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_cert_extensions" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_cert_extensions')" type="button"><span class="property-name">cert_extensions</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions" id="Return_value_HTTPS_RSA_Certificate_cert_extensions">
+    <div class="card-body pl-5">
+    <h4>RSACSRExtensionsModel</h4><span class="badge badge-dark value-type">Type: object</span> <div class="json-default-value">Default:<div class="value">{
+      "BasicConstraints": {
+        "ca": false,
+        "enabled": true,
+        "extension_critical": true
+      },
+      "ExtendedKeyUsage": {
+        "enabled": true,
+        "extension_critical": true,
+        "usages": [
+          "SERVER_AUTH",
+          "CLIENT_AUTH"
+        ]
+      },
+      "KeyUsage": {
+        "digital_signature": true,
+        "enabled": true,
+        "extension_critical": true,
+        "key_agreement": true,
+        "key_encipherment": true
+      }
+    }</div></div><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints')" type="button"><span class="property-name">BasicConstraints</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints" id="Return_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints">
+    <div class="card-body pl-5">
+    <h4>BasicConstraintsModel</h4><span class="badge badge-dark value-type">Type: object</span> <div class="json-default-value">Default:<div class="value">{
+      "enabled": true,
+      "ca": false,
+      "extension_critical": true
+    }</div></div><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_enabled">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_enabled">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_enabled" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_enabled" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_enabled')" type="button"><span class="property-name">enabled</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_enabled" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_enabled" id="Return_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_enabled">
+    <div class="card-body pl-5">
+    <h4>Enabled</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_ca">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_ca">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_ca" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_ca" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_ca')" type="button"><span class="property-name">ca</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_ca" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_ca" id="Return_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_ca">
+    <div class="card-body pl-5">
+    <h4>Ca</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: false</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_extension_critical">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_extension_critical">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_extension_critical" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_extension_critical" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_extension_critical')" type="button"><span class="property-name">extension_critical</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_extension_critical" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_extension_critical" id="Return_value_HTTPS_RSA_Certificate_cert_extensions_BasicConstraints_extension_critical">
+    <div class="card-body pl-5">
+    <h4>Extension Critical</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage')" type="button"><span class="property-name">ExtendedKeyUsage</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage" id="Return_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage">
+    <div class="card-body pl-5">
+    <h4>ExtendedKeyUsageModel</h4><span class="badge badge-dark value-type">Type: object</span> <div class="json-default-value">Default:<div class="value">{
+      "enabled": true,
+      "extension_critical": true,
+      "usages": [
+        "SERVER_AUTH",
+        "CLIENT_AUTH"
+      ]
+    }</div></div><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_enabled">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_enabled">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_enabled" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_enabled" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_enabled')" type="button"><span class="property-name">enabled</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_enabled" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_enabled" id="Return_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_enabled">
+    <div class="card-body pl-5">
+    <h4>Enabled</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_extension_critical">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_extension_critical">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_extension_critical" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_extension_critical" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_extension_critical')" type="button"><span class="property-name">extension_critical</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_extension_critical" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_extension_critical" id="Return_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_extension_critical">
+    <div class="card-body pl-5">
+    <h4>Extension Critical</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_usages">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_usages">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_usages" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_usages" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_usages')" type="button"><span class="property-name">usages</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_usages" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_usages" id="Return_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_usages">
+    <div class="card-body pl-5">
+    <h4>Usages</h4><span class="badge badge-dark value-type">Type: array of string</span> <span class="badge badge-success default-value">Default: ["SERVER_AUTH", "CLIENT_AUTH"]</span><br/>
+    <span class="badge badge-info no-additional">No Additional Items</span><h5>Each item of this array must be:</h5>
+    <div class="card">
+    <div class="card-body items-definition" id="Return_value_HTTPS_RSA_Certificate_cert_extensions_ExtendedKeyUsage_usages_items">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage')" type="button"><span class="property-name">KeyUsage</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage" id="Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage">
+    <div class="card-body pl-5">
+    <h4>RSAKeyUsageModel</h4><span class="badge badge-dark value-type">Type: object</span> <div class="json-default-value">Default:<div class="value">{
+      "enabled": true,
+      "extension_critical": true,
+      "digital_signature": true,
+      "key_encipherment": true,
+      "key_agreement": true
+    }</div></div><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_enabled">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_enabled">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_enabled" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_enabled" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_enabled')" type="button"><span class="property-name">enabled</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_enabled" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_enabled" id="Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_enabled">
+    <div class="card-body pl-5">
+    <h4>Enabled</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_extension_critical">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_extension_critical">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_extension_critical" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_extension_critical" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_extension_critical')" type="button"><span class="property-name">extension_critical</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_extension_critical" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_extension_critical" id="Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_extension_critical">
+    <div class="card-body pl-5">
+    <h4>Extension Critical</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_digital_signature">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_digital_signature">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_digital_signature" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_digital_signature" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_digital_signature')" type="button"><span class="property-name">digital_signature</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_digital_signature" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_digital_signature" id="Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_digital_signature">
+    <div class="card-body pl-5">
+    <h4>Digital Signature</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_key_encipherment">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_key_encipherment">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_key_encipherment" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_key_encipherment" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_key_encipherment')" type="button"><span class="property-name">key_encipherment</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_key_encipherment" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_key_encipherment" id="Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_key_encipherment">
+    <div class="card-body pl-5">
+    <h4>Key Encipherment</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_key_agreement">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_key_agreement">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_key_agreement" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_key_agreement" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_key_agreement')" type="button"><span class="property-name">key_agreement</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_key_agreement" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_key_agreement" id="Return_value_HTTPS_RSA_Certificate_cert_extensions_KeyUsage_key_agreement">
+    <div class="card-body pl-5">
+    <h4>Key Agreement</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_key_length">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_key_length">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_key_length" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_key_length" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_key_length')" type="button"><span class="property-name">key_length</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_key_length" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_key_length" id="Return_value_HTTPS_RSA_Certificate_key_length">
+    <div class="card-body pl-5">
+    <h4>Key Length</h4><span class="badge badge-dark value-type">Type: integer</span> <span class="badge badge-success default-value">Default: 2048</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_key_type">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_key_type">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_key_type" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_key_type" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_key_type')" type="button"><span class="property-name">key_type</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_key_type" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_key_type" id="Return_value_HTTPS_RSA_Certificate_key_type">
+    <div class="card-body pl-5">
+    <h4>Key Type</h4><span class="badge badge-dark value-type">Type: string</span> <span class="badge badge-success default-value">Default: "RSA"</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_lifetime">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_lifetime">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_lifetime" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_lifetime" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_lifetime')" type="button"><span class="property-name">lifetime</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_lifetime" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_lifetime" id="Return_value_HTTPS_RSA_Certificate_lifetime">
+    <div class="card-body pl-5">
+    <h4>Lifetime</h4><span class="badge badge-dark value-type">Type: integer</span> <span class="badge badge-success default-value">Default: 397</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_RSA_Certificate_digest_algorithm">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_RSA_Certificate_digest_algorithm">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_RSA_Certificate_digest_algorithm" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_RSA_Certificate_digest_algorithm" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_RSA_Certificate_digest_algorithm')" type="button"><span class="property-name">digest_algorithm</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_RSA_Certificate_digest_algorithm" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_RSA_Certificate_digest_algorithm" id="Return_value_HTTPS_RSA_Certificate_digest_algorithm">
+    <div class="card-body pl-5">
+    <h4>Digest Algorithm</h4><span class="badge badge-dark value-type">Type: string</span> <span class="badge badge-success default-value">Default: "SHA256"</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate')" type="button"><span class="property-name">HTTPS ECC Certificate</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate" id="Return_value_HTTPS_ECC_Certificate">
+    <div class="card-body pl-5">
+    <h4>ECCCSRExtensions</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate_cert_extensions" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate_cert_extensions" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate_cert_extensions')" type="button"><span class="property-name">cert_extensions</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions" id="Return_value_HTTPS_ECC_Certificate_cert_extensions">
+    <div class="card-body pl-5">
+    <h4>ECCCSRExtensionsModel</h4><span class="badge badge-dark value-type">Type: object</span> <div class="json-default-value">Default:<div class="value">{
+      "BasicConstraints": {
+        "ca": false,
+        "enabled": true,
+        "extension_critical": true
+      },
+      "ExtendedKeyUsage": {
+        "enabled": true,
+        "extension_critical": true,
+        "usages": [
+          "SERVER_AUTH",
+          "CLIENT_AUTH"
+        ]
+      },
+      "KeyUsage": {
+        "digital_signature": true,
+        "enabled": true,
+        "extension_critical": true
+      }
+    }</div></div><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints')" type="button"><span class="property-name">BasicConstraints</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints" id="Return_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints">
+    <div class="card-body pl-5">
+    <h4>BasicConstraintsModel</h4><span class="badge badge-dark value-type">Type: object</span> <div class="json-default-value">Default:<div class="value">{
+      "enabled": true,
+      "ca": false,
+      "extension_critical": true
+    }</div></div><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_enabled">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_enabled">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_enabled" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_enabled" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_enabled')" type="button"><span class="property-name">enabled</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_enabled" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_enabled" id="Return_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_enabled">
+    <div class="card-body pl-5">
+    <h4>Enabled</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_ca">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_ca">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_ca" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_ca" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_ca')" type="button"><span class="property-name">ca</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_ca" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_ca" id="Return_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_ca">
+    <div class="card-body pl-5">
+    <h4>Ca</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: false</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_extension_critical">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_extension_critical">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_extension_critical" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_extension_critical" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_extension_critical')" type="button"><span class="property-name">extension_critical</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_extension_critical" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_extension_critical" id="Return_value_HTTPS_ECC_Certificate_cert_extensions_BasicConstraints_extension_critical">
+    <div class="card-body pl-5">
+    <h4>Extension Critical</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage')" type="button"><span class="property-name">ExtendedKeyUsage</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage" id="Return_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage">
+    <div class="card-body pl-5">
+    <h4>ExtendedKeyUsageModel</h4><span class="badge badge-dark value-type">Type: object</span> <div class="json-default-value">Default:<div class="value">{
+      "enabled": true,
+      "extension_critical": true,
+      "usages": [
+        "SERVER_AUTH",
+        "CLIENT_AUTH"
+      ]
+    }</div></div><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_enabled">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_enabled">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_enabled" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_enabled" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_enabled')" type="button"><span class="property-name">enabled</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_enabled" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_enabled" id="Return_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_enabled">
+    <div class="card-body pl-5">
+    <h4>Enabled</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_extension_critical">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_extension_critical">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_extension_critical" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_extension_critical" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_extension_critical')" type="button"><span class="property-name">extension_critical</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_extension_critical" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_extension_critical" id="Return_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_extension_critical">
+    <div class="card-body pl-5">
+    <h4>Extension Critical</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_usages">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_usages">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_usages" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_usages" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_usages')" type="button"><span class="property-name">usages</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_usages" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_usages" id="Return_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_usages">
+    <div class="card-body pl-5">
+    <h4>Usages</h4><span class="badge badge-dark value-type">Type: array of string</span> <span class="badge badge-success default-value">Default: ["SERVER_AUTH", "CLIENT_AUTH"]</span><br/>
+    <span class="badge badge-info no-additional">No Additional Items</span><h5>Each item of this array must be:</h5>
+    <div class="card">
+    <div class="card-body items-definition" id="Return_value_HTTPS_ECC_Certificate_cert_extensions_ExtendedKeyUsage_usages_items">
+    <span class="badge badge-dark value-type">Type: string</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage')" type="button"><span class="property-name">KeyUsage</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage" id="Return_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage">
+    <div class="card-body pl-5">
+    <h4>ECCKeyUsageModel</h4><span class="badge badge-dark value-type">Type: object</span> <div class="json-default-value">Default:<div class="value">{
+      "enabled": true,
+      "extension_critical": true,
+      "digital_signature": true
+    }</div></div><br/>
+    <span class="badge badge-info no-additional">No Additional Properties</span>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_enabled">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_enabled">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_enabled" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_enabled" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_enabled')" type="button"><span class="property-name">enabled</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_enabled" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_enabled" id="Return_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_enabled">
+    <div class="card-body pl-5">
+    <h4>Enabled</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_extension_critical">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_extension_critical">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_extension_critical" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_extension_critical" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_extension_critical')" type="button"><span class="property-name">extension_critical</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_extension_critical" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_extension_critical" id="Return_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_extension_critical">
+    <div class="card-body pl-5">
+    <h4>Extension Critical</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_digital_signature">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_digital_signature">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_digital_signature" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_digital_signature" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_digital_signature')" type="button"><span class="property-name">digital_signature</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_digital_signature" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_digital_signature" id="Return_value_HTTPS_ECC_Certificate_cert_extensions_KeyUsage_digital_signature">
+    <div class="card-body pl-5">
+    <h4>Digital Signature</h4><span class="badge badge-dark value-type">Type: boolean</span> <span class="badge badge-success default-value">Default: true</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate_ec_curve">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate_ec_curve">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate_ec_curve" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate_ec_curve" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate_ec_curve')" type="button"><span class="property-name">ec_curve</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate_ec_curve" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate_ec_curve" id="Return_value_HTTPS_ECC_Certificate_ec_curve">
+    <div class="card-body pl-5">
+    <h4>Ec Curve</h4><span class="badge badge-dark value-type">Type: string</span> <span class="badge badge-success default-value">Default: "SECP384R1"</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate_key_type">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate_key_type">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate_key_type" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate_key_type" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate_key_type')" type="button"><span class="property-name">key_type</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate_key_type" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate_key_type" id="Return_value_HTTPS_ECC_Certificate_key_type">
+    <div class="card-body pl-5">
+    <h4>Key Type</h4><span class="badge badge-dark value-type">Type: string</span> <span class="badge badge-success default-value">Default: "EC"</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate_lifetime">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate_lifetime">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate_lifetime" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate_lifetime" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate_lifetime')" type="button"><span class="property-name">lifetime</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate_lifetime" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate_lifetime" id="Return_value_HTTPS_ECC_Certificate_lifetime">
+    <div class="card-body pl-5">
+    <h4>Lifetime</h4><span class="badge badge-dark value-type">Type: integer</span> <span class="badge badge-success default-value">Default: 397</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value_HTTPS_ECC_Certificate_digest_algorithm">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value_HTTPS_ECC_Certificate_digest_algorithm">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value_HTTPS_ECC_Certificate_digest_algorithm" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value_HTTPS_ECC_Certificate_digest_algorithm" data-toggle="collapse" onclick="setAnchor('#Return_value_HTTPS_ECC_Certificate_digest_algorithm')" type="button"><span class="property-name">digest_algorithm</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value_HTTPS_ECC_Certificate_digest_algorithm" class="collapse property-definition-div" data-parent="#accordionReturn_value_HTTPS_ECC_Certificate_digest_algorithm" id="Return_value_HTTPS_ECC_Certificate_digest_algorithm">
+    <div class="card-body pl-5">
+    <h4>Digest Algorithm</h4><span class="badge badge-dark value-type">Type: string</span> <span class="badge badge-success default-value">Default: "SHA256"</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div><br><br>
+
+*Required roles:* CERTIFICATE_READ
+

@@ -1,0 +1,6 @@
+webui.main.dashboard
+--------------------
+
+.. toctree::
+
+   api_methods_webui.main.dashboard.sys_info

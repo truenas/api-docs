@@ -3,14 +3,19 @@
 {{/*
   Render one entry per major version with state: "archived".
   Each entry links to /v{lifecycle}/ — the path preserved in storj.
-  Reads scale-releases.yaml directly; not dependent on api_versions.yaml
-  (which by construction excludes archived majors).
+  Reads data/api_archived.yaml (written by archive_helper.py resolve: explicit
+  `state: "archived"` plus previous majors dropped from the build). Falls back
+  to scale-releases.yaml for local runs that skipped pull_api_docs.sh.
 */}}
 
 {{ $archived := slice }}
-{{ range $scaleVersion := $scaleReleases.majorVersions }}
-  {{ if eq $scaleVersion.state "archived" }}
-    {{ $archived = $archived | append $scaleVersion }}
+{{ with site.Data.api_archived }}
+  {{ $archived = .archived }}
+{{ else }}
+  {{ range $scaleVersion := $scaleReleases.majorVersions }}
+    {{ if eq $scaleVersion.state "archived" }}
+      {{ $archived = $archived | append (dict "lifecycle" $scaleVersion.lifecycle "path" $scaleVersion.lifecycle "releaseName" $scaleVersion.releaseName) }}
+    {{ end }}
   {{ end }}
 {{ end }}
 
@@ -19,7 +24,7 @@
 {{ else }}
   <div class="archive-list">
     {{ range $archived }}
-      <a href="/v{{ .lifecycle }}/" class="archive-item">
+      <a href="/v{{ .path }}/" class="archive-item">
         <div class="archive-primary">TrueNAS {{ .lifecycle }} (Archived)</div>
         <div class="archive-secondary">API v{{ .lifecycle }}{{ with .releaseName }} — {{ . }}{{ end }}</div>
       </a>

@@ -1,0 +1,62 @@
+auth.set_attribute
+==================
+
+Set current user's `attributes` dictionary `key` to `value`.
+
+e.g. Setting key="foo" value="var" will result in {"attributes": {"foo": "bar"}}
+
+Attributes set here will appear in the `auth.me` API response under the `attributes` field.
+
+WARNING: this API endpoint exists solely for the use of the TrueNAS UX team. The data stored in these attributes *must* be considered opaque from the perspective of the middleware backend, with specific documented exceptions. This endpoint should not be used or relied on by any third-party scripts or workflows.
+
+WARNING: this API endpoint is not intended for storing security-sensitive information. The backend storage for this data is not encrypted and it is indexed by unix user id rather than database ID, which exposes a risk of stale settings being reused if a new user gets assigned the same unix user id as an previously-existing one. This is of particular concern when users are provided by directory services.
+
+.. raw:: html
+
+    <div id="json-schema">
+    <span class="badge badge-dark value-type">Type: object</span><br/>
+    <div class="accordion" id="accordionCall_parameters">
+    <div class="card">
+    <div class="card-header" id="headingCall_parameters">
+    <h2 class="mb-0">
+    <button aria-controls="Call_parameters" aria-expanded="" class="btn btn-link property-name-button" data-target="#Call_parameters" data-toggle="collapse" onclick="setAnchor('#Call_parameters')" type="button"><span class="property-name">Call parameters</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingCall_parameters" class="collapse property-definition-div" data-parent="#accordionCall_parameters" id="Call_parameters">
+    <div class="card-body pl-5">
+    <span class="badge badge-dark value-type">Type: array</span><br/>
+    <span class="badge badge-info no-additional">No Additional Items</span><h4>Tuple Validation</h4>
+    <h5>Parameter 1: key</h5>
+    <div class="card">
+    <div class="card-body items-definition" id="Call_parameters_items_i0">
+    <h4>key</h4><span class="badge badge-dark value-type">Type: string</span><br/>
+    </div>
+    </div>
+    <h5>Parameter 2: value</h5>
+    <div class="card">
+    <div class="card-body items-definition" id="Call_parameters_items_i1">
+    <h4>value</h4><span class="badge badge-dark value-type">Type: object</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="accordion" id="accordionReturn_value">
+    <div class="card">
+    <div class="card-header" id="headingReturn_value">
+    <h2 class="mb-0">
+    <button aria-controls="Return_value" aria-expanded="" class="btn btn-link property-name-button" data-target="#Return_value" data-toggle="collapse" onclick="setAnchor('#Return_value')" type="button"><span class="property-name">Return value</span></button>
+    </h2>
+    </div>
+    <div aria-labelledby="headingReturn_value" class="collapse property-definition-div" data-parent="#accordionReturn_value" id="Return_value">
+    <div class="card-body pl-5">
+    <h4>Result</h4><span class="badge badge-dark value-type">Type: null</span><br/>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div><br><br>
+
+*Required roles:* 
+

@@ -1,0 +1,9 @@
+core
+----
+
+.. toctree::
+
+   api_methods_core.ping
+   api_methods_core.set_options
+   api_methods_core.subscribe
+   api_methods_core.unsubscribe

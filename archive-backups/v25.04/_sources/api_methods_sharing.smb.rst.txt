@@ -1,0 +1,8 @@
+sharing.smb
+-----------
+
+.. toctree::
+
+   api_methods_sharing.smb.getacl
+   api_methods_sharing.smb.presets
+   api_methods_sharing.smb.setacl

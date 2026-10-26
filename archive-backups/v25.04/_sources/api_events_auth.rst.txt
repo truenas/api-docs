@@ -1,0 +1,6 @@
+auth
+----
+
+.. toctree::
+
+   api_events_auth.sessions
